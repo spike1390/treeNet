@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Blog</title>
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700">
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link href="http://s3.amazonaws.com/codecademy-content/courses/ltp2/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+<form class="login-form" action="{{  url_for("index.login") }}" method="post">
+  <p class="login-text">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-lock fa-stack-1x"></i>
+    </span>
+  </p>
+  <input type="username" name="username" class="login-username" autofocus="true" required="true" placeholder="Username" />
+  <input type="password"   name="password" class="login-password" required="true" placeholder="Password" />
+  <input type="submit" name="Login" value="Login" class="login-submit btn-login" />
+
+</form>
+{% if error %}<div class="error_account"><strong>Error:</strong> {{ error }} </div>{% endif %}
+<div class="slider">
+  <div class="slide slide-feature1 active-slide"></div>
+  <div class="slide slide-feature2 "></div>
+  <div class="slide slide-feature3 "></div>
+</div>
+</body>
+<script type="text/javascript">
+    var main = function() {
+      setInterval(function() {
+            var currentSlide = $(".active-slide");
+            var nextSlide = $(".active-slide").next();
+            if (nextSlide.length === 0) {
+                nextSlide = $(".slide").first();
+            }
+
+        currentSlide.fadeOut(3000).removeClass("active-slide");
+        nextSlide.fadeIn(3500).addClass("active-slide");
+      }, 3000);
+    };
+
+$(document).ready(main);
+
+</script>
+</html>

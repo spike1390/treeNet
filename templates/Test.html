@@ -1,0 +1,360 @@
+<html>
+<head>
+    <script type="text/javascript" src="../static/vis/dist/vis.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <link href="../static/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 1200px;
+            height: 600px;
+            border: 1px solid lightgray;
+            margin-top: 30px;
+            margin-left: 100px;
+            border-radius: 10px;
+        }
+        .navi-header{
+    /*transition:all ease-in-out 0.3s;*/
+    font-family: 'IM Fell French Canon SC', serif;
+    height: 60px;
+    background: rgba(255,255,255,0.97);
+    opacity: 0.93;
+    padding: 0;
+    z-index: 9;
+    width: 100%;
+    border-bottom: 1px solid #E2E2E2;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.navi-header a{
+    color:#66615b;
+    font-size: 14px;
+    text-decoration: none;
+}
+.navi-header-hide{
+  display: none;
+}
+.navi-inner{
+    width: 1300px;
+    text-align: left;
+    height: 68px;
+    margin: 0 auto;
+    padding: 0;
+        }
+.navi-logo{
+    float: left;
+    width:125px;
+    margin-left: 65px;
+    margin-top: 18px;
+    margin-right: 10px;
+    height:60px;
+}
+.navi-logo a{
+    font-family: 'Kavoon', cursive;
+    font-size: 20px;
+    color: #D15600;
+    margin-left: -15px;
+}
+.navi-searchbox{
+    float: left;
+    display: table;
+    height: 80px;
+    margin-left: -35px;
+}
+
+.search-inner{
+    display: table;
+    margin-top: 18px;
+    height: 34px;
+    }
+.search-input-box{
+    display: table-cell;
+    vertical-align: top;
+    white-space: nowrap;
+    border-spacing: 0;
+border-collapse: collapse;
+width: 235px;
+}
+.search-input{
+height:34px;
+width:300px;
+position: relative;
+border-radius: 3px;
+margin-top: 0;
+margin-bottom: 0;
+border-right: none;
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+border: 1px solid #CFCBC8;
+background: #f9f9f8;
+font-family: Arial,Helvetica,sans-serif;
+padding: 6px 10px;
+box-shadow: inset 0 1px 2px #E9E9E8,0 0 0 1000px #fbfbfa inset;
+vertical-align: middle;
+color: #333;
+}
+.search-input:focus{
+    outline: none;
+border: 1px solid #34A8C4;
+background: #FFF;
+box-shadow: 0 0 0 1000px #fff inset;
+}
+.search-input-focus{
+    outline: none;
+border: 1px solid #bcb7b3;
+
+}
+.search-button-box{
+    display: table-cell;
+    vertical-align: top;
+}
+.search-button{
+    border-width: 1px;
+    border-radius: 3px;
+    border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+line-height: 17px;
+height: 34px;
+font-family: Arial,Helvetica,sans-serif;
+padding: 7px 15px 8px;
+border-color: #54acc7 #4ca0ba #398a9d;
+background: -webkit-linear-gradient(top, #98d0e0 2%, #68b8d1 8%, #4fa9c6 58%, #4fa9c6 95%, #4ca4c0);
+font-size: 15px;
+font-weight: bold;
+cursor: pointer;
+
+color: #FFF;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+.navi-entry{
+   float: right;
+   margin: auto  0;
+   margin-right: 30px;
+   height: 80px;
+}
+.navi-entry li {
+ display: inline-block;
+ margin:  28px 20px 24px 3px;
+}
+    </style>
+</head>
+<body>
+<div id="navi-header" class="navi-header ">
+	<div class="navi-inner">
+		<div id="navi-logo" class="navi-logo">
+             <a href="##">Tree Network</a>
+		</div>
+
+		<ul class="navi-entry">
+            <li class="entry-home-li">
+
+                <a href="##" class="entry-home">
+					<span class="home-icon">
+					</span>
+					<span class="home-text">{{ username }}</span>
+				</a>
+			</li>
+			<li class="entry-signout-li">
+				<a href="{{ url_for("index.logout") }}" class="entry-signout">
+					<span class="signout-icon"></span>
+					<span class="signout-text">SignOut</span>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</div>
+<div id="mynetwork" class="mywork"></div>
+<div class="button-box">
+    <a href="##" class="save-btn">
+        <span class="save-span ">Save</span>
+    </a>
+</div>
+<script type="text/javascript">
+
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    var DOTstring ="dinetwork {";
+    var dataStore=" ";
+    var network;
+    var nodes;
+    var edges;
+    $(function() {
+                    var submit_form = function(e) {
+                  $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
+                    a: 1
+                  }, function(data) {
+                      if(true){
+                          for(var i=0;i<data.result.length;i++){
+                              DOTstring += (data.result[i] + ";");
+                            }
+                            DOTstring = DOTstring.substring(0,DOTstring.length-1);
+                            DOTstring += "}";
+                      }
+                  });
+                  return false;
+                };
+                $('.mywork').bind('click', submit_form);
+
+
+                 var submit_form2 = function(e) {
+                     network.storePositions();
+                    var num=network.getSeed();
+                    var dataStores={
+                        num : num,
+                        nodes : nodes,
+                        edges : edges
+                    };
+                     dataStore=JSON.stringify(dataStores);
+                     //alert(dataStore);
+                  $.getJSON($SCRIPT_ROOT + '/network/whole_network_json', {
+                    a: dataStore
+                  }, function(data) {
+                     dataStore=data.result;
+                      startNetwork();
+                  });
+                  return false;
+                };
+                $('.save-btn').bind('click', submit_form2);
+    });
+
+   // var nodeArray = [
+    //     {id: 1, label: 'Node 1', group:'p1'},
+    //     {id: 2, label: 'Node 2', group:'p1'},
+    //     {id: 3, label: 'Node 3', group:'p1'},
+    //     {id: 4, label: 'Node 4', group:'p1'},
+    //     {id: 5, label: 'Node 5', group:'p1'}
+    // ];
+    // var nodes = new vis.DataSet(nodeArray);
+
+    // var edgeArray = [
+    //     {id: 'e1', from: 1, to: 2},
+    //     {id: 'e2', from: 1, to: 3},
+    //     {id: 'e3', from: 2, to: 4},
+    //     {id: 'e4', from: 2, to: 5}
+    // ];
+    // var edges = new vis.DataSet(edgeArray);
+
+    // var container = document.getElementById('mynetwork');
+    // var data = {
+    //     nodes: nodes,
+    //     edges: edges
+    // };
+
+ //    var options = {
+	//   // configure: {
+	//   //   enabled: true,
+	//   //   filter: 'nodes,edges',
+	//   //   container: undefined,
+	//   //   showButton: true
+	//   // },
+	//   edges:{
+	//   	smooth:false
+	//   },
+	//   nodes:{
+	//   	mass:0,
+ //        fixed:true
+	//   },
+	//   groups: {
+ //        p5: {
+ //            color:{background:'red'},
+ //        },
+ //    	p2: {color:{background:'red'}},
+ //    	p3: {color:{background:'red'}},
+ //    	p4: {color:{background:'red'}}
+ //  	  },
+
+	// }
+    function startNetwork(){
+
+        var container = document.getElementById('mynetwork');
+        if(dataStore.length!=1){
+
+            var dataStores2 = JSON.parse(dataStore);
+            var parserOptions = {
+              edges: {
+                inheritColors: false
+              },
+              nodes: {
+                fixed: true,
+                parseColor: false
+              }
+            };
+            var parsed = vis.network.convertGephi(dataStores2, parserOptions);
+            var data = {
+                nodes: parsed.nodes,
+                edges: parsed.edges
+            };
+            network = new vis.Network(container, data);
+        }
+        else {
+            var lastPattern= 'connector';
+            var parsedData = vis.network.convertDot(DOTstring);
+            var data = {
+              nodes: parsedData.nodes,
+              edges: parsedData.edges
+            };
+
+            nodes = new vis.DataSet(parsedData.nodes);
+            edges = new vis.DataSet(parsedData.edges);
+            var options = parsedData.options;
+
+            // you can extend the options like a normal JSON variable:
+            options.nodes = {
+              mass:0
+            };
+            options.edges = {
+                smooth:false
+            };
+            options.manipulation={
+                enabled:true,
+                addNode: function(nodeData,callback) {
+                    nodeData.label = lastPattern;
+                    var r = confirm("Do you want to add a connector node");
+                    if (r === true) {
+                        callback(nodeData);
+                    }
+                    else{
+                        nodeData.label = " ";
+                        callback(nodeData);
+                    }
+                },
+                addEdge: function(edgeData,callback) {
+                    callback(edgeData);
+                  // if (edgeData.from==" ") {
+                  //   //edgeData.from.label += edgeData.to.label[0];
+                  //   callback(edgeData);
+                  // }
+                  // else if(edgeData.to==" ") {
+                  //   //edgeData.to.label += edgeData.from.label[0];
+                  // }
+                }
+
+            };
+            options.layout={
+
+            };
+            network = new vis.Network(container, data, options);
+{#            var num=network.getSeed();#}
+{#            var dataStores={#}
+{#                num : num,#}
+{#                nodes : nodes,#}
+{#                edges : edges#}
+{#            };#}
+{#            network.storePositions();#}
+{#            dataStore=JSON.stringify(dataStores);#}
+        }
+
+        // create a network
+
+    }
+
+    $(document).ready(function($){
+        $('.mywork').click();
+        setTimeout(function (){
+                startNetwork();
+            }, 300);
+
+    });
+
+</script>
+</body>
+</html>

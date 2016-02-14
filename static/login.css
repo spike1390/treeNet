@@ -1,0 +1,205 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+    background: #fff;
+color: #fff;
+margin: 0;
+  padding: 0;
+
+}
+
+input ::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+input ::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+input :-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+input:focus {
+  outline: 0 transparent solid;
+}
+input:focus ::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+input:focus ::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+input:focus :-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.login-form {
+
+  min-height: 10rem;
+  margin: auto;
+  max-width: 50%;
+  padding: .5rem;
+    margin-top:410px;
+
+}
+
+.login-text {
+
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  max-width: 50%;
+  padding: .5rem;
+  text-align: center;
+}
+.login-text .fa-stack-1x {
+  color: black;
+}
+
+.login-username, .login-password {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  -webkit-transition: 250ms background ease-in;
+          transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+}
+.login-username:focus, .login-password:focus {
+  background: white;
+  color: black;
+  -webkit-transition: 250ms background ease-in;
+          transition: 250ms background ease-in;
+}
+
+.login-forgot-pass {
+    display: block;
+  bottom: 30px;
+  color: white;
+  cursor: pointer;
+  font-size: 130%;
+  left: 700px;
+  opacity: 0.6;
+  padding: .5rem;
+  position: absolute;
+  text-align: center;
+   text-decoration: none;
+}
+.register-a{
+    left:600px;
+}
+.login-forgot-pass:hover {
+  opacity: 1;
+}
+
+.login-submit {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  display: block;
+  margin: 1rem auto;
+  min-width: 1px;
+  padding: .25rem;
+  -webkit-transition: 250ms background ease-in;
+          transition: 250ms background ease-in;
+}
+.login-submit:hover, .login-submit:focus {
+  background: white;
+  color: black;
+  -webkit-transition: 250ms background ease-in;
+          transition: 250ms background ease-in;
+}
+
+[class*=underlay] {
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.slider {
+
+  background-size: cover;
+
+
+  z-index: -1;
+
+}
+
+.underlay-black {
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+
+}
+
+
+
+.slide {
+  background: transparent url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/flipboard/feature-gradient-transparent.png') center center no-repeat;
+background-size: cover;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+}
+.active-slide{
+  display: block;
+}
+
+.slide-feature1{
+  text-align: center;
+  background-image:url(basketball/3.jpg);
+  height:822px;
+}
+.slide-feature2 {
+  text-align: center;
+  background-image:url("basketball/2.jpg");
+  height:822px;
+}
+
+.slide-feature3 {
+  text-align: center;
+  background-image:url("basketball/1.jpg");
+  height:822px;
+}
+
+
+.arrow-next {
+  margin-left: 45px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+}
+
+.flash          { background: #CEE5F5; padding: 0.5em;
+                  border: 1px solid #AACBE2; }
+.error          { background: #F0D6D6; padding: 0.5em; }
+
+.error_account {
+    margin-left: 442px;
+    bottom: 400px;
+    color: red;
+    cursor: pointer;
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 170%;
+    left: 0;
+    opacity: 0.6;
+    padding: .5rem;
+    position: absolute;
+    text-align: center;
+    width: 35%;
+}
