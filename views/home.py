@@ -32,10 +32,17 @@ def login():
     else:
         #session['username'] = request.form['username']
         error = 'success'
-        return render_template('Test.html')
+        return redirect(url_for('index.show_network', username = username))
 
 @index.route('/logout')
 def logout():
     # remove the username from the session if it's there
-    session.pop('username', None)
-    return
+    #session.pop('username', None)
+    return render_template('login.html')
+
+@index.route('show_network/<username>')
+def show_network(username):
+    return render_template('Test.html', username = username)
+
+
+

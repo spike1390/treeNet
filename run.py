@@ -18,7 +18,7 @@ app.register_blueprint(network, url_prefix='/network')
 @app.route('/')
 def hello_world():
 
-    path =  app.config['DATABASE']
+    path.db_path = app.config['DATABASE']
     return render_template('login.html')
 
 

@@ -2,7 +2,7 @@
 import sqlite3
 import path
 
-DATABASE = path.path
+DATABASE = path.db_path
 
 
 def open():
