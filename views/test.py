@@ -17,7 +17,7 @@ print re
 #
 # print p.connect.name
 
-
+mydb.insert_db('update ')
 print accessControl._valid_login_format('spike1390', '2cs744')
 # l = [Node(21,4,3), Node(1,2,5), Node(2,4,2)]
 # l.sort()

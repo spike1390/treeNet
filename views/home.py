@@ -31,8 +31,11 @@ def login():
         return render_template('login.html', error = error)
     else:
         #session['username'] = request.form['username']
-        error = 'success'
-        return redirect(url_for('index.show_network', username = username))
+        if user.questions:
+            return render_template('select.html',questions = qusetions)
+        else:
+            return render_template('login.html', error = 'have selected')
+        #return redirect(url_for('index.show_network', username = username))
 
 @index.route('/logout')
 def logout():
