@@ -44,7 +44,7 @@ def verify(username, password):
     if result:
         if not result['sq_1'] == None:
             print result['sq_1']
-            questions=question(result['sq_1'],result['as_1'],result['sq_2'],result['as_2'],result['sq_3'],result['as_3'])
+            questions = question(result['sq_1'],result['as_1'],result['sq_2'],result['as_2'],result['sq_3'],result['as_3'])
         else:
             questions=None
         return User(result['username'], result['type'], result['status'], questions)
@@ -53,19 +53,40 @@ def verify(username, password):
 
 # store the 3 security questions and answer from user
 def createSecQues(list,username):
+    mydb.open()
     mydb.insert_db("""update account set sq_1= ?,as_1=? ,sq_2=?, as_2=?,sq_3=? ,as_3=? WHERE username= ?""",
     [list[0], list[1], list[2], list[3], list[4], list[5], username])
+    mydb.close_db()
 
 # Lock account, set status to '0'
 def lockAccount(username):
+    mydb.open()
     result = mydb.insert_db("""update account set status=0 WHERE username= ?""", (username,))
+    mydb.close_db()
     return result
 
 
 
 #For admin create new user. questions and answer is not included
 def addAccount(list):
-      result = mydb.insert_db("""insert into account(username,pwd,type,status)
+    mydb.open()
+    result = mydb.insert_db("""insert into account(username,pwd,type,status)
                               values(?,?,?,?)""",[list[0],list[1],list[2],list[3]] )
+    mydb.close_db()
 
-print verify('spike1390','2cs744').questions
+def verifyQues(index, username, answer):
+    mydb.open()
+    query = 'select as_%d from account WHERE username = ? '%index
+    print query
+
+    result = mydb.query_db(query, [username], one = True)
+
+    mydb.close_db()
+    name = 'as_%d'%index
+    if result:
+        return result[name] == answer
+    else:
+        return False
+#addAccount(['spike1390','2cs744',0,1])
+
+#print verifyQues(3,'spikewang','asdfasdfs')

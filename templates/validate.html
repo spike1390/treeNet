@@ -107,7 +107,7 @@
 		    padding: 0;
 		}
 		.select__options li {
-		  padding: 6px 10px;
+		  padding: 4px 8px;
 		  margin: 0 ;
 		  line-height: 1.4;
 		}
@@ -160,16 +160,16 @@
 	<div class="secure-box">
 		<div class="form-group box">
 			<div class="select-container">
-	          <label id="labelForQuestion" for="title" style="font: 12px/200% 'Hiragino Sans GB','Microsoft YaHei',tahoma,arial,simsun;font-size: 17px;margin-bottom: 20px;" onselectstart="return false;">Question 1</label>
+	          <label id="labelForQuestion" for="title" style="font: 12px/200% 'Hiragino Sans GB','Microsoft YaHei',tahoma,arial,simsun;font-size: 17px;margin-bottom: 20px;" onselectstart="return false;">Question</label>
 	                <div class="select">
-	                     <i  id="select-btn" style="position:absolute;top:10px;right:10px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+	                     <i  id="select-btn" style="position:absolute;top:10px;right:10px;font-size: 20px;cursor: pointer;color:#555; display:none;" class="material-icons" onselectstart="return false;">add</i>
 	                    <input readonly="value" class="form-control" name="post-question" type="text" id="post-question" style="border: 0;">
-	                    <ul class="select__options">
-                            {% for question in questions %}
+	                     <ul class="select__options" style="display:none">
+	                    	{% for question in questions %}
 	                      	<li>
-                                <p>{{ question }}</p>
+	                      		<p>{{question}}</p>
 	                      	</li>
-                            {% endfor %}
+	                      	{% endfor %}
 	                    </ul>
 	                </div>
 	    	</div>
@@ -180,58 +180,61 @@
 
 		<div class="form-group">
               <button type="button" id="richtext-cancel" class="btn btn-primary2 cancel-modify" style="font-size: 16px;">Cancel</button>
-              <button  type="submit" id="richtext-submit" class="btn btn-primary" style="font-size: 16px;">NextOne</button>
+              <button  type="submit" id="richtext-submit" class="btn btn-primary" style="font-size: 16px;">submit</button>
         </div>
 
 	</div>
 
 </body>
 	<script type="text/javascript">
-		var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-		var count=1;
-		$('#select-btn').click(function() {
-            $('.select-container').toggleClass('select-is-open');
-        });
-		// $(document).click(function(){
-		// 	if($('.select-container').hasClass('select-is-open')){
-		// 		$('.select-container').toggleClass('select-is-open');
-		// 	}
-		// });
-		$('.select__options li').click(function(){
-
-            $('#post-question').val($(this).find('p').text());
-            $('.select-container').toggleClass('select-is-open');
-        });
+            var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+			var count = -1;
+			var count_cpy = -1;
+			$(document).ready(function(){
+				count = Math.floor(Math.random()*3);
+				$('#post-question').val($('ul').find('li').eq(count).find('p').text());
+			});
+			var times = 1;
             $(function() {
                  var submit_form = function(e) {
-                     if($('#post-question').val()==""){
-                         alert("please select a question");
-                         return false;
-                     }
-                     if($('#post-answer').val()==""){
-                         alert("answer could not be null");
-                         return false;
-                     }
-                  $.getJSON($SCRIPT_ROOT + '/home/Insert_SecureQuestions', {
+                     console.log("heh");
+                 	if($('#post-answer').val()==""){
+                 		alert('you must type answer');
+                 		return false;
+                 	}
+                  $.getJSON($SCRIPT_ROOT + '/home/validate', {
                         a: $('#post-question').val(),
                         b: $('#post-answer').val(),
                         c: count
                   }, function(data) {
-                  		count=data.result;
-                        if(count==4){
+                      console.log("heh2");
+                  		var result =data.result;
+                  		if(result==1){
                   			window.location.href='{{  url_for('index.show_network',username = session.username) }}';
                   		}
-                  		$('#labelForQuestion').text("Question "+String(count));
-                  		$('.select__options').children().each(function(index, el) {
-                  			if($(this).find('p').text()==$('#post-question').val()){
-                  				$(this).remove();
-                  			}
-                  		});
-                  		$('#post-question').val("");
-                  		$('#post-answer').val("");
-                  		if(count==3){
-                  			$('#richtext-submit').text("Submit")
+                  		$('#labelForQuestion').text("Wrong Answer, Next Question");
+                  		if(times ==3){
+                  			window.location.href='{{  url_for('index.logout') }}';
                   		}
+                  		else if(times==2){
+                  			var count_cpy2 = Math.floor(Math.random()*3);
+                  			while(count_cpy2 == count||count_cpy2 == count_cpy){
+	                  			count_cpy2 = Math.floor(Math.random()*3);
+                  			}
+                  			count=count_cpy2;
+                  		}
+                  		else{
+                  			count_cpy = Math.floor(Math.random()*3);
+    	              		while(count_cpy == count){
+	                  			count_cpy = Math.floor(Math.random()*3);
+                  			}
+                  			var  mid = count;
+                  			count = count_cpy;
+                  			count_cpy = mid;
+                  		}
+                  		$('#post-question').val($('ul').find('li').eq(count).find('p').text());
+                  		$('#post-answer').val("");
+                  		times += 1;
                   });
                   return false;
                 };
@@ -240,4 +243,3 @@
 	</script>
 
 </html>
-

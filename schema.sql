@@ -30,10 +30,10 @@ CREATE TABLE IF NOT EXISTS node(
 
 
 
-CREATE TABLE IF NOT EXISTS message(
-mid        INTEGER PRIMARY KEY      NOT NULL,
-from_id    INTEGER                  NOT NULL,
-to_id      INTEGER                  NOT NULL,
-msg        TEXT,
-status     INTEGER                  NOT NULL
-);
+-- CREATE TABLE IF NOT EXISTS message(
+-- mid        INTEGER PRIMARY KEY      NOT NULL,
+-- from_id    INTEGER                  NOT NULL,
+-- to_id      INTEGER                  NOT NULL,
+-- msg        TEXT,
+-- status     INTEGER                  NOT NULL
+-- );
