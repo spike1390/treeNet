@@ -190,6 +190,9 @@
             var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 			var count = -1;
 			var count_cpy = -1;
+             $('.cancel-modify').click(function(){
+                window.location.href='{{  url_for('index.logout') }}';
+            });
 			$(document).ready(function(){
 				count = Math.floor(Math.random()*3);
 				$('#post-question').val($('ul').find('li').eq(count).find('p').text());

@@ -12,15 +12,15 @@ app.config.update(dict(
     USERNAME='admin',
     PASSWORD='default'
 ))
-
+path.db_path = app.config['DATABASE']
 app.register_blueprint(index, url_prefix='/home')
 app.register_blueprint(network, url_prefix='/network')
+
 @app.route('/')
 def hello_world():
-
     path.db_path = app.config['DATABASE']
     return render_template('login.html')
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

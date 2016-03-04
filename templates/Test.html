@@ -1,17 +1,28 @@
+<!--
+    Created by yun on 2/10/16.
+    Author:yun
+-->
 <html>
 <head>
-    <script type="text/javascript" src="../static/vis/dist/vis.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='vis/dist/vis.js') }}"></script>
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <link href="../static/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{{ url_for('static', filename='Network.js') }}"></script>
+    <link href="{{ url_for('static', filename='vis/dist/vis.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
 
     <style type="text/css">
         #mynetwork {
             width: 1200px;
-            height: 600px;
+            height: 610px;
             border: 1px solid lightgray;
-            margin-top: 30px;
-            margin-left: 100px;
+            margin-top: 10px;
+            margin-left: 40px;
+            margin-right: 10px;
             border-radius: 10px;
+            float: left;
         }
         .navi-header{
     /*transition:all ease-in-out 0.3s;*/
@@ -29,9 +40,6 @@
     color:#66615b;
     font-size: 14px;
     text-decoration: none;
-}
-.navi-header-hide{
-  display: none;
 }
 .navi-inner{
     width: 1300px;
@@ -54,77 +62,7 @@
     color: #D15600;
     margin-left: -15px;
 }
-.navi-searchbox{
-    float: left;
-    display: table;
-    height: 80px;
-    margin-left: -35px;
-}
 
-.search-inner{
-    display: table;
-    margin-top: 18px;
-    height: 34px;
-    }
-.search-input-box{
-    display: table-cell;
-    vertical-align: top;
-    white-space: nowrap;
-    border-spacing: 0;
-border-collapse: collapse;
-width: 235px;
-}
-.search-input{
-height:34px;
-width:300px;
-position: relative;
-border-radius: 3px;
-margin-top: 0;
-margin-bottom: 0;
-border-right: none;
-border-top-right-radius: 0;
-border-bottom-right-radius: 0;
-border: 1px solid #CFCBC8;
-background: #f9f9f8;
-font-family: Arial,Helvetica,sans-serif;
-padding: 6px 10px;
-box-shadow: inset 0 1px 2px #E9E9E8,0 0 0 1000px #fbfbfa inset;
-vertical-align: middle;
-color: #333;
-}
-.search-input:focus{
-    outline: none;
-border: 1px solid #34A8C4;
-background: #FFF;
-box-shadow: 0 0 0 1000px #fff inset;
-}
-.search-input-focus{
-    outline: none;
-border: 1px solid #bcb7b3;
-
-}
-.search-button-box{
-    display: table-cell;
-    vertical-align: top;
-}
-.search-button{
-    border-width: 1px;
-    border-radius: 3px;
-    border-top-left-radius: 0;
-border-bottom-left-radius: 0;
-line-height: 17px;
-height: 34px;
-font-family: Arial,Helvetica,sans-serif;
-padding: 7px 15px 8px;
-border-color: #54acc7 #4ca0ba #398a9d;
-background: -webkit-linear-gradient(top, #98d0e0 2%, #68b8d1 8%, #4fa9c6 58%, #4fa9c6 95%, #4ca4c0);
-font-size: 15px;
-font-weight: bold;
-cursor: pointer;
-
-color: #FFF;
-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
-}
 .navi-entry{
    float: right;
    margin: auto  0;
@@ -133,8 +71,111 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
 }
 .navi-entry li {
  display: inline-block;
- margin:  28px 20px 24px 3px;
+ margin:  28px 20px 24px 20px;
 }
+.hideblock{
+    display: none;
+}
+.button-box{
+    float: left;
+    margin-left: 20px;
+    margin-top:50px;
+}
+
+        .blockbox{
+            margin-top: 50px;
+            margin-bottom:100px;
+        }
+        .btn{
+			padding: 4px 8px;
+			display: inline-block;
+            margin-top: 5px;
+		}
+		.btn-primary2{
+		  background: #ebebeb;
+		  color: #888;
+		  border: none;
+		  text-shadow: -1px -1px 2px #f8f8f8;
+		}
+		.btn-primary{
+            width: 110px;
+            height: 30px;
+            margin-top: 10px;
+		  color: #fff;
+			background: -webkit-linear-gradient(top, #98d0e0 2%, #68b8d1 8%, #4fa9c6 58%, #4fa9c6 95%, #4ca4c0);
+			border: 0;
+			font-weight: 200;
+			border-radius: 3px;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+		}
+		.btn-primary:hover{
+		  color: #fff;
+		  background:#68B5CB;
+		  border: 0;
+		}
+
+	      .select-container{
+	      	font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+			color:#555;
+			font-size: 13px;
+			width: 110px;
+              margin: auto;
+		}
+
+
+		.select-container .select {
+		  border-radius: 3px;
+		  border: 1px solid #ccc;
+		  background-color: white;
+		  margin-top: 10px;
+		}
+
+
+		.select__options {
+		  display: none;
+		  list-style-type: none;
+		  border-top: 1px solid #ccc;
+		    margin-bottom: 0;
+		    margin-top: 0;
+		    padding: 0;
+		}
+		.select__options li {
+		  padding: 1px 10px;
+		  margin: 0 ;
+		  line-height: 0.1;
+		}
+		.select__options li:hover, .select__options li:focus {
+		  background-color: #98d0e0;
+		  color: white;
+		}
+
+		.select-is-open {
+		  z-index: 9999;
+		}
+		.select-is-open .select {
+		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		}
+		.select-is-open .select__options {
+		  display: block;
+		}
+		.select-container .form-control{
+			outline: none;
+			font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+			display: block;
+			width: 75%;
+			height: 30px;
+			padding: 4px 2px;
+			padding-left: 8px;
+			font-size: 13px;
+			line-height: 1.4285;
+			color:#555;
+			background: #fff;
+			background-image: none;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+        .select-container .checkOrNotLabel{
+            margin-left: 4px;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +191,7 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
                 <a href="##" class="entry-home">
 					<span class="home-icon">
 					</span>
-					<span class="home-text">{{ username }}</span>
+					<span class="home-text">{{ session.username }}</span>
 				</a>
 			</li>
 			<li class="entry-signout-li">
@@ -163,196 +204,256 @@ text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
 
 	</div>
 </div>
+
+<div class="changeInformationBox">
+    <ul class="">
+
+    </ul>
+</div>
+
 <div id="mynetwork" class="mywork"></div>
 <div class="button-box">
-    <a href="##" class="save-btn">
-        <span class="save-span ">Save</span>
-    </a>
+    <div class="blockbox">
+        <div class="select-container">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="connectorSelectBox" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+         <button  type="submit" id="richtext-submit" class="btn btn-primary addConnectorNodeBtn" style="font-size: 16px;">add pattern</button>
+    </div>
+    <div class="blockbox">
+        <div class="select-container">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="normalSelect" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+        <div class="select-container hideblock">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="normalSelect2" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+        <button  type="submit" id="richtext-submit" class="btn btn-primary addNormalNodeBtn" style="font-size: 16px;">add node</button>
+    </div>
+        <div class="blockbox">
+        <div class="select-container">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="deleteSelect" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+        <div class="select-container hideblock">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="deleteSelect2" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+        <button  type="submit" id="richtext-submit" class="btn btn-primary deleteNormalNodeBtn" style="font-size: 16px;">delete node</button>
+    </div>
 </div>
+<pre id="eventSpan"></pre>
+
+
 <script type="text/javascript">
 
+        $('[name=select-btn]').click(function() {
+            $(this).parent().parent().toggleClass('select-is-open');
+        });
+
     var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-    var DOTstring ="dinetwork {";
-    var dataStore=" ";
-    var network;
-    var nodes;
-    var edges;
-    $(function() {
-                    var submit_form = function(e) {
-                  $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
-                    a: 1
-                  }, function(data) {
-                      if(true){
-                          for(var i=0;i<data.result.length;i++){
-                              DOTstring += (data.result[i] + ";");
-                            }
-                            DOTstring = DOTstring.substring(0,DOTstring.length-1);
-                            DOTstring += "}";
-                      }
-                  });
-                  return false;
-                };
-                $('.mywork').bind('click', submit_form);
-
-
-                 var submit_form2 = function(e) {
-                     network.storePositions();
-                    var num=network.getSeed();
-                    var dataStores={
-                        num : num,
-                        nodes : nodes,
-                        edges : edges
-                    };
-                     dataStore=JSON.stringify(dataStores);
-                     //alert(dataStore);
-                  $.getJSON($SCRIPT_ROOT + '/network/whole_network_json', {
-                    a: dataStore
-                  }, function(data) {
-                     dataStore=data.result;
-                      startNetwork();
-                  });
-                  return false;
-                };
-                $('.save-btn').bind('click', submit_form2);
-    });
-
-   // var nodeArray = [
-    //     {id: 1, label: 'Node 1', group:'p1'},
-    //     {id: 2, label: 'Node 2', group:'p1'},
-    //     {id: 3, label: 'Node 3', group:'p1'},
-    //     {id: 4, label: 'Node 4', group:'p1'},
-    //     {id: 5, label: 'Node 5', group:'p1'}
-    // ];
-    // var nodes = new vis.DataSet(nodeArray);
-
-    // var edgeArray = [
-    //     {id: 'e1', from: 1, to: 2},
-    //     {id: 'e2', from: 1, to: 3},
-    //     {id: 'e3', from: 2, to: 4},
-    //     {id: 'e4', from: 2, to: 5}
-    // ];
-    // var edges = new vis.DataSet(edgeArray);
-
-    // var container = document.getElementById('mynetwork');
-    // var data = {
-    //     nodes: nodes,
-    //     edges: edges
-    // };
-
- //    var options = {
-	//   // configure: {
-	//   //   enabled: true,
-	//   //   filter: 'nodes,edges',
-	//   //   container: undefined,
-	//   //   showButton: true
-	//   // },
-	//   edges:{
-	//   	smooth:false
-	//   },
-	//   nodes:{
-	//   	mass:0,
- //        fixed:true
-	//   },
-	//   groups: {
- //        p5: {
- //            color:{background:'red'},
- //        },
- //    	p2: {color:{background:'red'}},
- //    	p3: {color:{background:'red'}},
- //    	p4: {color:{background:'red'}}
- //  	  },
-
-	// }
-    function startNetwork(){
-
-        var container = document.getElementById('mynetwork');
-        if(dataStore.length!=1){
-
-            var dataStores2 = JSON.parse(dataStore);
-            var parserOptions = {
-              edges: {
-                inheritColors: false
-              },
-              nodes: {
-                fixed: true,
-                parseColor: false
-              }
-            };
-            var parsed = vis.network.convertGephi(dataStores2, parserOptions);
-            var data = {
-                nodes: parsed.nodes,
-                edges: parsed.edges
-            };
-            network = new vis.Network(container, data);
-        }
-        else {
-            var lastPattern= 'connector';
-            var parsedData = vis.network.convertDot(DOTstring);
-            var data = {
-              nodes: parsedData.nodes,
-              edges: parsedData.edges
-            };
-
-            nodes = new vis.DataSet(parsedData.nodes);
-            edges = new vis.DataSet(parsedData.edges);
-            var options = parsedData.options;
-
-            // you can extend the options like a normal JSON variable:
-            options.nodes = {
-              mass:0
-            };
-            options.edges = {
-                smooth:false
-            };
-            options.manipulation={
-                enabled:true,
-                addNode: function(nodeData,callback) {
-                    nodeData.label = lastPattern;
-                    var r = confirm("Do you want to add a connector node");
-                    if (r === true) {
-                        callback(nodeData);
-                    }
-                    else{
-                        nodeData.label = " ";
-                        callback(nodeData);
-                    }
-                },
-                addEdge: function(edgeData,callback) {
-                    callback(edgeData);
-                  // if (edgeData.from==" ") {
-                  //   //edgeData.from.label += edgeData.to.label[0];
-                  //   callback(edgeData);
-                  // }
-                  // else if(edgeData.to==" ") {
-                  //   //edgeData.to.label += edgeData.from.label[0];
-                  // }
+    var networkPY;
+    var networkTest;
+    var dataStore;
+    var options={
+        nodes:{
+            mass:0,
+            size:10,
+            scaling:{
+                min:10,
+                max:10,
+                label:{
+                    enabled:true,
+                    min:10,
+                    max:10
                 }
-
-            };
-            options.layout={
-
-            };
-            network = new vis.Network(container, data, options);
-{#            var num=network.getSeed();#}
-{#            var dataStores={#}
-{#                num : num,#}
-{#                nodes : nodes,#}
-{#                edges : edges#}
-{#            };#}
-{#            network.storePositions();#}
-{#            dataStore=JSON.stringify(dataStores);#}
+            },
+            value: 10,
+            fixed: true,
+            shapeProperties:{
+                borderRadius: 1
+            }
+        },
+        edges:{
+        },
+        physics:{
+            enabled:false,
+            stabilization:false
+        },
+        layout:{
+            improvedLayout:false
+        },
+        interaction:{
+            zoomView: false
         }
+    };
+    var container = document.getElementById('mynetwork');
 
-        // create a network
-
+    function startNetwork(data){
+        networkPY= new NetworkYun.Network(JSON.parse(data.result1));
+        var nodesDataGet= networkPY.getNodesData();
+        var edgesDataGet = networkPY.getEdgesData();
+        var nodes2TT = new vis.DataSet();
+        var edges2TT = new vis.DataSet();
+         nodes2TT.add(nodesDataGet);
+        edges2TT.add(edgesDataGet);
+         dataStore={
+            nodes : nodes2TT,
+            edges : edges2TT
+         };
+        networkTest = new vis.Network(container, dataStore,options);
+        changeSelectBox();
+        console.log(networkPY);
+{#        networkTest.on("click", function (params) {#}
+{#            params.event = "[original event]";#}
+{#            document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + JSON.stringify(params, null, 4);#}
+{#        });#}
     }
 
-    $(document).ready(function($){
-        $('.mywork').click();
-        setTimeout(function (){
-                startNetwork();
-            }, 300);
+    function  makeSelectBox(whichBox,whichBox2,addOrDeleted){
+        whichBox.parent().find('.select__options li').bind('click',function(){
+            whichBox.val($(this).find('p').text());
+            $(this).parent().parent().parent().removeClass('select-is-open');
+            whichBox2.next().children().each(function(){
+                $(this).remove();
+            });
+            whichBox2.parent().parent().removeClass('hideblock');
+            var whichPattern = networkPY.getPatternById(whichBox.val().substring(8));
+            var contentL;
+            if(addOrDeleted) contentL = whichPattern.getCanBeAdded();
+            else contentL = whichPattern.getCanBeDeleted();
+            for (var i in contentL){
+                whichBox2.next().append("<li><p>node " + contentL[i] +"</p></li>");
+            }
+            whichBox2.parent().find('.select__options li').bind('click',function(){
+                whichBox2.val($(this).find('p').text());
+                $(this).parent().parent().parent().removeClass('select-is-open');
+            });
+            if(whichBox2.parent().find('.select__options li').length==0){
+                whichBox2.val("Nothing");
+            }
+            else whichBox2.parent().find('.select__options li:nth-child(1)').click();
+        });
+        whichBox.parent().find('.select__options li').each(function(){
+           if($(this).find('p').text()==whichBox.val()){
+               $(this).click();
+           }
+        });
+    }
 
+    function  changeSelectBox(){
+        $('.blockbox li').each(function(){
+            $(this).remove();
+        });
+{#        $('#normalSelect').next().children().each(function(){#}
+{#            $(this).remove();#}
+{#        });#}
+{#        $('#normalSelect2').next().children().each(function(){#}
+{#                $(this).remove();#}
+{#        });#}
+        var patternData = networkPY.getPatternData();
+        for(var i=0;i<patternData.length;i++){
+             $('#normalSelect').next().append("<li ><p>pattern " +patternData[i].getId() +"</p></li>");
+            $('#deleteSelect').next().append("<li ><p>pattern " +patternData[i].getId() +"</p></li>");
+             $('#connectorSelectBox').next().append("<li><input name='checkOrNot' type='checkbox'>" +
+                             "<label class='checkOrNotLabel' for='checkOrNot'>pattern " + patternData[i].getId() + "</label></li>");
+        }
+        $('#connectorSelectBox').parent().find('.select__options li').find('label').bind('click',function(){
+           if($(this).prev().prop('checked')) $(this).prev().prop('checked',false);
+           else  $(this).prev().prop('checked',true);
+        });
+        makeSelectBox($('#normalSelect'),$('#normalSelect2'),true);
+        makeSelectBox($('#deleteSelect'),$('#deleteSelect2'),false);
+    }
+
+
+     $('.addConnectorNodeBtn').click(function () {
+         var patternBoxs=[];
+        $('#connectorSelectBox').next().find('input').each(function(){
+            if($(this).is(':checked')) patternBoxs.push($(this).next().text().substring(8));
+        });
+         if(patternBoxs.length==0) return false;
+         var whichNode = networkPY.ToBeAddedOnePattern();
+         console.log(patternBoxs);
+         $.getJSON($SCRIPT_ROOT + '/network/addPattern', {
+                    a: JSON.stringify(patternBoxs),
+                    b: JSON.stringify(whichNode)
+                  }, function(data) {
+                        var count1 = data.result1;
+                        var count2 = data.result2;
+                        whichNode.nid = count2;
+                        whichNode.pid = count1;
+                        console.log("fuck");
+                        networkPY.addPattern(whichNode,patternBoxs);
+                        changeSelectBox();
+                  });
+     });
+
+
+    $('.addNormalNodeBtn').click(function () {
+        if($('#normalSelect').val()=="Nothing"||$('#normalSelect').val()=="") return false;
+        if($('#normalSelect2').val()=="Nothing"||$('#normalSelect2').val()=="") return false;
+        var whichPatternId =  $('#normalSelect').val().substring(8);
+        var whichParent = $('#normalSelect2').val().substring(5);
+        var whichPattern = networkPY.getPatternById(whichPatternId);
+        var whichOne = whichPattern.getCanBeAddedChild(whichParent);
+        if(whichOne==-1) return false;
+        var whichNode = whichPattern.ToBeAddedOne(whichParent,whichOne);
+        $.getJSON($SCRIPT_ROOT + '/network/addNode', {
+                    a: JSON.stringify(whichNode)
+                  }, function(data) {
+                        var i = data.result1;
+                        whichNode.nid=i;
+                        networkPY.addNode(whichPatternId,whichNode);
+                        changeSelectBox();
+                  });
+     });
+
+     $('.deleteNormalNodeBtn').click(function(){
+         if($('#deleteSelect').val()=="Nothing"||$('#deleteSelect').val()=="") return false;
+         if($('#deleteSelect2').val()=="Nothing"||$('#deleteSelect2').val()=="") return false;
+         var whichPatternId =  $('#deleteSelect').val().substring(8);
+         var whichOne = $('#deleteSelect2').val().substring(5);
+         var returnList = networkPY.deleteNode(whichPatternId,whichOne);
+         $.getJSON($SCRIPT_ROOT + '/network/deleteNode', {
+                    a: JSON.stringify(returnList)
+                  }, function(data) {
+                        console.log("fuck");
+                        var i = data.result1;
+                        changeSelectBox();
+                  });
+     });
+
+
+    $(document).ready(function($){
+        setTimeout(function (){
+            $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
+                    a: 1
+                  }, function(data) {
+                        startNetwork(data);
+                  });
+            }, 300);
     });
 
 </script>

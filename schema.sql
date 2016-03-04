@@ -22,18 +22,33 @@ CREATE TABLE IF NOT EXISTS pattern(
 );
 
 
-CREATE TABLE IF NOT EXISTS node(
-	nid INTEGER PRIMARY KEY autoincrement,
-	node_index INTEGER NOT NULL,
-	pid INTEGER NOT NULL
+CREATE TABLE node(
+nid INTEGER PRIMARY KEY autoincrement,
+node_index INTEGER NOT NULL,
+pid INTEGER NOT NULL
+, x INTEGER, y INTEGER, active INTEGER, id varchar(20)
+);
+
+
+CREATE TABLE edge IF NOT EXISTS edge(
+	_from INTEGER NOT NULL,
+	_to INTEGER NOT NULL,
+	FOREIGN KEY(_from) REFERENCES pattern(pid),
+	FOREIGN KEY(_to) REFERENCES pattern(pid),
+	PRIMARY KEY (_from, _to)
+);
+
+CREATE TABLE IF NOT EXISTS message(
+	mid INTEGER PRIMARY KEY autoincrement,
+	_from INTEGER NOT NULL,
+	_to INTEGER NOT NULL,
+	msg TEXT,
+	status INTEGER NOT NULL,
+	FOREIGN KEY(_from) REFERENCES node(nid),
+	FOREIGN KEY(_to) REFERENCES node(nid)
 );
 
 
 
--- CREATE TABLE IF NOT EXISTS message(
--- mid        INTEGER PRIMARY KEY      NOT NULL,
--- from_id    INTEGER                  NOT NULL,
--- to_id      INTEGER                  NOT NULL,
--- msg        TEXT,
--- status     INTEGER                  NOT NULL
--- );
+
+

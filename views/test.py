@@ -3,8 +3,10 @@ from models import netModel
 from models import mydb
 import json
 from models import Node
-from operator import methodcaller
-import flask
+
+
+
+
 u = 'ew'.encode('utf8')
 p = 'dsa'.encode('utf8')
 re = accessControl.verify(u, p)

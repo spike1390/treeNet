@@ -2,13 +2,12 @@
 import sqlite3
 import path
 
-DATABASE = path.db_path
 
 
 def open():
 
     global db
-    db = sqlite3.connect(DATABASE)
+    db = sqlite3.connect(path.db_path)
     if db is None:
         print 'db not found'
 

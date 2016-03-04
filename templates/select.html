@@ -202,6 +202,10 @@
             $('#post-question').val($(this).find('p').text());
             $('.select-container').toggleClass('select-is-open');
         });
+
+        $('.cancel-modify').click(function(){
+            window.location.href='{{  url_for('index.logout') }}';
+        });
             $(function() {
                  var submit_form = function(e) {
                      if($('#post-question').val()==""){
