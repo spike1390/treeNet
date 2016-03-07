@@ -85,3 +85,16 @@ def validate():
         return jsonify(result = 1)
     else:
         return jsonify(result = 0)
+
+@index.route('/changePassword')
+def change_password():
+    #accessControl.change_pwd()
+    pass
+
+@index.route('/createAccount')
+def create_account():
+    pass
+
+@index.route('/deleteAccount')
+def delete_account():
+    pass

@@ -12,7 +12,6 @@ network = Blueprint('network', __name__)
 def return_whole_network():
 
     net = netModel.return_json()
-    print net
     return jsonify(result1=net)
 
 @network.route('/addNode')
@@ -42,4 +41,14 @@ def delete_node():
     nodes = json.loads(a)
     netModel.delete_node(nodes)
     print nodes
+    return jsonify()
+
+@network.route('/deletePattern')
+def delete_pattern():
+    a = request.args.get('a', 0, type = str)
+    nodeId = json.loads(a)
+    print nodeId
+    nid = nodeId['pid']
+    netModel.delete_pattern(nid)
+
     return jsonify()

@@ -4,16 +4,21 @@
 -->
 <html>
 <head>
-    <script type="text/javascript" src="{{ url_for('static', filename='vis/dist/vis.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='vis.js') }}"></script>
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='Network.js') }}"></script>
-    <link href="{{ url_for('static', filename='vis/dist/vis.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='vis.css') }}" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
 
 
     <style type="text/css">
+        body{
+            font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+            color: #555;
+            font-size: 13px;
+        }
         #mynetwork {
             width: 1200px;
             height: 610px;
@@ -21,6 +26,7 @@
             margin-top: 10px;
             margin-left: 40px;
             margin-right: 10px;
+            margin-bottom: 10px;
             border-radius: 10px;
             float: left;
         }
@@ -67,11 +73,10 @@
    float: right;
    margin: auto  0;
    margin-right: 30px;
-   height: 80px;
 }
 .navi-entry li {
  display: inline-block;
- margin:  28px 20px 24px 20px;
+ margin:  28px 45px 24px 20px;
 }
 .hideblock{
     display: none;
@@ -79,12 +84,12 @@
 .button-box{
     float: left;
     margin-left: 20px;
-    margin-top:50px;
+    margin-top: 25px;
 }
 
         .blockbox{
-            margin-top: 50px;
-            margin-bottom:100px;
+            margin-top: 20px;
+            margin-bottom:50px;
         }
         .btn{
 			padding: 4px 8px;
@@ -132,17 +137,17 @@
 
 
 		.select__options {
-		  display: none;
-		  list-style-type: none;
-		  border-top: 1px solid #ccc;
+		    display: none;
+		    list-style-type: none;
+		    border-top: 1px solid #ccc;
 		    margin-bottom: 0;
 		    margin-top: 0;
 		    padding: 0;
 		}
 		.select__options li {
-		  padding: 1px 10px;
-		  margin: 0 ;
-		  line-height: 0.1;
+		    padding: 1px 10px;
+		    margin: 0 ;
+		    line-height: 0.1;
 		}
 		.select__options li:hover, .select__options li:focus {
 		  background-color: #98d0e0;
@@ -176,6 +181,148 @@
         .select-container .checkOrNotLabel{
             margin-left: 4px;
         }
+        .Infbox li{
+            padding: 3px 6px;
+        }
+        .Infbox{
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .Infbox a{
+            outline: none;
+            text-decoration:none;
+            color:#66615b;
+            font-size: 12px;
+        }
+        .changeIfmBox{
+            width: 180px;
+            margin-left: 1060px;
+            position: fixed;
+            background: white;
+        }
+        .button-box2{
+            float: left;
+            margin-left: 100px ;
+        }
+        .button-box2 .blockbox{
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .messageInf{
+            outline: none;
+			font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+			height: 35px;
+            width: 200px;
+			padding: 4px 2px;
+			padding-left: 8px;
+			font-size: 12px;
+			line-height: 1.4285;
+			color:#555;
+			background: #fff;
+			background-image: none;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            float: left;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-left: 15px;
+            margin-top: 10px;
+            margin-right: 10px;
+            overflow-y:auto;
+        }
+        .bottom-container{
+            float: left;
+            margin-left: 10px;
+        }
+        .messageBoxBtn{
+            margin-left: 50px;
+        }
+        .activateNodeBtn{
+            margin-left: 100px;
+        }
+        .cover-black{
+    	    opacity: 1;
+	        position: fixed;
+	        left: 0;
+	        top: 0;
+	        right: 0;
+	        bottom: 0;
+	        width: 100%;
+	        height: 100%;
+	        z-index: 4;
+	        background-color: rgba(0, 0, 0, 0.75);
+        }
+        .messageBoxBlock{
+            width: 45%;
+            position: fixed;
+            top:12%;
+            left:25%;
+            border: 2px solid #AEAEAE;
+            padding: 20px 20px  0 20px;
+            z-index: 5;
+            opacity: 0;
+            visibility: hidden;
+            background: #fff;
+            border-radius: 4px;
+            height: 620px;
+        }
+        .messageBox-show{
+            opacity: 1;
+            visibility: visible;
+        }
+        .messageBox{
+            margin-top: 10px;
+            height: 515px;
+            overflow-y:auto;
+            scrollbar-face-color: #ebebeb;
+            scrollbar-shadow-color: #ffffff;
+            scrollbar-highlight-color:#ffffff;
+            scrollbar-3dlight-color: #d8d8d8;
+            scrollbar-darkshadow-color: #d8d8d8;
+            scrollbar-track-color:#ffffff;
+            scrollbar-arrow-color: #686868;
+        }
+        .messageBox li{
+            line-height: 18px;
+            padding: 2px 10px;
+            padding-bottom: 20px;
+        }
+        .closeBox{
+            width: 100%;
+        }
+        .closeMsgBtn{
+            margin-left: 275px;
+            margin-top: 20px;
+        }
+        #messagaBoxLab{
+            font-size: 16px;
+            color:#D15600;
+            display: block;
+            margin-left: 270px;
+        }
+        .messageList{
+            display: block;
+            padding-top: 10px;
+        }
+        .Msglabel{
+            margin-right: 50px;
+            display: inline-block;
+            white-space: nowrap;
+            color: #56AAC3 ;
+            font-size: 12px;
+        }
+        .Msgtime{
+            color:#ccc;
+            margin-right: 35px;
+            float: right;
+        }
+        .lastword{
+            font-size: 11px;
+            margin-left: 380px;
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -205,9 +352,10 @@
 	</div>
 </div>
 
-<div class="changeInformationBox">
-    <ul class="">
-
+<div class="changeIfmBox">
+    <ul class="select__options Infbox">
+        <li><a href=""><p>change password</p></a></li>
+        <li><a href=""><p>change secure questions</p></a></li>
     </ul>
 </div>
 
@@ -222,7 +370,7 @@
                     </ul>
                 </div>
     	</div>
-         <button  type="submit" id="richtext-submit" class="btn btn-primary addConnectorNodeBtn" style="font-size: 16px;">add pattern</button>
+         <button  type="submit" name="richtext-submit" class="btn btn-primary addConnectorNodeBtn" style="font-size: 16px;">add pattern</button>
     </div>
     <div class="blockbox">
         <div class="select-container">
@@ -241,9 +389,9 @@
                     </ul>
                 </div>
     	</div>
-        <button  type="submit" id="richtext-submit" class="btn btn-primary addNormalNodeBtn" style="font-size: 16px;">add node</button>
+        <button  type="submit" name="richtext-submit" class="btn btn-primary addNormalNodeBtn" style="font-size: 16px;">add node</button>
     </div>
-        <div class="blockbox">
+    <div class="blockbox">
         <div class="select-container">
                 <div class="select">
                      <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
@@ -260,18 +408,64 @@
                     </ul>
                 </div>
     	</div>
-        <button  type="submit" id="richtext-submit" class="btn btn-primary deleteNormalNodeBtn" style="font-size: 16px;">delete node</button>
+        <button  type="submit" name="richtext-submit" class="btn btn-primary deleteNormalNodeBtn" style="font-size: 16px;">delete node</button>
+     </div>
+     <div class="blockbox">
+        <div class="select-container">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="deleteConnector" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+        <button  type="submit" name="richtext-submit" class="btn btn-primary deleteConnNodeBtn" style="font-size: 14px;">delete pattern</button>
     </div>
 </div>
-<pre id="eventSpan"></pre>
 
+<div class="button-box2">
+    <div class="blockbox">
+        <div class="select-container bottom-container">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="messageFrom" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+        <div class="select-container bottom-container ">
+                <div class="select">
+                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="messageTo" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+        <textarea  id="messageInf" cols="30" rows="10" class="messageInf" ></textarea>
+        <button  type="submit" name="richtext-submit" class="btn btn-primary sendMessageBtn" style="font-size: 13px;">send message</button>
+        <button  type="text" name="richtext-submit" class="btn btn-primary messageBoxBtn" style="font-size: 13px;">message box</button>
+        <button  type="text" name="richtext-submit" class="btn btn-primary activateNodeBtn" style="font-size: 14px;">activate</button>
+     </div>
+    <span class="lastword">last word: 50</span>
+</div>
+<div class="cover-black hideblock"></div>
+<div class="messageBoxBlock">
+    <label for="messageBox" id="messagaBoxLab">Message Box</label>
+    <div class="messageBox">
+        <ul class="messageList select__options">
+        </ul>
+    </div>
+    <div class="closeBox">
+        <button  type="text" name="richtext-submit" class="btn btn-primary closeMsgBtn" style="font-size: 15px;">Close</button>
+    </div>
+</div>
 
 <script type="text/javascript">
 
         $('[name=select-btn]').click(function() {
             $(this).parent().parent().toggleClass('select-is-open');
         });
-
+    $.ajaxSettings.async = false;
     var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     var networkPY;
     var networkTest;
@@ -310,6 +504,10 @@
     };
     var container = document.getElementById('mynetwork');
 
+    $('.home-text').click(function(){
+        $('.changeIfmBox').toggleClass('select-is-open');
+    });
+
     function startNetwork(data){
         networkPY= new NetworkYun.Network(JSON.parse(data.result1));
         var nodesDataGet= networkPY.getNodesData();
@@ -331,71 +529,138 @@
 {#        });#}
     }
 
-    function  makeSelectBox(whichBox,whichBox2,addOrDeleted){
-        whichBox.parent().find('.select__options li').bind('click',function(){
-            whichBox.val($(this).find('p').text());
-            $(this).parent().parent().parent().removeClass('select-is-open');
-            whichBox2.next().children().each(function(){
+
+    function  makeSelectBox2(whichBox,dataF,f){
+        whichBox.next().children().each(function(){
                 $(this).remove();
-            });
-            whichBox2.parent().parent().removeClass('hideblock');
-            var whichPattern = networkPY.getPatternById(whichBox.val().substring(8));
-            var contentL;
-            if(addOrDeleted) contentL = whichPattern.getCanBeAdded();
-            else contentL = whichPattern.getCanBeDeleted();
-            for (var i in contentL){
-                whichBox2.next().append("<li><p>node " + contentL[i] +"</p></li>");
-            }
-            whichBox2.parent().find('.select__options li').bind('click',function(){
-                whichBox2.val($(this).find('p').text());
+        });
+        for(var i=0;i<dataF.length;i++){
+            whichBox.next().append("<li ><p>" +dataF[i] +"</p></li>");
+        }
+        if(whichBox.parent().find('.select__options li').length==0){
+                whichBox.val("Nothing");
+        }
+        else{
+            whichBox.parent().find('.select__options li').bind('click',function(){
+                whichBox.val($(this).find('p').text());
                 $(this).parent().parent().parent().removeClass('select-is-open');
+                 f();
             });
-            if(whichBox2.parent().find('.select__options li').length==0){
-                whichBox2.val("Nothing");
+            var checkOrNot = false;
+            whichBox.parent().find('.select__options li').each(function(){
+               if($(this).find('p').text()==whichBox.val()){
+                   checkOrNot = true;
+                   $(this).click();
+               }
+            });
+            if(!checkOrNot){
+                whichBox.parent().find('.select__options li:nth-child(1)').click();
             }
-            else whichBox2.parent().find('.select__options li:nth-child(1)').click();
-        });
-        whichBox.parent().find('.select__options li').each(function(){
-           if($(this).find('p').text()==whichBox.val()){
-               $(this).click();
-           }
-        });
+        }
     }
+
+
+{#    function  makeSelectBox(whichBox,whichBox2,addOrDeleted){#}
+{#        whichBox.parent().find('.select__options li').bind('click',function(){#}
+{#            whichBox.val($(this).find('p').text());#}
+{#            $(this).parent().parent().parent().removeClass('select-is-open');#}
+{#            whichBox2.next().children().each(function(){#}
+{#                $(this).remove();#}
+{#            });#}
+{#            whichBox2.parent().parent().removeClass('hideblock');#}
+{#            var whichPattern = networkPY.getPatternById(whichBox.val().substring(8));#}
+{#            var contentL;#}
+{#            if(addOrDeleted==1) contentL = whichPattern.getCanBeAdded();#}
+{#            else if(addOrDeleted==2) contentL = whichPattern.getCanBeDeleted();#}
+{#            for (var i in contentL){#}
+{#                whichBox2.next().append("<li><p>node " + contentL[i] +"</p></li>");#}
+{#            }#}
+{#            whichBox2.parent().find('.select__options li').bind('click',function(){#}
+{#                whichBox2.val($(this).find('p').text());#}
+{#                $(this).parent().parent().parent().removeClass('select-is-open');#}
+{#            });#}
+{#            if(whichBox2.parent().find('.select__options li').length==0){#}
+{#                whichBox2.val("Nothing");#}
+{#            }#}
+{#            else{#}
+{#                var checkOrNot = false;#}
+{#                whichBox2.parent().find('.select__options li').each(function(){#}
+{#                   if($(this).find('p').text()==whichBox2.val()){#}
+{#                       checkOrNot = true;#}
+{#                       $(this).click();#}
+{#                   }#}
+{#                });#}
+{#                if(!checkOrNot){#}
+{#                    whichBox2.parent().find('.select__options li:nth-child(1)').click();#}
+{#                }#}
+{#            }#}
+{#        });#}
+{#        if(whichBox.parent().find('.select__options li').length==0){#}
+{#                whichBox.val("Nothing");#}
+{#        }#}
+{#        else{#}
+{#            var checkOrNot = false;#}
+{#            whichBox.parent().find('.select__options li').each(function(){#}
+{#               if($(this).find('p').text()==whichBox.val()){#}
+{#                   checkOrNot = true;#}
+{#                   $(this).click();#}
+{#               }#}
+{#            });#}
+{#            if(!checkOrNot){#}
+{#                whichBox.parent().find('.select__options li:nth-child(1)').click();#}
+{#            }#}
+{#        }#}
+{#    }#}
 
     function  changeSelectBox(){
         $('.blockbox li').each(function(){
             $(this).remove();
         });
-{#        $('#normalSelect').next().children().each(function(){#}
-{#            $(this).remove();#}
-{#        });#}
-{#        $('#normalSelect2').next().children().each(function(){#}
-{#                $(this).remove();#}
-{#        });#}
-        var patternData = networkPY.getPatternData();
-        for(var i=0;i<patternData.length;i++){
-             $('#normalSelect').next().append("<li ><p>pattern " +patternData[i].getId() +"</p></li>");
-            $('#deleteSelect').next().append("<li ><p>pattern " +patternData[i].getId() +"</p></li>");
+        for(var i=0;i<networkPY.getPatternData().length;i++){
              $('#connectorSelectBox').next().append("<li><input name='checkOrNot' type='checkbox'>" +
-                             "<label class='checkOrNotLabel' for='checkOrNot'>pattern " + patternData[i].getId() + "</label></li>");
+                             "<label class='checkOrNotLabel' for='checkOrNot'>pattern " + networkPY.getPatternData()[i].getId() + "</label></li>");
         }
         $('#connectorSelectBox').parent().find('.select__options li').find('label').bind('click',function(){
            if($(this).prev().prop('checked')) $(this).prev().prop('checked',false);
            else  $(this).prev().prop('checked',true);
         });
-        makeSelectBox($('#normalSelect'),$('#normalSelect2'),true);
-        makeSelectBox($('#deleteSelect'),$('#deleteSelect2'),false);
+
+        $('#normalSelect2').parent().parent().addClass('hideblock');
+        $('#deleteSelect2').parent().parent().addClass('hideblock');
+
+        makeSelectBox2($('#normalSelect'),networkPY.getPatNodeBeAdded(),
+            function(){
+                $('#normalSelect2').parent().parent().removeClass('hideblock');
+                makeSelectBox2($('#normalSelect2'),networkPY.getCanBeAddedNode($('#normalSelect').val().substring(8)),function(){});
+            }
+        );
+        makeSelectBox2($('#deleteSelect'),networkPY.getPatNodeBeDel(),
+            function(){
+                $('#deleteSelect2').parent().parent().removeClass('hideblock');
+                makeSelectBox2($('#deleteSelect2'),networkPY.getCanBeDeletedNode($('#deleteSelect').val().substring(8)),function(){});
+            }
+        );
+        makeSelectBox2($('#deleteConnector'),networkPY.getCanBeDelPattern(),function(){});
+        makeSelectBox2($('#messageFrom'),networkPY.getAllNodeId(),function(){
+            if($('#messageTo').val()==$('#messageFrom').val()) $('#messageTo').val("");
+        });
+        makeSelectBox2($('#messageTo'),networkPY.getAllNodeId(),function(){
+            if($('#messageTo').val()==$('#messageFrom').val()) $('#messageFrom').val("");
+        });
+        $('#messageFrom').val("");
+        $('#messageTo').val("");
     }
 
 
      $('.addConnectorNodeBtn').click(function () {
          var patternBoxs=[];
         $('#connectorSelectBox').next().find('input').each(function(){
-            if($(this).is(':checked')) patternBoxs.push($(this).next().text().substring(8));
+            if($(this).is(':checked')) patternBoxs.push(parseInt($(this).next().text().substring(8)));
         });
-         if(patternBoxs.length==0) return false;
+         if(patternBoxs.length==0){
+             if($('#connectorSelectBox').next().find('input').length!=0) return false;
+         }
          var whichNode = networkPY.ToBeAddedOnePattern();
-         console.log(patternBoxs);
          $.getJSON($SCRIPT_ROOT + '/network/addPattern', {
                     a: JSON.stringify(patternBoxs),
                     b: JSON.stringify(whichNode)
@@ -404,10 +669,15 @@
                         var count2 = data.result2;
                         whichNode.nid = count2;
                         whichNode.pid = count1;
-                        console.log("fuck");
                         networkPY.addPattern(whichNode,patternBoxs);
                         changeSelectBox();
                   });
+         $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
+                    a: 1
+                  }, function(data) {
+                        startNetwork(data);
+                  });
+
      });
 
 
@@ -439,12 +709,74 @@
          $.getJSON($SCRIPT_ROOT + '/network/deleteNode', {
                     a: JSON.stringify(returnList)
                   }, function(data) {
-                        console.log("fuck");
                         var i = data.result1;
                         changeSelectBox();
                   });
      });
 
+     $('.deleteConnNodeBtn').click(function(){
+         if($('#deleteConnector').val()=="Nothing"||$('#deleteConnector').val()=="") return false;
+         var whichPatternId =  $('#deleteConnector').val().substring(8);
+         var returnList = networkPY.deletePattern(whichPatternId);
+         console.log(returnList);
+         $.getJSON($SCRIPT_ROOT + '/network/deletePattern', {
+                    a: JSON.stringify(returnList.nodeId),
+                    b: JSON.stringify(returnList.edgesList)
+                  }, function(data) {
+                        changeSelectBox();
+                  });
+     });
+
+    $('.sendMessageBtn').click(function(){
+        if($('#messageFrom').val()==""||$('#messageTo').val()==""||$('.messageInf').val()=="") return false;
+         $.getJSON($SCRIPT_ROOT + '/message/sendMessage', {
+                    a: parseInt($('#messageFrom').val().substring(5)),
+                    b: parseInt($('#messageTo').val().substring(5)),
+                    c: $('.messageInf').val()
+                  }, function(data) {
+                        var path = JSON.parse(data.result);
+                        networkPY.toggleColor(path);
+                        changeSelectBox();
+                  });
+    });
+
+    $('.closeMsgBtn').click(function(){
+        $(".cover-black").addClass('hideblock');
+        $('.messageBoxBlock').removeClass('messageBox-show');
+    });
+
+    $('.messageInf').keyup(function(){
+        if($(this).val().length>50){
+            $(this).val($(this).val().substring(0,50));
+            $('.lastword').text("last word: 0");
+        }
+        else $('.lastword').text("last word: "+String(50-$(this).val().length));
+    });
+
+    $('.messageInf').keydown(function(){
+        if($(this).val().length>50){
+            $(this).val($(this).val().substring(0,50));
+            $('.lastword').text("last word: 0");
+        }
+        else $('.lastword').text("last word: "+String(50-$(this).val().length));
+    });
+
+    $('.messageBoxBtn').click(function(){
+         $(".cover-black").removeClass('hideblock');
+        $('.messageBoxBlock').addClass('messageBox-show');
+        $.getJSON($SCRIPT_ROOT + '/message/wholeMessages', {
+                    a: 1
+                  }, function(data) {
+                        var inform =JSON.parse(data.result1);
+                        console.log(inform);
+                        for (var i in inform){
+                            $('.messageList').append("<li><span class='Msgfrom Msglabel'>From: <label for='from'>" +inform[i]._from
+                        +"</label> </span> <span class='Msgto Msglabel'>To: <label for='to'>" + inform[i]._to +
+                        "</label> </span><span class='Msgcontent'>"+inform[i].msg +"</span> <span class='Msgtime Msglabel'>"+ inform[i].createdAt
+                        + "</span></li> ");
+                        }
+                  });
+    });
 
     $(document).ready(function($){
         setTimeout(function (){
@@ -455,6 +787,20 @@
                   });
             }, 300);
     });
+
+     function sendJson(one,two){
+         var checkOrNot = false;
+         var waitOrNot = false;
+         $.getJSON($SCRIPT_ROOT + '/message/verifyNode', {
+                    a: one,
+                    b: two
+                  }, function(data) {
+                    if(data.result == 1) checkOrNot=true;
+                    else checkOrNot=false;
+                  });
+        if(checkOrNot) return true;
+        else return false;
+    }
 
 </script>
 </body>

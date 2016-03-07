@@ -5,18 +5,24 @@ var NetworkYun = NetworkYun || {};
 
 NetworkYun.Node = function(props,count){
     this.id = props.nid;
-    this.label = props.nid;
     this.color = props.color;
     this.attributes = {
         indexInTree:0,
         patternId:0,
         active:1
     };
-    this.attributes.indexInTree = props.index-1;
+    this.attributes.indexInTree = props.index - 1;
     this.attributes.patternId = props.pid;
     this.attributes.active = props.active;
     this.shape = 'ellipse';
-    if(this.attributes.indexInTree==0) this.shape = 'box';
+    this.label = this.id;
+    if(this.attributes.active==0){
+        this.color='rgb(192,192,192)';
+    }
+    if(this.attributes.indexInTree==0){
+        this.shape = 'box';
+        this.label = this.attributes.patternId + "-" + this.id;
+    }
     //this.group = props.patternId;
     //this.group = count;
     if(count<8){
@@ -93,6 +99,10 @@ NetworkYun.Node.prototype.changeColor = function(whichColor){
     this.color = whichColor;
 };
 
+
+
+
+
 NetworkYun.Edge = function(props,connectOrNot){
     this.from = props.source;
     this.to = props.target;
@@ -104,6 +114,7 @@ NetworkYun.Edge = function(props,connectOrNot){
             roundness:0.1
         };
     }
+    this.color = 'rgb(255,168,7)';
     return this;
 };
 
@@ -119,6 +130,10 @@ NetworkYun.Edge.prototype.getId = function(){
     return this.id;
 };
 
+
+
+
+
 NetworkYun.Pattern = function(props,count){
     this.patternId = props.id;
     this.nodes = [];
@@ -130,7 +145,7 @@ NetworkYun.Pattern = function(props,count){
         this.outEdges.push(props.outEdges[i]);
     }
     this.edges = [];
-    this.count = count;
+    this.count = parseInt(count);
     var node0 = this.getNodeByIndex(0);
     var node1 = this.getNodeByIndex(1);
     var node2 = this.getNodeByIndex(2);
@@ -272,13 +287,11 @@ NetworkYun.Pattern.prototype.ToBeAddedOne = function(parentId,index){
         index: index+1,
         pid: this.patternId
     };
-    console.log(toSendNode);
     return toSendNode;
 };
 
 NetworkYun.Pattern.prototype.addNode = function(toSendNode){
     var whichNode = new NetworkYun.Node(toSendNode,this.count);
-    console.log(whichNode);
     var parentNodeId = this.getNodeByIndex((whichNode.getIndex() - 1) / 2).getId();
     var neList=[];
     this.nodes.push(whichNode);
@@ -333,6 +346,8 @@ NetworkYun.Pattern.prototype.deleteNode1 = function(id){
         this.removeEdge(parseInt(id));
     }
 };
+
+
 
 NetworkYun.Network = function(props){
     this.patterns=[];
@@ -394,22 +409,6 @@ NetworkYun.Network.prototype.getEdgeByFrom = function(from){
     }
 };
 
-NetworkYun.Network.prototype.changeColor = function(whichId,whichColor){
-    this.getNodeById(whichId).changeColor(whichColor);
-    dataStore.nodes.update({id:parseInt(whichId),color:whichColor});
-};
-
-NetworkYun.Network.prototype.toggleColor = function(whichId,whichColor){
-    var whichNode = this.getNodeById(whichId);
-    var pcolor = whichNode.getColor();
-    whichNode.changeColor(whichColor);
-    dataStore.nodes.update({id:parseInt(whichId),color:whichColor});
-    setTimeout(function(){
-        whichNode.changeColor(pcolor);
-    dataStore.nodes.update({id:parseInt(whichId),color:pcolor});
-    },1000)
-};
-
 NetworkYun.Network.prototype.getPatternById = function(id){
     for (var i in this.patterns){
         if(this.patterns[i].getId()==parseInt(id)){
@@ -419,6 +418,81 @@ NetworkYun.Network.prototype.getPatternById = function(id){
     return null;
 };
 
+
+NetworkYun.Network.prototype.changeColor = function(whichId,whichColor){
+    this.getNodeById(whichId).changeColor(whichColor);
+    dataStore.nodes.update({id:parseInt(whichId),color:whichColor});
+};
+
+
+NetworkYun.Network.prototype.toggleColor = function(path){
+    var tt= 1000;
+    if(path.length==0) return false;
+    var pcolor = networkPY.getNodeById(path[0]).getColor();
+    setTimeout(function(){
+        networkPY.changeColor(path[0],'red');
+    },tt);
+    var j=0;
+    var interrupt = false;
+    var result = false;
+    for(var i=0;i<path.length-1;i++){
+        if(interrupt) return;
+        setTimeout(function(){
+            if(interrupt) return false;
+            //if(j>0) networkPY.changeEdgeColor(path[j-1],path[j],pcolor);
+            networkPY.changeColor(path[j],pcolor);
+            if(!sendJson(path[j],path[j+1])){
+                interrupt = true;
+                return false;
+            }
+            //networkPY.changeEdgeColor(path[j],path[j+1],'red');
+            networkPY.changeColor(path[j+1],'red');
+            j+=1;
+        },tt+1000*(i+1));
+    }
+    setTimeout(function(){
+        //networkPY.changeEdgeColor(path[path.length-2],path[path.length-1],pcolor);
+        networkPY.changeColor(path[path.length-1],pcolor);
+    },tt+1000*(i+1));
+};
+
+NetworkYun.Network.prototype.getPatNodeBeAdded =function(){
+    var patNodeList = [];
+    for(var i in this.patterns){
+        if(this.patterns[i].getCanBeAdded().length>0){
+            patNodeList.push("pattern "+this.patterns[i].getId());
+        }
+    }
+    return patNodeList;
+};
+
+
+NetworkYun.Network.prototype.getPatNodeBeDel =function(){
+    var patNodeList = [];
+    for(var i in this.patterns){
+        if(this.patterns[i].getCanBeDeleted().length>0){
+            patNodeList.push("pattern "+this.patterns[i].getId());
+        }
+    }
+    return patNodeList;
+};
+
+NetworkYun.Network.prototype.getCanBeAddedNode = function(whichPattern){
+    var Li = this.getPatternById(whichPattern).getCanBeAdded();
+    for (var i in Li){
+        Li[i] = "node "+ Li[i];
+    }
+    return Li;
+};
+
+NetworkYun.Network.prototype.getCanBeDeletedNode = function(whichPattern){
+    var Li = this.getPatternById(whichPattern).getCanBeDeleted();
+    for (var i in Li){
+        Li[i] = "node "+ Li[i];
+    }
+    return Li;
+};
+
 NetworkYun.Network.prototype.addNode = function(whichPattern,whichNode){
     var neList = this.getPatternById(whichPattern).addNode(whichNode);
     this.nodes.push(neList[0]);
@@ -426,7 +500,6 @@ NetworkYun.Network.prototype.addNode = function(whichPattern,whichNode){
     dataStore.nodes.add(neList[0]);
     dataStore.edges.add(neList[1]);
 };
-
 
 
 NetworkYun.Network.prototype.ToBeAddedOnePattern = function(){
@@ -443,9 +516,9 @@ NetworkYun.Network.prototype.ToBeAddedOnePattern = function(){
     return toSendNode;
 };
 
-
 NetworkYun.Network.prototype.addPattern = function(whichOne,whichList){
     var count = this.patterns.length;
+    console.log(whichList);
     var newPattern = new NetworkYun.Pattern({
         id:whichOne.pid,
         nodes:[whichOne],
@@ -485,16 +558,27 @@ NetworkYun.Network.prototype.removeEdge = function(id){
     var deletedList = [];
     while(i<this.edges.length){
         if(this.edges[i].getFrom()==id){
-            deletedList.push(this.edges[i].getId());
+            deletedList.push(this.edges[i]);
             this.edges.splice(i,1);
         }
         else if(this.edges[i].getTo()==id){
-            deletedList.push(this.edges[i].getId());
+            deletedList.push(this.edges[i]);
             this.edges.splice(i,1);
         }
         else i++;
     }
     return deletedList;
+};
+
+NetworkYun.Network.prototype.removePattern = function(id){
+    var i=0;
+    while(i<this.patterns.length){
+        if(this.patterns[i].getId()==id){
+            this.patterns.splice(i,1);
+            break;
+        }
+        else i++;
+    }
 };
 
 NetworkYun.Network.prototype.deleteNode = function(whichPatternId,whichId){
@@ -521,8 +605,82 @@ NetworkYun.Network.prototype.deleteNode = function(whichPatternId,whichId){
     dataStore.nodes.remove(parseInt(whichId));
     var deletedList = this.removeEdge(parseInt(whichId));
     for (var i in deletedList){
-        dataStore.edges.remove(deletedList[i]);
+        dataStore.edges.remove(deletedList[i].getId());
     }
     whichPattern.deleteNode1(whichId);
+    return returnList;
+};
+
+
+NetworkYun.Network.prototype.getOutEdgeList= function(whichPatternId){
+    var outEdgeL = [];
+    var whichPattern =this.getPatternById(whichPatternId);
+    if(whichPattern){
+        for (var i in whichPattern.getOutEdges()){
+            outEdgeL.push(whichPattern.getOutEdges()[i]);
+        }
+        for (var i in this.patterns){
+            var outEdges = this.patterns[i].getOutEdges();
+            for (var j in outEdges){
+                if(outEdges[j]==parseInt(whichPatternId)){
+                    outEdgeL.push(this.patterns[i].getId());
+                }
+            }
+        }
+    }
+    return outEdgeL;
+};
+
+NetworkYun.Network.prototype.getCanBeDelPattern = function(){
+    var canBeDel = [];
+    for (var i in this.patterns){
+        if(this.patterns[i].getNodes().length==1&&this.patterns[i].getNodes()[0].getIndex()==0){
+            var checkOrNot =false;
+            for(var j in this.getOutEdgeList(this.patterns[i].getId())){
+                var ll = this.getOutEdgeList(this.patterns[i].getId())[j];
+                if(this.getOutEdgeList(ll).length==1){
+                    checkOrNot = true;
+                    break;
+                }
+            }
+            if(!checkOrNot) canBeDel.push("pattern "+this.patterns[i].getId());
+        }
+    }
+    return canBeDel;
+};
+
+
+NetworkYun.Network.prototype.deletePattern = function(whichPatternId){
+    var whichPattern = this.getPatternById(whichPatternId);
+    var returnList=[];
+    if(whichPattern){
+        var rid = whichPattern.getConnectorId();
+        this.removeNode(rid);
+        dataStore.nodes.remove(rid);
+        var deletedList = this.removeEdge(rid);
+        for (var i in deletedList){
+            dataStore.edges.remove(deletedList[i].getId());
+            returnList.push({
+                source:deletedList[i].from,
+                target:deletedList[i].to
+            });
+        }
+        this.removePattern(parseInt(whichPatternId));
+        var ll = {
+            nodeId: {
+                nid:rid,
+                pid:parseInt(whichPatternId)
+            },
+            edgesList:returnList
+        };
+        return ll;
+    }
+};
+
+NetworkYun.Network.prototype.getAllNodeId = function(){
+    var returnList=[];
+    for (var i in this.nodes){
+        returnList.push("node "+ this.nodes[i].getId());
+    }
     return returnList;
 };

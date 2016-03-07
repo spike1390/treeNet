@@ -66,14 +66,6 @@ def lockAccount(username):
     return result
 
 
-
-#For admin create new user. questions and answer is not included
-def addAccount(list):
-    mydb.open()
-    result = mydb.insert_db("""insert into account(username,pwd,type,status)
-                              values(?,?,?,?)""",[list[0],list[1],list[2],list[3]] )
-    mydb.close_db()
-
 def verifyQues(index, username, answer):
     mydb.open()
     query = 'select as_%d from account WHERE username = ? '%index
@@ -87,6 +79,35 @@ def verifyQues(index, username, answer):
         return result[name] == answer
     else:
         return False
+
+#For admin create new user. questions and answer is not included
+# need parameters: username,pwd,type,status,fname,lname
+def createAccount(list):
+    mydb.open()
+    result = _valid_login_format(list[0],list[1])
+    if not result == None :
+        return result
+    mydb.insert_db("""insert into account(username,pwd,type,status,fname,lname)
+                              values(?,?,?,?,?,?)""", [list[0], list[1], list[2], list[3], list[4], list[5]])
+    mydb.close_db()
+    return None
+
+
+# Change user's pwd
+def change_pwd(username,pwd):
+    mydb.open()
+    result=_valid_login_format(username,pwd)
+    if not result==None:
+        return result
+    mydb.insert_db("""update account set pwd=? WHERE username= ?""", [pwd,username])
+    mydb.close_db()
+    return None
+
+
+
+
+# createAccount(['spike1123','2cs744',0,1,'Zhishang','Wang'])
+change_pwd('spikewang','123456')
 #addAccount(['spike1390','2cs744',0,1])
 
 #print verifyQues(3,'spikewang','asdfasdfs')

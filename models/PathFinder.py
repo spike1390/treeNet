@@ -37,43 +37,6 @@ def transform_to_nidList(pid, path):
     mydb.close_db()
     return nidList
 
-def send_smg(nid1, nid2, msg):
-    node1=SendMessage.get_node_byID(nid1)
-    node2=SendMessage.get_node_byID(nid2)
-    path=find_message_path(node1,node2)
-    msg=message(node1.nid,node2.nid,msg,path)
-    global_v.msg_buffer.append(msg)
-    return path
-
-
-# find a path between two nodes
-def find_message_path(node1,node2 ):
-    # if the two nodes are in one pattern
-    if node1.pid==node2.pid:
-        return transform_to_nidList(node1.pid,get_path_inTree(node1,node2))
-
-    # if two nodes are from different tree
-    path=[]
-    root=Node(0,0,1)
-    path1=[]
-    path2=[]
-    path3=[]
-    # if from node is not connector node
-    if(node1.index!=1):
-        path1=transform_to_nidList(node1.pid, get_path_inTree(node1,root))
-
-    path2=find_path_nidList(node1.pid,node2.pid);
-
-    if(node2.index!=1):
-        path3=transform_to_nidList(node2.pid, get_path_inTree(root,node2))
-    path=path1+path2+path3
-    l2 = list(set(path))
-    l2.sort(key=path.index)
-
-    # msg=message(node1.nid,node2.nid,msg, l2)
-    # global_v.msg_buffer.append(msg)
-    return l2
-    #path2=find_path_nidList
 
 
 # graph = {'A': ['B','D','E'],
@@ -105,6 +68,33 @@ def generate_graph():
     query = 'select * from edge'
     result = mydb.query_db(query, one = False)
     mydb.close_db()
+    inactive_pid_list=SendMessage.find_all_inactive_pid()
+    if not result==None:
+        for r in result:
+            f=r['_from']
+            t=r['_to']
+            if not f in inactive_pid_list and not t in inactive_pid_list:
+                # if the key is not exist in the graph
+                if f not in graph:
+                   graph[f]=[t]
+                else:
+                   temp_List=graph[f]
+                   temp_List.append(t)
+                if t not in graph:
+                    graph[t]=[f]
+                else:
+                    temp_List=graph[t]
+                    temp_List.append(f)
+                # print str(r['_from'])+' to '+ str(r['_to'])
+    return graph
+
+def generate_blocked_graph():
+    mydb.open()
+    graph= dict()
+    query = 'select * from edge'
+    result = mydb.query_db(query, one = False)
+    mydb.close_db()
+    inactive_pid_list=SendMessage.find_all_inactive_pid()
     if not result==None:
         for r in result:
             f=r['_from']
@@ -124,13 +114,18 @@ def generate_graph():
     return graph
 
 # path entry, start end is the pid
-def find_path_nidList(start, end):
-    pidList=get_shortest_path(generate_graph(),start,end )
+def find_path_nidList(start, end, bloked):
+    pidList=[]
+    if not bloked:
+        pidList=get_shortest_path(generate_graph(),start,end)
+    else:
+        pidList=get_shortest_path(generate_blocked_graph(),start,end)
     # del pidList[0]
     # del pidList[len(pidList)-1]
     nidList=[]
     mydb.open()
-    for pid in pidList:
+    if pidList:
+      for pid in pidList:
         query='select nid from node WHERE pid=? AND node_index=1'
         result = mydb.query_db(query,str(pid), one = True)
         if not result==None:
@@ -138,13 +133,7 @@ def find_path_nidList(start, end):
     mydb.close_db()
     return nidList
 
-def test_findNid_pid(pid):
-    mydb.open()
-    query='select nid from node WHERE pid=? AND node_index=1'
-    result = mydb.query_db(query,pid, one = True)
-    print result['nid']
-    mydb.close_db()
-
+# find a path from one node to the root node
 def get_path_to_root(node):
     s = []
     while node:
@@ -166,6 +155,61 @@ def get_path(node1, node2):
             return reversed(s1[i:]) + s2[i - 1:]
 
 
+# find a path between two nodes
+def find_message_path(node1,node2 ):
+    # if the two nodes are in one pattern
+    if node1.pid==node2.pid:
+        return transform_to_nidList(node1.pid,get_path_inTree(node1,node2))
+
+    # if two nodes are from different tree
+    path=[]
+    root=Node(0,0,1)
+    path1=[]
+    path2=[]
+    path3=[]
+    # if from node is not connector node
+    if(node1.index!=1):
+        path1=transform_to_nidList(node1.pid, get_path_inTree(node1,root))
+
+    # fisrt find any shortest valid path.
+    path2=find_path_nidList(node1.pid,node2.pid,False);
+    #  if any path bewteen two connector is blocked, then choose a shortest blocked one
+    if len(path2)==0:
+        path2=find_path_nidList(node1.pid,node2.pid,True);
+    #  if the destination is not the connector node, then find path inside the tree
+    if(node2.index!=1):
+        path3=transform_to_nidList(node2.pid, get_path_inTree(root,node2))
+    path=path1+path2+path3
+    # remove duplicate element in the path
+    l2 = list(set(path))
+    l2.sort(key=path.index)
+
+    # msg=message(node1.nid,node2.nid,msg, l2)
+    # global_v.msg_buffer.append(msg)
+    return l2
+    #path2=find_path_nidList
+
+#  refind a path
+def refind_path(nid1,nid2):
+    node1=SendMessage.get_node_byID(nid1)
+    if node1==None: return None
+    node2=SendMessage.get_node_byID(nid2)
+    if node2==None: return None
+    path=find_message_path(node1,node2)
+    return path
+
+
+
+def send_msg(nid1, nid2, msg):
+    node1=SendMessage.get_node_byID(nid1)
+    if node1==None: return 'from node does not exist'
+    node2=SendMessage.get_node_byID(nid2)
+    if node2==None: return 'destination node does not exist'
+    #  if both from node and to node are valid, then find the path
+    path=find_message_path(node1,node2)
+    msg=message(node1.nid,node2.nid,msg,path)
+    global_v.msg_buffer.append(msg)
+    return path
 
 
 # print generate_graph()

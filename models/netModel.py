@@ -108,8 +108,8 @@ def delete_pattern(pattern_id):
     results = mydb.query_db('SELECT * FROM pattern')
     for p in results:
         pid = p['pid']
-        re1 = mydb.query_db('SELECT * FROM edge WHERE _from = ?',[pid])
-        re2 = mydb.query_db('SELECT * FROM edge WHERE _to = ?',[pid])
+        re1 = mydb.query_db('SELECT * FROM edge WHERE _from = ?', [pid])
+        re2 = mydb.query_db('SELECT * FROM edge WHERE _to = ?', [pid])
         if len(re1)+len(re2) == 1:
             if len(re1) == 1:
                 pro = re1[0]['_to']
