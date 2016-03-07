@@ -11,6 +11,7 @@ fixed_questions = ["What is the first name of the person you first kissed?",
 ]
 
 q_a = []
+ran = 0
 msg_buffer=[]
 failed_msg=[]
 can_be_deliver=[]

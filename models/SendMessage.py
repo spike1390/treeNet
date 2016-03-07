@@ -213,10 +213,11 @@ def check_node_in_path(pre_nid, cur_nid):
         msg_in_buffer=global_v.msg_buffer[0];
         path=msg_in_buffer.path
         #  if this node is destination node and is active
-        if(path[len(path)-1]==cur_nid):
+        if(int(path[len(path)-1])==cur_nid):
             msg = message(pre_nid, msg_in_buffer._to, msg_in_buffer.msg)
             send_message(msg_in_buffer._from, msg_in_buffer._to, msg_in_buffer.msg)
             print 'Message from '+ str(msg_in_buffer._from) +' to ' + str(msg_in_buffer._to) +' is delivered '
+            return True
         else:
             print '->' +str(cur_nid)
             return True
@@ -225,8 +226,8 @@ def check_node_in_path(pre_nid, cur_nid):
 
 
 if __name__ == "__main__":
-    print view_all_message()
-    # pass
+    # print view_all_message()
+    pass
     # active_all_Nodes()
     # change_node_status(6,0)
     # change_node_status(4,0)

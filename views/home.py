@@ -88,8 +88,24 @@ def validate():
 
 @index.route('/changePassword')
 def change_password():
-    #accessControl.change_pwd()
-    pass
+    a = request.args.get('a', 0, type = str)
+    b = request.args.get('b', 0, type = str)
+    username = session['username']
+    print username,a,b
+    re = accessControl.verify(username, a)
+    msg = None
+    if re:
+        msg = accessControl.change_pwd(username, b)
+        if msg == None:
+            msg = 'success'
+    else:
+        msg = 'Old password wrong!'
+    print msg
+    return jsonify(result = msg)
+
+@index.route('/jumpChangePwd')
+def jump_change_pwd():
+    return render_template('changePassword.html')
 
 @index.route('/createAccount')
 def create_account():

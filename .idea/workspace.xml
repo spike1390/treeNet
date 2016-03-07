@@ -22,7 +22,7 @@
     <SUITE FILE_PATH="coverage/run$netModel.coverage" NAME="netModel Coverage Results" MODIFIED="1457129346802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/run$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1455247449765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
     <SUITE FILE_PATH="coverage/run$User.coverage" NAME="User Coverage Results" MODIFIED="1454908819403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
-    <SUITE FILE_PATH="coverage/run$run.coverage" NAME="run Coverage Results" MODIFIED="1457325178581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/run$run.coverage" NAME="run Coverage Results" MODIFIED="1457330762044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/run$json_test.coverage" NAME="json_test Coverage Results" MODIFIED="1456779631967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/run$insert_test.coverage" NAME="insert_test Coverage Results" MODIFIED="1454996930359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/views" />
     <SUITE FILE_PATH="coverage/run$db_test.coverage" NAME="db_test Coverage Results" MODIFIED="1456255822984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
@@ -44,32 +44,10 @@
       <file leaf-file-name="message.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/message.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="226" max-vertical-offset="720">
-              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="720">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Message.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="network.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/network.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="885">
-              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-              <folding>
-                <element signature="e#24#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,21 +56,76 @@
       <file leaf-file-name="Test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/Test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7916667" vertical-offset="11798" max-vertical-offset="12195">
-              <caret line="791" column="31" selection-start-line="791" selection-start-column="31" selection-end-line="791" selection-end-column="31" />
+            <state vertical-scroll-proportion="-2.4117646" vertical-offset="5322" max-vertical-offset="12630">
+              <caret line="363" column="33" selection-start-line="363" selection-start-column="33" selection-end-line="363" selection-end-column="33" />
               <folding>
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Network.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/Network.js">
+      <file leaf-file-name="run.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.10368664" vertical-offset="6375" max-vertical-offset="10380">
-              <caret line="428" column="16" selection-start-line="428" selection-start-column="16" selection-end-line="428" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="accessControl.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/accessControl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1266" max-vertical-offset="1740">
+              <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
+              <folding>
+                <marker date="1457309028000" expanded="true" signature="1241:1293" placeholder="select * fro..account..." />
+                <marker date="1457309028000" expanded="true" signature="1842:1924" placeholder="update accou..." />
+                <marker date="1457309028000" expanded="true" signature="2128:2173" placeholder="update accou..." />
+                <marker date="1457309028000" expanded="true" signature="2301:2345" placeholder="select as_mi..account..." />
+                <marker date="1457309028000" expanded="true" signature="2844:2951" placeholder="insert into ..." />
+                <marker date="1457309028000" expanded="true" signature="3230:3272" placeholder="update accou..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="changePassword.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/changePassword.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.30226701" vertical-offset="3060" max-vertical-offset="3510">
+              <caret line="212" column="42" selection-start-line="212" selection-start-column="42" selection-end-line="212" selection-end-column="42" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,8 +133,8 @@
       <file leaf-file-name="home.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/home.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="1575">
-              <caret line="88" column="22" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="1815">
+              <caret line="93" column="22" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -109,31 +142,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="netModel.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/netModel.py">
+      <file leaf-file-name="network.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1726" max-vertical-offset="2160">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1005">
+              <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
-                <marker date="1457313517000" expanded="true" signature="171:189" placeholder="SELECT * FRO..edge..." />
-                <marker date="1457313517000" expanded="true" signature="886:904" placeholder="SELECT * FRO..node..." />
-                <marker date="1457313517000" expanded="true" signature="1452:1486" placeholder="SELECT * FRO..edge..." />
-                <marker date="1457313517000" expanded="true" signature="1663:1684" placeholder="SELECT * FRO..pattern..." />
-                <marker date="1457313517000" expanded="true" signature="2059:2099" placeholder="INSERT INTO ..." />
-                <marker date="1457313517000" expanded="true" signature="2156:2211" placeholder="INSERT INTO ..." />
-                <marker date="1457313517000" expanded="true" signature="2262:2304" placeholder="INSERT INTO ..." />
-                <marker date="1457313517000" expanded="true" signature="2428:2479" placeholder="SELECT * FRO..node..." />
-                <marker date="1457313517000" expanded="true" signature="2553:2608" placeholder="INSERT INTO ..." />
-                <marker date="1457313517000" expanded="true" signature="2777:2807" placeholder="delete from ..." />
-                <marker date="1457313517000" expanded="true" signature="2912:2944" placeholder="SELECT * FRO..node..." />
-                <marker date="1457313517000" expanded="true" signature="3058:3079" placeholder="SELECT * FRO..pattern..." />
-                <marker date="1457313517000" expanded="true" signature="3156:3190" placeholder="SELECT * FRO..edge..." />
-                <marker date="1457313517000" expanded="true" signature="3229:3261" placeholder="SELECT * FRO..edge..." />
-                <marker date="1457313517000" expanded="true" signature="3604:3647" placeholder="delete from ..." />
-                <marker date="1457313517000" expanded="true" signature="3699:3730" placeholder="delete from ..." />
-                <marker date="1457313517000" expanded="true" signature="3771:3818" placeholder="delete from ..." />
+                <element signature="e#24#35#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Network.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/Network.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10500">
+              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="global_v.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/global_v.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+              <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,20 +177,20 @@
       <file leaf-file-name="SendMessage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/SendMessage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2380" max-vertical-offset="3885">
-              <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="3900">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="35" selection-end-column="19" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
-                <marker date="1457325615000" expanded="true" signature="426:459" placeholder="select * fro..node..." />
-                <marker date="1457325615000" expanded="true" signature="973:997" placeholder="update node ..." />
-                <marker date="1457325615000" expanded="true" signature="1200:1237" placeholder="update node ..." />
-                <marker date="1457325615000" expanded="true" signature="1407:1428" placeholder="select * fro..message..." />
-                <marker date="1457325615000" expanded="true" signature="1972:2032" placeholder="insert into ..." />
-                <marker date="1457325615000" expanded="true" signature="2593:2626" placeholder="select * fro..node..." />
-                <marker date="1457325615000" expanded="true" signature="2884:2936" placeholder="select pid f..node..." />
-                <marker date="1457325615000" expanded="true" signature="4509:4552" placeholder="select pid,n..node..." />
-                <marker date="1457325615000" expanded="true" signature="5532:5598" placeholder="INSERT INTO ..." />
-                <marker date="1457325615000" expanded="true" signature="5687:5707" placeholder="select nid f..node..." />
+                <marker date="1457326465000" expanded="true" signature="426:459" placeholder="select * fro..node..." />
+                <marker date="1457326465000" expanded="true" signature="973:997" placeholder="update node ..." />
+                <marker date="1457326465000" expanded="true" signature="1200:1237" placeholder="update node ..." />
+                <marker date="1457326465000" expanded="true" signature="1407:1428" placeholder="select * fro..message..." />
+                <marker date="1457326465000" expanded="true" signature="1972:2032" placeholder="insert into ..." />
+                <marker date="1457326465000" expanded="true" signature="2593:2626" placeholder="select * fro..node..." />
+                <marker date="1457326465000" expanded="true" signature="2884:2936" placeholder="select pid f..node..." />
+                <marker date="1457326465000" expanded="true" signature="4509:4552" placeholder="select pid,n..node..." />
+                <marker date="1457326465000" expanded="true" signature="5532:5598" placeholder="INSERT INTO ..." />
+                <marker date="1457326465000" expanded="true" signature="5687:5707" placeholder="select nid f..node..." />
               </folding>
             </state>
           </provider>
@@ -187,19 +223,20 @@
         <option value="$PROJECT_DIR$/templates/validate.html" />
         <option value="$PROJECT_DIR$/templates/select.html" />
         <option value="$PROJECT_DIR$/models/json_test.py" />
-        <option value="$PROJECT_DIR$/models/global_v.py" />
         <option value="$PROJECT_DIR$/models/Node.py" />
         <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/models/Message.py" />
         <option value="$PROJECT_DIR$/models/accessControl.py" />
         <option value="$PROJECT_DIR$/Network.js" />
-        <option value="$PROJECT_DIR$/models/netModel.py" />
-        <option value="$PROJECT_DIR$/views/home.py" />
-        <option value="$PROJECT_DIR$/views/network.py" />
-        <option value="$PROJECT_DIR$/templates/Test.html" />
-        <option value="$PROJECT_DIR$/models/SendMessage.py" />
         <option value="$PROJECT_DIR$/views/message.py" />
+        <option value="$PROJECT_DIR$/models/SendMessage.py" />
+        <option value="$PROJECT_DIR$/models/global_v.py" />
+        <option value="$PROJECT_DIR$/models/netModel.py" />
+        <option value="$PROJECT_DIR$/views/network.py" />
         <option value="$PROJECT_DIR$/static/Network.js" />
+        <option value="$PROJECT_DIR$/templates/Test.html" />
+        <option value="$PROJECT_DIR$/views/home.py" />
+        <option value="$PROJECT_DIR$/templates/changePassword.html" />
       </list>
     </option>
   </component>
@@ -334,8 +371,8 @@
       <recent name="$PROJECT_DIR$/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/static" />
     </key>
   </component>
   <component name="RunManager" selected="Python.SendMessage">
@@ -799,13 +836,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/mydb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="270">
@@ -911,13 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="930">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/select.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2812" max-vertical-offset="3795">
@@ -929,16 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="810">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -981,14 +994,6 @@
           <folding>
             <element signature="e#0#9#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/global_v.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51724136" vertical-offset="0" max-vertical-offset="435">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,48 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25547445" vertical-offset="0" max-vertical-offset="411">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/accessControl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6551724" vertical-offset="1305" max-vertical-offset="1740">
-          <caret line="108" column="36" selection-start-line="108" selection-start-column="30" selection-end-line="108" selection-end-column="36" />
-          <folding>
-            <marker date="1457309028000" expanded="true" signature="-1:-1" placeholder="select * fro..account..." />
-            <marker date="1457309028000" expanded="true" signature="-1:-1" placeholder="update accou..." />
-            <marker date="1457309028000" expanded="true" signature="-1:-1" placeholder="update accou..." />
-            <marker date="1457309028000" expanded="true" signature="-1:-1" placeholder="select as_mi..account..." />
-            <marker date="1457309028000" expanded="true" signature="-1:-1" placeholder="insert into ..." />
-            <marker date="1457309028000" expanded="true" signature="-1:-1" placeholder="update accou..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/insert.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7407407" vertical-offset="60" max-vertical-offset="465">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="4895" max-vertical-offset="5340">
@@ -1147,104 +1110,207 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/Message.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.48387095" vertical-offset="0" max-vertical-offset="434">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.py">
+    <entry file="file://$PROJECT_DIR$/views/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1110" max-vertical-offset="1575">
-          <caret line="88" column="22" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="22" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Test.html">
+    <entry file="file://$PROJECT_DIR$/models/global_v.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7916667" vertical-offset="11798" max-vertical-offset="12195">
-          <caret line="791" column="31" selection-start-line="791" selection-start-column="31" selection-end-line="791" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/SendMessage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="325" max-vertical-offset="3900">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="35" selection-end-column="19" />
           <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#24#63#0" expanded="true" />
+            <marker date="1457326465000" expanded="true" signature="426:459" placeholder="select * fro..node..." />
+            <marker date="1457326465000" expanded="true" signature="973:997" placeholder="update node ..." />
+            <marker date="1457326465000" expanded="true" signature="1200:1237" placeholder="update node ..." />
+            <marker date="1457326465000" expanded="true" signature="1407:1428" placeholder="select * fro..message..." />
+            <marker date="1457326465000" expanded="true" signature="1972:2032" placeholder="insert into ..." />
+            <marker date="1457326465000" expanded="true" signature="2593:2626" placeholder="select * fro..node..." />
+            <marker date="1457326465000" expanded="true" signature="2884:2936" placeholder="select pid f..node..." />
+            <marker date="1457326465000" expanded="true" signature="4509:4552" placeholder="select pid,n..node..." />
+            <marker date="1457326465000" expanded="true" signature="5532:5598" placeholder="INSERT INTO ..." />
+            <marker date="1457326465000" expanded="true" signature="5687:5707" placeholder="select nid f..node..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/netModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1726" max-vertical-offset="2160">
-          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1726" max-vertical-offset="2220">
+          <caret line="132" column="69" selection-start-line="132" selection-start-column="69" selection-end-line="132" selection-end-column="69" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
-            <marker date="1457313517000" expanded="true" signature="171:189" placeholder="SELECT * FRO..edge..." />
-            <marker date="1457313517000" expanded="true" signature="886:904" placeholder="SELECT * FRO..node..." />
-            <marker date="1457313517000" expanded="true" signature="1452:1486" placeholder="SELECT * FRO..edge..." />
-            <marker date="1457313517000" expanded="true" signature="1663:1684" placeholder="SELECT * FRO..pattern..." />
-            <marker date="1457313517000" expanded="true" signature="2059:2099" placeholder="INSERT INTO ..." />
-            <marker date="1457313517000" expanded="true" signature="2156:2211" placeholder="INSERT INTO ..." />
-            <marker date="1457313517000" expanded="true" signature="2262:2304" placeholder="INSERT INTO ..." />
-            <marker date="1457313517000" expanded="true" signature="2428:2479" placeholder="SELECT * FRO..node..." />
-            <marker date="1457313517000" expanded="true" signature="2553:2608" placeholder="INSERT INTO ..." />
-            <marker date="1457313517000" expanded="true" signature="2777:2807" placeholder="delete from ..." />
-            <marker date="1457313517000" expanded="true" signature="2912:2944" placeholder="SELECT * FRO..node..." />
-            <marker date="1457313517000" expanded="true" signature="3058:3079" placeholder="SELECT * FRO..pattern..." />
-            <marker date="1457313517000" expanded="true" signature="3156:3190" placeholder="SELECT * FRO..edge..." />
-            <marker date="1457313517000" expanded="true" signature="3229:3261" placeholder="SELECT * FRO..edge..." />
-            <marker date="1457313517000" expanded="true" signature="3604:3647" placeholder="delete from ..." />
-            <marker date="1457313517000" expanded="true" signature="3699:3730" placeholder="delete from ..." />
-            <marker date="1457313517000" expanded="true" signature="3771:3818" placeholder="delete from ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..edge..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..node..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..edge..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..pattern..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..node..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="delete from ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..node..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..pattern..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..edge..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..edge..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="delete from ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="delete from ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="delete from ..." />
+            <marker date="1457327034000" expanded="true" signature="-1:-1" placeholder="update node ..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/network.py">
+    <entry file="file://$PROJECT_DIR$/insert.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="885">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding>
-            <element signature="e#24#35#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Network.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10500">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/SendMessage.py">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2380" max-vertical-offset="3885">
-          <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-            <marker date="1457325615000" expanded="true" signature="426:459" placeholder="select * fro..node..." />
-            <marker date="1457325615000" expanded="true" signature="973:997" placeholder="update node ..." />
-            <marker date="1457325615000" expanded="true" signature="1200:1237" placeholder="update node ..." />
-            <marker date="1457325615000" expanded="true" signature="1407:1428" placeholder="select * fro..message..." />
-            <marker date="1457325615000" expanded="true" signature="1972:2032" placeholder="insert into ..." />
-            <marker date="1457325615000" expanded="true" signature="2593:2626" placeholder="select * fro..node..." />
-            <marker date="1457325615000" expanded="true" signature="2884:2936" placeholder="select pid f..node..." />
-            <marker date="1457325615000" expanded="true" signature="4509:4552" placeholder="select pid,n..node..." />
-            <marker date="1457325615000" expanded="true" signature="5532:5598" placeholder="INSERT INTO ..." />
-            <marker date="1457325615000" expanded="true" signature="5687:5707" placeholder="select nid f..node..." />
-          </folding>
+        <state vertical-scroll-proportion="0.25609756" vertical-offset="0" max-vertical-offset="410">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/message.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="226" max-vertical-offset="720">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="720">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Network.js">
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10368664" vertical-offset="6375" max-vertical-offset="10380">
-          <caret line="428" column="16" selection-start-line="428" selection-start-column="16" selection-end-line="428" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.35516372" vertical-offset="159" max-vertical-offset="930">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4117646" vertical-offset="5322" max-vertical-offset="12630">
+          <caret line="363" column="33" selection-start-line="363" selection-start-column="33" selection-end-line="363" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#2;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="571" max-vertical-offset="1005">
+          <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/accessControl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1266" max-vertical-offset="1740">
+          <caret line="96" column="4" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="4" />
+          <folding>
+            <marker date="1457309028000" expanded="true" signature="1241:1293" placeholder="select * fro..account..." />
+            <marker date="1457309028000" expanded="true" signature="1842:1924" placeholder="update accou..." />
+            <marker date="1457309028000" expanded="true" signature="2128:2173" placeholder="update accou..." />
+            <marker date="1457309028000" expanded="true" signature="2301:2345" placeholder="select as_mi..account..." />
+            <marker date="1457309028000" expanded="true" signature="2844:2951" placeholder="insert into ..." />
+            <marker date="1457309028000" expanded="true" signature="3230:3272" placeholder="update accou..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="1815">
+          <caret line="93" column="22" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/changePassword.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30226701" vertical-offset="3060" max-vertical-offset="3510">
+          <caret line="212" column="42" selection-start-line="212" selection-start-column="42" selection-end-line="212" selection-end-column="42" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

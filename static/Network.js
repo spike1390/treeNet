@@ -74,6 +74,10 @@ NetworkYun.Node.prototype.getColor = function(){
     return this.color;
 };
 
+NetworkYun.Node.prototype.getActive = function(){
+    return this.attributes.active;
+};
+
 NetworkYun.Node.prototype.getShape = function(){
     return this.shape;
 };
@@ -99,8 +103,9 @@ NetworkYun.Node.prototype.changeColor = function(whichColor){
     this.color = whichColor;
 };
 
-
-
+NetworkYun.Node.prototype.changeActive = function(){
+    this.active = 1;
+};
 
 
 NetworkYun.Edge = function(props,connectOrNot){
@@ -683,4 +688,8 @@ NetworkYun.Network.prototype.getAllNodeId = function(){
         returnList.push("node "+ this.nodes[i].getId());
     }
     return returnList;
+};
+
+NetworkYun.Network.prototype.Activate = function(id){
+    this.getNodeById(id).changeActive();
 };

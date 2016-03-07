@@ -99,8 +99,11 @@
 		.btn-primary2{
 		  background: #ebebeb;
 		  color: #888;
-		  border: none;
 		  text-shadow: -1px -1px 2px #f8f8f8;
+            width: 110px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
 		}
 		.btn-primary{
             width: 110px;
@@ -323,6 +326,10 @@
             margin-left: 380px;
             color: #ccc;
         }
+        #defaultSlider{
+            margin-left: 60px;
+        }
+
     </style>
 </head>
 <body>
@@ -354,7 +361,7 @@
 
 <div class="changeIfmBox">
     <ul class="select__options Infbox">
-        <li><a href=""><p>change password</p></a></li>
+        <li><a href="{{ url_for('index.jump_change_pwd') }}"><p>change password</p></a></li>
         <li><a href=""><p>change secure questions</p></a></li>
     </ul>
 </div>
@@ -444,7 +451,8 @@
         <textarea  id="messageInf" cols="30" rows="10" class="messageInf" ></textarea>
         <button  type="submit" name="richtext-submit" class="btn btn-primary sendMessageBtn" style="font-size: 13px;">send message</button>
         <button  type="text" name="richtext-submit" class="btn btn-primary messageBoxBtn" style="font-size: 13px;">message box</button>
-        <button  type="text" name="richtext-submit" class="btn btn-primary activateNodeBtn" style="font-size: 14px;">activate</button>
+        <button  type="text" name="richtext-submit" class="btn btn-primary2 activateNodeBtn" style="font-size: 14px;">activate</button>
+        <input id="defaultSlider" type="range" min="0" max="100" value="0"/>
      </div>
     <span class="lastword">last word: 50</span>
 </div>
@@ -499,7 +507,8 @@
             improvedLayout:false
         },
         interaction:{
-            zoomView: false
+            zoomView: false,
+            selectConnectedEdges:false
         }
     };
     var container = document.getElementById('mynetwork');
@@ -527,6 +536,25 @@
 {#            params.event = "[original event]";#}
 {#            document.getElementById('eventSpan').innerHTML = '<h2>Click event:</h2>' + JSON.stringify(params, null, 4);#}
 {#        });#}
+        networkTest.on("selectNode", function (params) {
+            if(params.nodes.length!=1) return false;
+            var node = params.nodes[0];
+            console.log(node);
+            if(networkPY.getNodeById(node).getActive()==0){
+                $('.activateNodeBtn').removeClass('btn-primary2');
+                $('.activateNodeBtn').addClass('btn-primary');
+                $('.activateNodeBtn').bind('click',function(){
+                    if($(this).hasClass('btn-primary')){
+                        networkPY.Activate(node);
+                        networkPY.changeColor(node,'rgb(255,168,7)');
+                        $.getJSON($SCRIPT_ROOT + '/network/activeNode', {
+                            a: node
+                          }, function(data) {
+                          });
+                    }
+                });
+            }
+        });
     }
 
 
@@ -784,6 +812,7 @@
                     a: 1
                   }, function(data) {
                         startNetwork(data);
+                        $('#defaultSlider').val(data.ranNum);
                   });
             }, 300);
     });

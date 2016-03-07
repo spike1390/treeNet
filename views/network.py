@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 from operator import methodcaller
-from models import netModel
+from models import netModel,global_v
 from flask import Blueprint, app, render_template, request, session, jsonify
 
 network = Blueprint('network', __name__)
@@ -10,9 +10,10 @@ network = Blueprint('network', __name__)
 
 @network.route('/whole_network')
 def return_whole_network():
-
+    ran = global_v.ran
     net = netModel.return_json()
-    return jsonify(result1=net)
+
+    return jsonify(result1=net, ranNum = ran)
 
 @network.route('/addNode')
 def add_node():
@@ -51,4 +52,11 @@ def delete_pattern():
     nid = nodeId['pid']
     netModel.delete_pattern(nid)
 
+    return jsonify()
+
+@network.route('/activeNode')
+def active_node():
+    a = request.args.get('a', 0, type = str)
+    nid = int(a)
+    netModel.change_node_status(nid, 1)
     return jsonify()

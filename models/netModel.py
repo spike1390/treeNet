@@ -127,7 +127,11 @@ def delete_pattern(pattern_id):
         mydb.close_db()
         return True
 
-
+def change_node_status(nid, active):
+    mydb.open()
+    # active =1 means it is active
+    result = mydb.insert_db('update node SET active=?  WHERE nid=?', [active,nid])
+    mydb.close_db()
 
 # print return_json()
 #print add_node(4,3)
