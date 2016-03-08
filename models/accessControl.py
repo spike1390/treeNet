@@ -99,15 +99,31 @@ def change_pwd(username,pwd):
     result=_valid_login_format(username,pwd)
     if not result==None:
         return result
-    mydb.insert_db("""update account set pwd=? WHERE username= ?""", [pwd,username])
+    mydb.insert_db("""update account set pwd=? WHERE username= ?""", [pwd, username])
     mydb.close_db()
     return None
 
+def get_security_question(username):
+    mydb.open()
+    result = mydb.query_db('select * from account WHERE username = ? ', [username], one=True)
+    mydb.close_db()
+    if result:
+        questions = question(result['sq_1'],result['as_1'],result['sq_2'],result['as_2'],result['sq_3'],result['as_3'])
+        return questions
+    else:
+        return None
 
-
-
+def change_security_question(index, q, a, username):
+    if len(a) == 0:
+        return -1
+    mydb.open()
+    query = 'update account set sq_%d= ?,as_%d=? WHERE username = ?' % (index, index)
+    print query
+    mydb.insert_db(query, [q, a, username])
+    mydb.close_db()
+    return 1
 # createAccount(['spike1123','2cs744',0,1,'Zhishang','Wang'])
-change_pwd('spikewang','123456')
+
 #addAccount(['spike1390','2cs744',0,1])
 
 #print verifyQues(3,'spikewang','asdfasdfs')

@@ -43,7 +43,7 @@ def login():
               list=[ques.sq1,ques.sq2,ques.sq3]
               #  get count from webpage , send list[index_list[count]]
               # correct answer =  verifyQues(index_list[count], session['username'])
-              return render_template('validate.html', questions = list)
+              return render_template('validate.html', questions = list, check = 1)
         #return redirectork(url_for('index.show_network', username = username))
 
 @index.route('/logout')
@@ -79,12 +79,13 @@ def validate():
     q = request.args.get('a', 0, type = str)
     index = request.args.get('c', 0, type = int)
     answer = request.args.get('b', 0, type = str)
+    check = request.args.get('check', 0, type = int)
     index += 1
     re = accessControl.verifyQues(index, session['username'], answer)
     if re:
-        return jsonify(result = 1)
+        return jsonify(result = 1, check =check)
     else:
-        return jsonify(result = 0)
+        return jsonify(result = 0, check =check)
 
 @index.route('/changePassword')
 def change_password():
@@ -106,6 +107,54 @@ def change_password():
 @index.route('/jumpChangePwd')
 def jump_change_pwd():
     return render_template('changePassword.html')
+
+@index.route('/jumpChangeSec')
+def jump_security_questions():
+    return render_template('changeSecurityQuestion.html')
+
+@index.route('/jumpValidate')
+def jump_validate():
+    username = session['username']
+    questions = accessControl.get_security_question(username)
+    list = [questions.sq1, questions.sq2, questions.sq3]
+    return render_template('validate.html', check = 0, questions = list)
+
+@index.route('/getSecurityQuestions')
+def get_security_questions():
+    username = session['username']
+    questions = accessControl.get_security_question(username)
+
+    return jsonify(questions = global_v.fixed_questions, question1 = questions.sq1, question2 = questions.sq2,
+                   question3 = questions.sq3)
+
+@index.route('/changeSecureQuestions')
+def change_secure_questions():
+    username = session['username']
+    q1 = request.args.get('a', 0, type = str)
+    a1 = request.args.get('b', 0, type = str)
+    q2 = request.args.get('c', 0, type = str)
+    a2 = request.args.get('d', 0, type = str)
+    q3 = request.args.get('e', 0, type = str)
+    a3 = request.args.get('f', 0, type = str)
+    c1 = request.args.get('check1', 0, type = int)
+    c2 = request.args.get('check2', 0, type = int)
+    c3 = request.args.get('check3', 0, type = int)
+    print c1, c2, c3
+    re1 = 1
+    re2 = 1
+    re3 = 1
+    if c1 != 0:
+        re1 = accessControl.change_security_question(1, q1, a1, username)
+    if c2 != 0:
+        re2 = accessControl.change_security_question(2, q2, a2, username)
+    if c3 != 0:
+        re3 = accessControl.change_security_question(3, q3, a3, username)
+    if re1>0 and re2>0 and re3>0:
+        return jsonify(result = 1)
+    else:
+        return jsonify(result = 0)
+
+
 
 @index.route('/createAccount')
 def create_account():

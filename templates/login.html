@@ -34,22 +34,20 @@
 
 <div class="slider">
   <div class="slide slide-feature1 active-slide"></div>
-  <div class="slide slide-feature2 "></div>
-  <div class="slide slide-feature3 "></div>
 </div>
 </body>
 <script type="text/javascript">
-    var main = function() {
-      setInterval(function() {
-            var currentSlide = $(".active-slide");
-            var nextSlide = $(".active-slide").next();
-            if (nextSlide.length === 0) {
-                nextSlide = $(".slide").first();
-            }
-        currentSlide.fadeOut(3000).removeClass("active-slide");
-        nextSlide.fadeIn(3500).addClass("active-slide");
-      }, 3000);
-    };
+{#    var main = function() {#}
+{#      setInterval(function() {#}
+{#            var currentSlide = $(".active-slide");#}
+{#            var nextSlide = $(".active-slide").next();#}
+{#            if (nextSlide.length === 0) {#}
+{#                nextSlide = $(".slide").first();#}
+{#            }#}
+{#        currentSlide.fadeOut(3000).removeClass("active-slide");#}
+{#        nextSlide.fadeIn(3500).addClass("active-slide");#}
+{#      }, 3000);#}
+{#    };#}
 
 $(document).ready(main);
 </script>

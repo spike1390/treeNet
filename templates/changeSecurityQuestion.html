@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Secure Validation</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<style type="text/css">
+		body{
+			font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+			color:#555;
+			font-size: 13px;
+			margin:0;
+			padding: 0;
+		}
+		input{
+			outline: none;
+			font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+			font-size: 12px;
+		}
+
+		.cover-black{
+	    	opacity: 1;
+			position: fixed;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 4;
+			background-color: rgba(0, 0, 0, 0.75);
+	    }
+	    .cover-hide{
+	    	display: none;
+	    }
+
+	      .secure-box{
+	         width: 40%;
+			margin-top: 100px;
+			margin-left: 400px;
+	      border: 1px solid #AEAEAE;
+	    	padding: 10px 40px  0 40px;
+	      z-index: 5;
+	      background: #fff;
+	       border-radius: 4px;
+		}
+
+		.secure-box-show{
+			opacity: 1;
+			visibility: visible;
+
+		}
+		.btn{
+			padding: 6px 12px;
+			display: inline-block;
+		}
+		.btn-primary2{
+		  background: #ebebeb;
+		  color: #888;
+		  border: none;
+		  text-shadow: -1px -1px 2px #f8f8f8;
+		}
+		.btn-primary{
+		  float: right;
+		  margin-left: 25px;
+		  color: #fff;
+			background: -webkit-linear-gradient(top, #98d0e0 2%, #68b8d1 8%, #4fa9c6 58%, #4fa9c6 95%, #4ca4c0);
+			border: 0;
+			font-weight: 200;
+			border-radius: 3px;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+		}
+		.btn-primary:hover{
+		  color: #fff;
+		  background:#68B5CB;
+		  border: 0;
+		}
+
+
+		.select-container {
+		  display: block;
+		  position: relative;
+		  min-height: 70px;
+		  margin-bottom: 25px;
+		}
+
+		.select {
+		  position: absolute;
+		  left: 0;
+		  right: 0;
+		  border-radius: 3px;
+		  border: 1px solid #ccc;
+		  background-color: white;
+		  margin-top: 10px;
+		}
+
+
+		.select__options {
+		  display: none;
+		  list-style-type: none;
+		  border-top: 1px solid #ccc;
+		    margin-bottom: 0;
+		    margin-top: 0;
+		    padding: 0;
+		}
+		.select__options li {
+		  padding: 4px 8px;
+		  margin: 0 ;
+		  line-height: 1.4;
+		}
+		.select__options li:hover, .select__options li:focus {
+		  background-color: #98d0e0;
+		  color: white;
+		}
+
+		.select-is-open {
+		  z-index: 9999;
+		}
+		.select-is-open .select {
+		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		}
+		.select-is-open .select__options {
+		  display: block;
+		}
+		.edit-category{
+		    outline-color: rgb(85, 85, 85);
+		outline-style: none;
+		outline-width: 0px;
+		    font-size: 14px;
+		}
+		.form-group{
+			margin: 30px auto;
+			max-width: 500px;
+		    margin-bottom: 30px;
+		}
+		.form-control{
+			display: block;
+			width: 91%;
+			height: 25px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.4285;
+			color:#555;
+			background: #fff;
+			background-image: none;
+			transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		}
+		.answer-box{
+			border:1px solid #ccc;
+			border-radius: 4px;
+			padding: 1px 0px;
+		}
+        .pgtitle{
+            margin-top: 20px;
+            margin-left: 130px;
+            margin-bottom: 20px;
+            color:  #D15600;
+            font-weight: normal;
+            font-size: 22px;
+        }
+	</style>
+
+</head>
+<body>
+	<div class="secure-box">
+        <div class="pgtitle"> <span>Change Your Security Question</span></div>
+		<div class="form-group box">
+			<div class="select-container">
+	          <label class="labelForQuestion" for="title" style="font: 12px/200% 'Hiragino Sans GB','Microsoft YaHei',tahoma,arial,simsun;font-size: 15px;margin-bottom: 20px;" onselectstart="return false;">Question 1</label>
+	                <div class="select">
+	                     <i  name="select-btn" style="position:absolute;top:10px;right:10px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+	                    <input readonly="value" class="form-control post-question" id="post-question1" name="post-question" type="text"  style="border: 0;">
+	                     <ul class="select__options">
+	                    </ul>
+	                </div>
+	    	</div>
+		    <div class="answer-box">
+		    	<input class="form-control" name="post-answer" type="text" id="post-answer1" name="post-answer" placeholder="Type your answer" style="border: 0;">
+		    </div>
+		</div>
+
+		<div class="form-group box">
+			<div class="select-container">
+	          <label class="labelForQuestion" for="title" style="font: 12px/200% 'Hiragino Sans GB','Microsoft YaHei',tahoma,arial,simsun;font-size: 15px;margin-bottom: 20px;" onselectstart="return false;">Question 2</label>
+	                <div class="select">
+	                     <i  name="select-btn" style="position:absolute;top:10px;right:10px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+	                    <input readonly="value" class="form-control post-question" id="post-question2" name="post-question" type="text"  style="border: 0;">
+	                     <ul class="select__options">
+	                    </ul>
+	                </div>
+	    	</div>
+		    <div class="answer-box">
+		    	<input class="form-control" name="post-answer" type="text" id="post-answer2" name="post-answer" placeholder="Type your answer" style="border: 0;">
+		    </div>
+		</div>
+
+		<div class="form-group box">
+			<div class="select-container">
+	          <label class="labelForQuestion" for="title" style="font: 12px/200% 'Hiragino Sans GB','Microsoft YaHei',tahoma,arial,simsun;font-size: 15px;margin-bottom: 20px;" onselectstart="return false;">Question 3</label>
+	                <div class="select">
+	                     <i  name="select-btn" style="position:absolute;top:10px;right:10px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+	                    <input readonly="value" class="form-control post-question" id="post-question3" name="post-question" type="text"  style="border: 0;">
+	                     <ul class="select__options">
+	                    </ul>
+	                </div>
+	    	</div>
+		    <div class="answer-box">
+		    	<input class="form-control" name="post-answer" type="text" id="post-answer3" name="post-answer" placeholder="Type your answer" style="border: 0;">
+		    </div>
+		</div>
+
+		<div class="form-group">
+              <button type="button" id="richtext-cancel" class="btn btn-primary2 cancel-modify" style="font-size: 16px;">Cancel</button>
+              <button  type="submit" id="richtext-submit" class="btn btn-primary" style="font-size: 16px;">Submit</button>
+        </div>
+
+	</div>
+
+</body>
+	<script type="text/javascript">
+		var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+		$('[name=select-btn]').click(function() {
+            $(this).parent().parent().toggleClass('select-is-open');
+        });
+        $('#richtext-cancel').click(function(){
+            window.location.href='{{  url_for("index.show_network",username=session['username']) }}';
+        });
+        var question1;
+        var question2;
+        var question3;
+        $(function() {
+             var submit_form = function(e) {
+                 var questionSend1 = $('#post-question1').val();
+                 var questionSend2 = $('#post-question2').val();
+                 var questionSend3 = $('#post-question3').val();
+                 var answerSend1 = $('#post-answer1').val();
+                 var answerSend2 = $('#post-answer2').val();
+                 var answerSend3 = $('#post-answer3').val();
+                 var check1 =  1;
+                 var check2 =  1;
+                 var check3 =  1;
+                 if(questionSend1==question1) check1=0;
+                 if(questionSend2==question2) check2=0;
+                 if(questionSend3==question3) check3=0;
+                 console.log(check1);
+                 console.log(check2);
+                 console.log(check3);
+              $.getJSON($SCRIPT_ROOT + '/home/changeSecureQuestions', {
+                    a: $('#post-question1').val(),
+                    b: $('#post-answer1').val(),
+                    c: $('#post-question2').val(),
+                    d: $('#post-answer2').val(),
+                    e: $('#post-question3').val(),
+                    f: $('#post-answer3').val(),
+                    check1:check1,
+                    check2:check2,
+                    check3:check3
+              }, function(data) {
+                    if(data.result == 1) window.location.href='{{  url_for('index.show_network',username = session.username) }}';
+                    else  $('.pgtitle span').text("changed answer can not be empty");
+              });
+              return false;
+            };
+            $('#richtext-submit').bind('click', submit_form);
+		});
+		$(document).ready(function(){
+			$.getJSON($SCRIPT_ROOT + '/home/getSecurityQuestions',{
+			},function(data){
+				var questions = data.questions;
+				question1 = data.question1;
+				question2 = data.question2;
+				question3 = data.question3;
+                console.log(data);
+				//$('#post-question1').val(question1);
+				//$('#post-question2').val(question2);
+				//$('#post-question3').val(question3);
+				for(var i in questions){
+					$('#post-question1').next().append("<li>" + questions[i]+ "</li>");
+					$('#post-question2').next().append("<li>" + questions[i]+ "</li>");
+					$('#post-question3').next().append("<li>" + questions[i]+ "</li>");
+				}
+				$('.select__options li').bind('click',function(){
+					var whichInput = $(this).parent().parent().find('.post-question');
+					var whichText = $(this).text();
+            		whichInput.val(whichText);
+            		$(this).parent().parent().parent().removeClass('select-is-open');
+            		if(whichInput.attr('id')=='post-question1'){
+            			$('#post-question2').next().find('li').each(function(){
+            				if($(this).text()==whichText) $(this).remove();
+            			});
+            			if($('#post-question2').val()==whichText)  $('#post-question2').val("") ;
+            			$('#post-question3').next().find('li').each(function(){
+            				if($(this).text()==whichText) $(this).remove();
+            			});
+            			if($('#post-question3').val()==whichText)  $('#post-question3').val("") ;
+            		}
+            		if(whichInput.attr('id')=='post-question2'){
+            			$('#post-question1').next().find('li').each(function(){
+            				if($(this).text()==whichText) $(this).remove();
+            			});
+            			if($('#post-question1').val()==whichText)  $('#post-question1').val("") ;
+            			$('#post-question3').next().find('li').each(function(){
+            				if($(this).text()==whichText) $(this).remove();
+            			});
+            			if($('#post-question3').val()==whichText)  $('#post-question3').val("") ;
+            		}
+            		if(whichInput.attr('id')=='post-question3'){
+            			$('#post-question2').next().find('li').each(function(){
+            				if($(this).text()==whichText) $(this).remove();
+            			});
+            			if($('#post-question2').val()==whichText)  $('#post-question2').val("") ;
+            			$('#post-question1').next().find('li').each(function(){
+            				if($(this).text()==whichText) $(this).remove();
+            			});
+            			if($('#post-question1').val()==whichText)  $('#post-question1').val("") ;
+            		}
+        		});
+				$('#post-question1').next().find('li').each(function(){
+            				if($(this).text()==question1) $(this).click();
+            	});
+            	$('#post-question2').next().find('li').each(function(){
+            				if($(this).text()==question2) $(this).click();
+            	});
+            	$('#post-question3').next().find('li').each(function(){
+            				if($(this).text()==question3) $(this).click();
+            	});
+			});
+		});
+</script>
+
+</html>

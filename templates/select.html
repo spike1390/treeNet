@@ -166,9 +166,7 @@
 	                    <input readonly="value" class="form-control" name="post-question" type="text" id="post-question" style="border: 0;">
 	                    <ul class="select__options">
                             {% for question in questions %}
-	                      	<li>
-                                <p>{{ question }}</p>
-	                      	</li>
+	                      	<li>{{ question }}</li>
                             {% endfor %}
 	                    </ul>
 	                </div>
@@ -199,7 +197,7 @@
 		// });
 		$('.select__options li').click(function(){
 
-            $('#post-question').val($(this).find('p').text());
+            $('#post-question').val($(this).text());
             $('.select-container').toggleClass('select-is-open');
         });
 
@@ -227,7 +225,7 @@
                   		}
                   		$('#labelForQuestion').text("Question "+String(count));
                   		$('.select__options').children().each(function(index, el) {
-                  			if($(this).find('p').text()==$('#post-question').val()){
+                  			if($(this).text()==$('#post-question').val()){
                   				$(this).remove();
                   			}
                   		});

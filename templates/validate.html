@@ -164,7 +164,7 @@
 	                <div class="select">
 	                     <i  id="select-btn" style="position:absolute;top:10px;right:10px;font-size: 20px;cursor: pointer;color:#555; display:none;" class="material-icons" onselectstart="return false;">add</i>
 	                    <input readonly="value" class="form-control" name="post-question" type="text" id="post-question" style="border: 0;">
-	                     <ul class="select__options" style="display:none">
+	                     <ul class="select__options" style="display:none" name="{{ check }}">
 	                    	{% for question in questions %}
 	                      	<li>
 	                      		<p>{{question}}</p>
@@ -198,6 +198,7 @@
 				$('#post-question').val($('ul').find('li').eq(count).find('p').text());
 			});
 			var times = 1;
+            var checkIt = parseInt($('.select__options').attr('name'));
             $(function() {
                  var submit_form = function(e) {
                      console.log("heh");
@@ -208,11 +209,17 @@
                   $.getJSON($SCRIPT_ROOT + '/home/validate', {
                         a: $('#post-question').val(),
                         b: $('#post-answer').val(),
-                        c: count
+                        c: count,
+                        check:checkIt
                   }, function(data) {
                       console.log("heh2");
                   		var result =data.result;
+                        checkIt =data.check;
                   		if(result==1){
+                            if(checkIt==1) window.location.href='{{  url_for('index.show_network',username = session.username) }}';
+                            if(checkIt==0) window.location.href='{{  url_for('index.jump_security_questions')}}';
+                  		}
+                        if(result==2){
                   			window.location.href='{{  url_for('index.show_network',username = session.username) }}';
                   		}
                   		$('#labelForQuestion').text("Wrong Answer, Next Question");
