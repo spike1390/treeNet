@@ -19,7 +19,57 @@
 			font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
 			font-size: 12px;
 		}
+        button:focus{
+            outline: none;
+        }
+        .navi-header{
+            /*transition:all ease-in-out 0.3s;*/
+            font-family: 'IM Fell French Canon SC', serif;
+            height: 60px;
+            background: rgba(255,255,255,0.97);
+            opacity: 0.93;
+            padding: 0;
+            z-index: 9;
+            width: 100%;
+            border-bottom: 1px solid #E2E2E2;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+    .navi-header a{
+        color:#66615b;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    .navi-inner{
+        width: 1300px;
+        text-align: left;
+        height: 68px;
+        margin: 0 auto;
+        padding: 0;
+            }
+    .navi-logo{
+        float: left;
+        width:125px;
+        margin-left: 65px;
+        margin-top: 18px;
+        margin-right: 10px;
+        height:60px;
+    }
+    .navi-logo a{
+        font-family: 'Kavoon', cursive;
+        font-size: 20px;
+        color: #D15600;
+        margin-left: -15px;
+    }
 
+    .navi-entry{
+       float: right;
+       margin: auto  0;
+       margin-right: 30px;
+    }
+    .navi-entry li {
+     display: inline-block;
+     margin:  28px 45px 24px 20px;
+    }
 		.cover-black{
 	    	opacity: 1;
 			position: fixed;
@@ -38,7 +88,7 @@
 
 	      .secure-box{
 	         width: 40%;
-			margin-top: 100px;
+			margin-top: 30px;
 			margin-left: 400px;
 	      border: 1px solid #AEAEAE;
 	    	padding: 10px 40px  0 40px;
@@ -164,6 +214,33 @@
 
 </head>
 <body>
+
+    <div id="navi-header" class="navi-header ">
+        <div class="navi-inner">
+            <div id="navi-logo" class="navi-logo">
+                 <a href="{{ url_for('index.show_network',username = session.username) }}">Tree Network</a>
+            </div>
+
+            <ul class="navi-entry">
+                <li class="entry-home-li">
+
+                    <a href="##" class="entry-home">
+                        <span class="home-icon">
+                        </span>
+                        <span class="home-text">{{ session.username }}</span>
+                    </a>
+                </li>
+                <li class="entry-signout-li">
+                    <a href="{{ url_for("index.logout") }}" class="entry-signout">
+                        <span class="signout-icon"></span>
+                        <span class="signout-text">SignOut</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
 	<div class="secure-box">
         <div class="pgtitle"> <span>Change Your Security Question</span></div>
 		<div class="form-group box">
@@ -227,6 +304,14 @@
         $('#richtext-cancel').click(function(){
             window.location.href='{{  url_for("index.show_network",username=session['username']) }}';
         });
+
+        function findValue(addList,value){
+            for(var i in addList.length){
+                if(addList[i]==value) return true;
+            }
+            return false;
+        }
+
         var question1;
         var question2;
         var question3;

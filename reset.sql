@@ -94,28 +94,3 @@ CREATE TABLE IF NOT EXISTS message(
 	FOREIGN KEY(_to) REFERENCES node(nid)
 );
 
-CREATE TABLE IF NOT EXISTS account(
-	username TEXT PRIMARY KEY NOT NULL,
-	pwd TEXT NOT NULL,
-	type INTEGER NOT NULL,
-	sq_1 TEXT,
-	as_1 TEXT,
-	sq_2 TEXT,
-	as_2 TEXT,
-	sq_3 TEXT,
-	as_3 TEXT,
-	status INTEGER,
-	lname TEXT,
-	fname TEXT
-);
-
-INSERT INTO account (username,pwd,type,status)
-VALUES ('spikewang','2cs744',0,1);
-INSERT INTO account (username,pwd,type,status)
-VALUES ('spike1390','2cs744',0,1);
-INSERT INTO account (username,pwd,type,status)
-VALUES ('admin','2cs744',1,1);
-
-
-
-

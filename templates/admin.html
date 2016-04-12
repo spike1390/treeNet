@@ -1,10 +1,223 @@
-<!DOCTYPE html>
+<!--
+    Created by yun on 3/28/16.
+    Author:yun
+-->
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
+    <style type="text/css">
+        body{
+            font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+            color: #555;
+            font-size: 13px;
+            margin: 0;
+            padding: 0;
+        }
+        button:focus{
+            outline: none;
+        }
+        .navi-header{
+        /*transition:all ease-in-out 0.3s;*/
+        font-family: 'IM Fell French Canon SC', serif;
+        height: 60px;
+        background: rgba(255,255,255,0.97);
+        opacity: 0.93;
+        padding: 0;
+        z-index: 9;
+        width: 100%;
+        border-bottom: 1px solid #E2E2E2;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 0 0 1px rgba(0, 0, 0, 0.05);
+    }
+    .navi-header a{
+        color:#66615b;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    .navi-inner{
+        width: 1300px;
+        text-align: left;
+        height: 68px;
+        margin: 0 auto;
+        padding: 0;
+            }
+    .navi-logo{
+        float: left;
+        width:125px;
+        margin-left: 65px;
+        margin-top: 18px;
+        margin-right: 10px;
+        height:60px;
+    }
+    .navi-logo a{
+        font-family: 'Kavoon', cursive;
+        font-size: 20px;
+        color: #D15600;
+        margin-left: -15px;
+    }
+
+    .navi-entry{
+       float: right;
+       margin: auto  0;
+       margin-right: 30px;
+    }
+    .navi-entry li {
+     display: inline-block;
+     margin:  28px 45px 24px 20px;
+    }
+
+        .messageBoxBlock {
+          font-family: "Helvetica Neue", Helvetica, Arial;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+          color: #3b3b3b;
+          -webkit-font-smoothing: antialiased;
+          font-smoothing: antialiased;
+          margin-top: 100px;
+          margin-left: 370px;
+        }
+
+        .messageBox{
+            max-height: 550px;
+            overflow-y:auto;
+            scrollbar-face-color: #ebebeb;
+            scrollbar-shadow-color: #ffffff;
+            scrollbar-highlight-color:#ffffff;
+            scrollbar-3dlight-color: #d8d8d8;
+            scrollbar-darkshadow-color: #d8d8d8;
+            scrollbar-track-color:#ffffff;
+            scrollbar-arrow-color: #686868;
+        }
+
+        .table {
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+          display: table;
+          border-radius: 5px;
+            max-width: 800px;
+        }
+
+
+        .row {
+          display: table-row;
+          background: #f6f6f6;
+        }
+        .row:nth-of-type(odd) {
+          background: #e9e9e9;
+        }
+        .row.header {
+          font-weight: 900;
+          color: #ffffff;
+          background: #ea6153 !important;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+        .row.green {
+          background: #27ae60;
+        }
+        .row.blue {
+          background: #2980b9;
+        }
+
+        .cell {
+          padding: 15px 30px;
+          display: table-cell;
+        }
+
+        .row:hover{
+            background: #98d0e0;
+            color: white;
+        }
+        .select-btn2:hover{
+            color: #2980b9;
+        }
+        .select-btn{
+            color: #fc6355;
+        }
+        .select-btn:hover{
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h2>admin</h2>
+<div id="navi-header" class="navi-header ">
+	<div class="navi-inner">
+		<div id="navi-logo" class="navi-logo">
+             <a href="{{ url_for('index.show_network',username = session.username) }}">Tree Network</a>
+		</div>
+
+		<ul class="navi-entry">
+            <li class="entry-home-li">
+
+                <a href="##" class="entry-home">
+					<span class="home-icon">
+					</span>
+					<span class="home-text">{{ session.username }}</span>
+				</a>
+			</li>
+			<li class="entry-signout-li">
+				<a href="{{ url_for("index.logout") }}" class="entry-signout">
+					<span class="signout-icon"></span>
+					<span class="signout-text">SignOut</span>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</div>
+
+
+<div class="messageBoxBlock table wrapper">
+    <div class="messageBox">
+            <div class="row header blue">
+          <div class="cell">
+            Username
+          </div>
+          <div class="cell">
+            FirstName
+          </div>
+            <div class="cell">
+            LastName
+          </div>
+          <div class="cell">
+            Password
+          </div>
+          <div class="cell">
+            <i style="font-size: 25px;cursor: pointer;margin-top: -10px;position: relative;top:7px" class="material-icons select-btn2" >add</i>
+          </div>
+        </div>
+
+        {% for account in accounts %}
+        <div class="row">
+          <div class="cell">{{ account.name }}</div>
+          <div class="cell">{{ account.fname }}</div>
+          <div class="cell">{{ account.lname }}</div>
+          <div class="cell">************</div>
+          <div class="cell">
+            <i  style="font-size: 25px;cursor: pointer;margin-top: -10px;position: relative;top:6px" class="material-icons select-btn" >clear</i>
+          </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+    <script type="text/javascript">
+        var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        $('.select-btn2').click(function(){
+            window.location.href='{{  url_for("index.jump_register") }}';
+        });
+         $('.select-btn').click(function(){
+             var username = $(this).parent().parent().find('.cell').first().text();
+             console.log(username);
+             $.getJSON($SCRIPT_ROOT + '/home/deleteAccount', {
+                username:username
+              }, function(data) {
+             });
+             $(this).parent().parent().remove();
+        });
+    </script>
 </body>
-</html>
+

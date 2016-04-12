@@ -18,6 +18,11 @@
             font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
             color: #555;
             font-size: 13px;
+            margin: 0;
+            padding: 0;
+        }
+        button:focus{
+            outline: none;
         }
         #mynetwork {
             width: 1200px;
@@ -31,65 +36,64 @@
             float: left;
         }
         .navi-header{
-    /*transition:all ease-in-out 0.3s;*/
-    font-family: 'IM Fell French Canon SC', serif;
-    height: 60px;
-    background: rgba(255,255,255,0.97);
-    opacity: 0.93;
-    padding: 0;
-    z-index: 9;
-    width: 100%;
-    border-bottom: 1px solid #E2E2E2;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 0 0 1px rgba(0, 0, 0, 0.05);
-}
-.navi-header a{
-    color:#66615b;
-    font-size: 14px;
-    text-decoration: none;
-}
-.navi-inner{
-    width: 1300px;
-    text-align: left;
-    height: 68px;
-    margin: 0 auto;
-    padding: 0;
+            /*transition:all ease-in-out 0.3s;*/
+            font-family: 'IM Fell French Canon SC', serif;
+            height: 60px;
+            background: rgba(255,255,255,0.97);
+            opacity: 0.93;
+            padding: 0;
+            z-index: 9;
+            width: 100%;
+            border-bottom: 1px solid #E2E2E2;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 0 0 1px rgba(0, 0, 0, 0.05);
         }
-.navi-logo{
-    float: left;
-    width:125px;
-    margin-left: 65px;
-    margin-top: 18px;
-    margin-right: 10px;
-    height:60px;
-}
-.navi-logo a{
-    font-family: 'Kavoon', cursive;
-    font-size: 20px;
-    color: #D15600;
-    margin-left: -15px;
-}
+        .navi-header a{
+            color:#66615b;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .navi-inner{
+            width: 1300px;
+            text-align: left;
+            height: 68px;
+            margin: 0 auto;
+            padding: 0;
+                }
+        .navi-logo{
+            float: left;
+            width:125px;
+            margin-left: 65px;
+            margin-top: 18px;
+            margin-right: 10px;
+            height:60px;
+        }
+        .navi-logo a{
+            font-family: 'Kavoon', cursive;
+            font-size: 20px;
+            color: #D15600;
+            margin-left: -15px;
+        }
 
-.navi-entry{
-   float: right;
-   margin: auto  0;
-   margin-right: 30px;
-}
-.navi-entry li {
- display: inline-block;
- margin:  28px 45px 24px 20px;
-}
-.hideblock{
-    display: none;
-}
-.button-box{
-    float: left;
-    margin-left: 20px;
-    margin-top: 25px;
-}
+        .navi-entry{
+           float: right;
+           margin: auto  0;
+           margin-right: 30px;
+        }
+        .navi-entry li {
+         display: inline-block;
+         margin:  28px 45px 24px 20px;
+        }
+        .hideblock{
+            display: none;
+        }
+        .button-box{
+            float: left;
+            margin-left: 20px;
+            margin-top: 25px;
+        }
 
         .blockbox{
-            margin-top: 20px;
-            margin-bottom:50px;
+            margin-bottom:40px;
         }
         .btn{
 			padding: 4px 8px;
@@ -148,7 +152,7 @@
 		    padding: 0;
 		}
 		.select__options li {
-		    padding: 1px 10px;
+		    padding: 1px 6px;
 		    margin: 0 ;
 		    line-height: 0.1;
 		}
@@ -207,11 +211,14 @@
         }
         .button-box2{
             float: left;
-            margin-left: 100px ;
+            margin-left: 30px ;
         }
         .button-box2 .blockbox{
             margin-top: 0;
             margin-bottom: 5px;
+        }
+        .button-box2 .blockbox button{
+            margin-right: 12px;
         }
         .messageInf{
             outline: none;
@@ -238,12 +245,6 @@
         .bottom-container{
             float: left;
             margin-left: 10px;
-        }
-        .messageBoxBtn{
-            margin-left: 50px;
-        }
-        .activateNodeBtn{
-            margin-left: 100px;
         }
         .cover-black{
     	    opacity: 1;
@@ -276,7 +277,7 @@
             visibility: visible;
         }
         .messageBox{
-            margin-top: 10px;
+            margin-top: 5px;
             height: 515px;
             overflow-y:auto;
             scrollbar-face-color: #ebebeb;
@@ -297,7 +298,7 @@
         }
         .closeMsgBtn{
             margin-left: 275px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         #messagaBoxLab{
             font-size: 16px;
@@ -323,20 +324,92 @@
         }
         .lastword{
             font-size: 11px;
-            margin-left: 380px;
+            margin-left:-980px;
             color: #ccc;
         }
         #defaultSlider{
-            margin-left: 60px;
+            width: 110px;
         }
-
+        .btnBox{
+            float: left;
+        }
+        .wordbox{
+            margin-top: 39px;
+        }
+        .controler{
+            margin-top: 15px;
+            margin-left: 8px;
+            font-size: 12px;
+            color:black;
+        }
+        .controler label{
+            padding: 8px 10px;
+        }
+        .labelActive{
+            border: 1px solid #D15600;
+            border-radius: 4px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: none;
+            color:#D15600;
+        }
+        .m-sch {
+            position: relative;
+            color:#666;
+            font-size: 13px;
+            margin-left: 220px;
+        }
+        .m-sch .form,.m-sch .txt {
+            width: 0;
+            height: 22px;
+            line-height: 22px;
+        }
+        .m-sch .form {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0 10px;
+            border: 1px solid #aaa;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .m-sch .txt {
+            border: 0;
+            background: none;
+        }
+        .m-sch .form {
+            border-color: #aaa;
+        }
+        a,.m-sch .form {
+            -webkit-transition: all .3s ease;
+            transition: all .3s ease;
+            list-style: none;
+            text-decoration: none;
+            color:#666
+        }
+        .m-sch .form {
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+           border-radius: 4px;
+        }
+        .m-schshow .form,.m-schshow .txt {
+            width: 80px;
+            outline: none;
+        }
+        .m-schshow .form {
+            opacity: 1;
+            visibility: visible;
+        }
+        .f-hidden {
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
 <div id="navi-header" class="navi-header ">
 	<div class="navi-inner">
 		<div id="navi-logo" class="navi-logo">
-             <a href="##">Tree Network</a>
+             <a href="{{ url_for('index.show_network',username = session.username) }}">Tree Network</a>
 		</div>
 
 		<ul class="navi-entry">
@@ -361,8 +434,12 @@
 
 <div class="changeIfmBox">
     <ul class="select__options Infbox">
-        <li><a href="{{ url_for('index.jump_change_pwd') }}"><p>change password</p></a></li>
-        <li><a href="{{ url_for('index.jump_validate') }}"><p>change secure questions</p></a></li>
+        {% if  session.type %}
+            <li><a href="{{ url_for('index.jump_admin_page') }}"><p>manage users</p></a></li>
+        {% else %}
+            <li><a href="{{ url_for('index.jump_change_pwd') }}"><p>change password</p></a></li>
+            <li><a href="{{ url_for('index.jump_security_questions') }}"><p>change secure questions</p></a></li>
+        {% endif %}
     </ul>
 </div>
 
@@ -377,88 +454,109 @@
                     </ul>
                 </div>
     	</div>
-         <button  type="submit" name="richtext-submit" class="btn btn-primary addConnectorNodeBtn" style="font-size: 16px;">add pattern</button>
+        <div class="select-container">
+                <div class="select">
+                     <i  name="select-btn3" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="connectorSelectBox2" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+         <button  type="submit" name="richtext-submit" class="btn btn-primary addConnectorNodeBtn" style="font-size: 14px;">Add Pattern</button>
+    </div>
+    <div class="blockbox">
+        <div class="select-container">
+            <div class="select">
+                 <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                <input readonly="value" class="form-control post-question" id="deleteConnector" type="text"  style="border: 0;">
+                 <ul class="select__options">
+                </ul>
+            </div>
+    	</div>
+        <button  type="submit" name="richtext-submit" class="btn btn-primary deleteConnNodeBtn" style="font-size: 14px;">Delete Pattern</button>
+    </div>
+    <div class="blockbox">
+        <div class="select-container">
+                <div class="select">
+                     <i  name="select-btn2" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                    <input readonly="value" class="form-control post-question" id="domainSelect" type="text"  style="border: 0;">
+                     <ul class="select__options">
+                    </ul>
+                </div>
+    	</div>
+         <button  type="submit" name="richtext-submit" class="btn btn-primary2 addDomainBtn" style="font-size: 14px;">Add Domain</button>
     </div>
     <div class="blockbox">
         <div class="select-container">
                 <div class="select">
                      <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
-                    <input readonly="value" class="form-control post-question" id="normalSelect" type="text"  style="border: 0;">
+                    <input readonly="value" class="form-control post-question" id="addEdgeSelectBox" type="text"  style="border: 0;">
                      <ul class="select__options">
                     </ul>
                 </div>
     	</div>
-        <div class="select-container hideblock">
+        <div class="select-container">
                 <div class="select">
                      <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
-                    <input readonly="value" class="form-control post-question" id="normalSelect2" type="text"  style="border: 0;">
+                    <input readonly="value" class="form-control post-question" id="addEdgeSelectBox2" type="text"  style="border: 0;">
                      <ul class="select__options">
                     </ul>
                 </div>
     	</div>
-        <button  type="submit" name="richtext-submit" class="btn btn-primary addNormalNodeBtn" style="font-size: 16px;">add node</button>
+         <button  type="submit" name="richtext-submit" class="btn btn-primary addEdgeBtn" style="font-size: 12px;">Add Connection</button>
     </div>
     <div class="blockbox">
-        <div class="select-container">
-                <div class="select">
-                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
-                    <input readonly="value" class="form-control post-question" id="deleteSelect" type="text"  style="border: 0;">
-                     <ul class="select__options">
-                    </ul>
-                </div>
-    	</div>
-        <div class="select-container hideblock">
-                <div class="select">
-                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
-                    <input readonly="value" class="form-control post-question" id="deleteSelect2" type="text"  style="border: 0;">
-                     <ul class="select__options">
-                    </ul>
-                </div>
-    	</div>
-        <button  type="submit" name="richtext-submit" class="btn btn-primary deleteNormalNodeBtn" style="font-size: 16px;">delete node</button>
-     </div>
-     <div class="blockbox">
-        <div class="select-container">
-                <div class="select">
-                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
-                    <input readonly="value" class="form-control post-question" id="deleteConnector" type="text"  style="border: 0;">
-                     <ul class="select__options">
-                    </ul>
-                </div>
-    	</div>
-        <button  type="submit" name="richtext-submit" class="btn btn-primary deleteConnNodeBtn" style="font-size: 14px;">delete pattern</button>
+        <button  type="submit" name="richtext-submit" class="btn btn-primary2 delEdgeBtn" style="font-size: 10px;">Delete Connection</button>
     </div>
 </div>
 
 <div class="button-box2">
     <div class="blockbox">
-        <div class="select-container bottom-container">
+        <div class="btnBox">
+             <div class="select-container bottom-container">
                 <div class="select">
                      <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
-                    <input readonly="value" class="form-control post-question" id="messageFrom" type="text"  style="border: 0;">
+                    <input readonly="value" class="form-control post-question " id="messageFrom" type="text"  style="border: 0;">
                      <ul class="select__options">
                     </ul>
                 </div>
-    	</div>
-        <div class="select-container bottom-container ">
-                <div class="select">
-                     <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
-                    <input readonly="value" class="form-control post-question" id="messageTo" type="text"  style="border: 0;">
-                     <ul class="select__options">
-                    </ul>
-                </div>
-    	</div>
-        <textarea  id="messageInf" cols="30" rows="10" class="messageInf" ></textarea>
-        <button  type="submit" name="richtext-submit" class="btn btn-primary sendMessageBtn" style="font-size: 13px;">send message</button>
-        <button  type="text" name="richtext-submit" class="btn btn-primary messageBoxBtn" style="font-size: 13px;">message box</button>
-        <button  type="text" name="richtext-submit" class="btn btn-primary2 activateNodeBtn" style="font-size: 14px;">activate</button>
-        <input id="defaultSlider" type="range" min="0" max="100" value="0"/>
-     </div>
-    <span class="lastword">last word: 50</span>
+            </div>
+            <div class="select-container bottom-container ">
+                    <div class="select">
+                         <i  name="select-btn" style="float:right;margin-top: 5px;margin-right: 2px;font-size: 20px;cursor: pointer;color:#555;" class="material-icons" onselectstart="return false;">add</i>
+                        <input readonly="value" class="form-control post-question" id="messageTo" type="text"  style="border: 0;">
+                         <ul class="select__options">
+                        </ul>
+                    </div>
+            </div>
+            <textarea  id="messageInf" cols="30" rows="10" class="messageInf" ></textarea>
+            <button  type="submit" name="richtext-submit" class="btn btn-primary sendMessageBtn" style="font-size: 13px;">Send message</button>
+        </div>
+        <div class="btnBox">
+            <button  type="text" name="richtext-submit" class="btn btn-primary messageBoxBtn" style="font-size: 13px;">Message Box</button>
+            <button  type="text" name="richtext-submit" class="btn btn-primary2 activateNodeBtn" style="font-size: 14px;">Activate</button>
+            <button  type="submit" name="richtext-submit" class="btn btn-primary2 addNormalNodeBtn" style="font-size: 14px;">Add Node</button>
+            <button  type="submit" name="richtext-submit" class="btn btn-primary2 deleteNormalNodeBtn" style="font-size: 14px;">Delete Node</button>
+            <input id="defaultSlider" type="range" min="0" max="100" value="0"/>
+        </div>
+    </div>
+    <div class="wordbox">
+        <span class="lastword">last word: 50</span>
+    </div>
 </div>
 <div class="cover-black hideblock"></div>
 <div class="messageBoxBlock">
     <label for="messageBox" id="messagaBoxLab">Message Box</label>
+    <div class="controler">
+        <label for="success" id="successBtn" class="labelActive">Delivered Message</label>
+        <label for="fail" id="failBtn">Blocked Message</label>
+        <label for="search" class="m-sch">
+            <a id="j-lnksch" href="##">Search</a>
+                <div id="j-schform" class="form">
+                    <input type="text" name="searchBox" class="txt" placeholder="keyword">
+                </div>
+        </label>
+    </div>
     <div class="messageBox">
         <ul class="messageList select__options">
         </ul>
@@ -469,15 +567,17 @@
 </div>
 
 <script type="text/javascript">
-
-        $('[name=select-btn]').click(function() {
-            $(this).parent().parent().toggleClass('select-is-open');
-        });
-    $.ajaxSettings.async = false;
+    var prev_data = null,
+    waiting_for_update = false,
+    LONG_POLL_DURATION = 60000;
+    var pool_stop = false;
     var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
     var networkPY;
     var networkTest;
     var dataStore;
+    var msgLock = false;
+    var msgboxList;
+    var msgboxList2;
     var options={
         nodes:{
             mass:0,
@@ -513,9 +613,253 @@
     };
     var container = document.getElementById('mynetwork');
 
+    $('[name=select-btn]').click(function() {
+        $(this).parent().parent().toggleClass('select-is-open');
+    });
+    $('[name=select-btn2]').click(function() {
+        if($(this).parent().parent().hasClass('select-is-open')){
+            var count = 8;
+            if($(this).next().prop('id')=="domainSelect") count=6;
+            var val = "";
+            $(this).parent().find('.select__options li').find('label').each(function(){
+                if($(this).prev().prop('checked')){
+                    if(val!="") val = val + ","+ $(this).text().substring(count);
+                    else val = val + $(this).text().substring(count);
+                }
+            });
+            var btn = $(this).parent().parent().parent().find('button');
+            if(val!=""||(val==""&&$(this).parent().find('.select__options li').length==0)){
+                btn.removeClass('btn-primary2');
+                btn.addClass('btn-primary');
+            }
+            else{
+                btn.removeClass('btn-primary');
+                btn.addClass('btn-primary2');
+            }
+            $(this).next().val(val);
+        }
+        $(this).parent().parent().toggleClass('select-is-open');
+    });
+    $('[name=select-btn3]').click(function() {
+        if($(this).parent().parent().hasClass('select-is-open')){
+            var count = 8;
+            if($(this).next().prop('id')=="domainSelect") count=6;
+            var val = "";
+            $(this).parent().find('.select__options li').find('label').each(function(){
+                if($(this).prev().prop('checked')){
+                    if(val!="") val = val + ","+ $(this).text().substring(count);
+                    else val = val + $(this).text().substring(count);
+                }
+            });
+            var btn = $(this).parent().parent().parent().find('button');
+
+            $(this).next().val(val);
+        }
+        $(this).parent().parent().toggleClass('select-is-open');
+    });
+
+    $('[name=searchBox]').bind('keypress',function(event){
+            if(event.keyCode == "13") {
+                var value = parseInt($(this).val());
+                var returnList = [];
+                if($('#successBtn').hasClass('labelActive')){
+                    if(!value||$(this).val()==""){
+                        returnList = msgboxList;
+                    }
+                    else{
+                        for(var i in msgboxList){
+                            if(msgboxList[i].to==value){
+                                returnList.push(msgboxList[i]);
+                            }
+                        }
+                    }
+                    console.log(returnList);
+                    $('.messageList').find('li').each(function(){
+                        $(this).remove();
+                    });
+                    for(var i in returnList){
+                        $('.messageList').append("<li><span class='Msgfrom Msglabel'>From: <label for='from'>" +returnList[i].from
+                                    +"</label> </span> <span class='Msgto Msglabel'>To: <label for='to'>" + returnList[i].to +
+                                    "</label> </span><span class='Msgcontent'>"+returnList[i].msg +"</span> <span class='Msgtime Msglabel'>"+ returnList[i].ctime
+                                        + "</span></li> ");
+                    }
+                }
+                else{
+                    if(!value||$(this).val()==""){
+                        returnList = msgboxList2;
+                    }
+                    else{
+                        for(var i in msgboxList2){
+                            if(msgboxList2[i].blocked==value){
+                                returnList.push(msgboxList2[i]);
+                            }
+                        }
+                    }
+                    console.log(returnList);
+                    $('.messageList').find('li').each(function(){
+                        $(this).remove();
+                    });
+                    for (var i in returnList){
+                        $('.messageList').append("<li><span class='Msgfrom Msglabel'>Sender: <label for='sender'>" +returnList[i].sender
+                            +"</label> </span> <span class='Msgto Msglabel'>To: <label for='to'>" + returnList[i].to +
+                            "</label> </span> <span class='Msgblock Msglabel'>Block: <label for='block'>" +returnList[i].blocked
+                                + "</label> </span> <span class='Msgcontent'>"+returnList[i].msg +"</span>");
+                    }
+                }
+            }
+        });
+
+    $('#successBtn').click(function(){
+        $('#failBtn').removeClass('labelActive');
+        $(this).addClass('labelActive');
+         $('.messageList').find('li').each(function(){
+            $(this).remove();
+        });
+        for (var i in msgboxList){
+            $('.messageList').append("<li><span class='Msgfrom Msglabel'>From: <label for='from'>" +msgboxList[i].from
+                +"</label> </span> <span class='Msgto Msglabel'>To: <label for='to'>" + msgboxList[i].to +
+                "</label> </span><span class='Msgcontent'>"+msgboxList[i].msg +"</span> <span class='Msgtime Msglabel'>"+ msgboxList[i].ctime
+                    + "</span></li> ");
+        }
+    });
+
+    $('#failBtn').click(function(){
+        $('#successBtn').removeClass('labelActive');
+        $(this).addClass('labelActive');
+         $('.messageList').find('li').each(function(){
+            $(this).remove();
+        });
+        console.log(msgboxList2);
+        for (var i in msgboxList2){
+            $('.messageList').append("<li><span class='Msgfrom Msglabel'>Sender: <label for='sender'>" +msgboxList2[i].sender
+                +"</label> </span> <span class='Msgto Msglabel'>To: <label for='to'>" + msgboxList2[i].to +
+                "</label> </span> <span class='Msgblock Msglabel'>Block: <label for='block'>" +msgboxList2[i].blocked
+                    + "</label> </span> <span class='Msgcontent'>"+msgboxList2[i].msg +"</span>");
+        }
+    });
+
     $('.home-text').click(function(){
         $('.changeIfmBox').toggleClass('select-is-open');
     });
+
+    function bindSchEvents($lnk, $txt){
+        $lnk.bind('click', function (){
+            $(this).addClass('f-hidden').parent().addClass('m-schshow');
+            setTimeout(function (){
+                $txt.focus();
+            }, 300);
+            return false;
+        });
+        $txt.bind('blur', function (){
+            setTimeout(function (){
+                $lnk.removeClass('f-hidden').parent().removeClass('m-schshow');
+            }, 300);
+            return false;
+        });
+    }
+
+
+    $('.activateNodeBtn').bind('click',function(){
+        if($(this).hasClass('btn-primary')){
+            if(networkTest.getSelectedNodes().length==0) return false;
+            var node= networkTest.getSelectedNodes()[0];
+            console.log(node);
+            networkPY.Activate(node);
+            $.getJSON($SCRIPT_ROOT + '/network/activeNode', {
+                a: node
+              }, function(data) {
+                $('.activateNodeBtn').removeClass('btn-primary');
+                $('.activateNodeBtn').addClass('btn-primary2');
+               var msgL = JSON.parse(data.result);
+                console.log(data.result);
+                var msgList = [];
+                for(var i in msgL){
+                    msgList.push(new NetworkYun.Message(msgL[i]));
+                }
+                console.log(msgList);
+                var path_cpy=0;
+                for(var i in msgList){
+{#                    $.getJSON($SCRIPT_ROOT + '/message/sendMessage', {#}
+{#                        a: msgList[i].from,#}
+{#                        b: msgList[i].to,#}
+{#                        c: msgList[i].msg,#}
+{#                        d: msgList[i].msgId#}
+{#                      }, function(data) {#}
+{#                            var path = JSON.parse(data.result);#}
+{#                            console.log(path);#}
+{#                            var count = data.count;#}
+{#                            networkPY.toggleColor(path,count);#}
+{#                            changeSelectBox();#}
+{#                      });#}
+                        $.ajax({
+                         url:$SCRIPT_ROOT + '/message/sendMessage',
+                         data:{
+                             a: msgList[i].from,
+                             b: msgList[i].to,
+                             c: msgList[i].msg,
+                             d: msgList[i].msgId
+                         },
+                         async:false,
+                         dataType: "json",
+                         success:function(data){
+                             var path = JSON.parse(data.result);
+                             var count = data.count;
+                             setTimeout(function(){
+                                 networkPY.toggleColor(path,count);
+                             },path_cpy);
+                             path_cpy += (path.length+2)*1000;
+                             changeSelectBox();
+                         }
+                     });
+                }
+              });
+        }
+    });
+
+    function  judgeSelect(){
+            var nodes = networkTest.getSelectedNodes();
+            if(nodes.length==0){
+                $('.addNormalNodeBtn').removeClass('btn-primary');
+                $('.addNormalNodeBtn').addClass('btn-primary2');
+                $('.deleteNormalNodeBtn').removeClass('btn-primary');
+                $('.deleteNormalNodeBtn').addClass('btn-primary2');
+            }
+            else{
+                var node = nodes[0];
+                if(networkPY.getCanBeAdded(node)!=-1){
+                    $('.addNormalNodeBtn').removeClass('btn-primary2');
+                    $('.addNormalNodeBtn').addClass('btn-primary');
+                }
+                else{
+                    $('.addNormalNodeBtn').removeClass('btn-primary');
+                    $('.addNormalNodeBtn').addClass('btn-primary2');
+                }
+                if(networkPY.getCanBeDeleted(node)==1){
+                    $('.deleteNormalNodeBtn').removeClass('btn-primary2');
+                    $('.deleteNormalNodeBtn').addClass('btn-primary');
+                }
+                else{
+                    $('.deleteNormalNodeBtn').removeClass('btn-primary');
+                    $('.deleteNormalNodeBtn').addClass('btn-primary2');
+                }
+            }
+            var edges = networkTest.getSelectedEdges();
+            if(edges.length==0){
+                $('.delEdgeBtn').removeClass('btn-primary');
+                $('.delEdgeBtn').addClass('btn-primary2');
+            }
+            else{
+                var edge = edges[0];
+                if(networkPY.judgeEdgeToDel(edge)){
+                    $('.delEdgeBtn').removeClass('btn-primary2');
+                    $('.delEdgeBtn').addClass('btn-primary');
+                }
+                else{
+                    $('.delEdgeBtn').removeClass('btn-primary');
+                    $('.delEdgeBtn').addClass('btn-primary2');
+                }
+            }
+    }
 
     function startNetwork(data){
         networkPY= new NetworkYun.Network(JSON.parse(data.result1));
@@ -539,40 +883,71 @@
         networkTest.on("selectNode", function (params) {
             if(params.nodes.length!=1) return false;
             var node = params.nodes[0];
-            console.log(node);
             if(networkPY.getNodeById(node).getActive()==0){
                 $('.activateNodeBtn').removeClass('btn-primary2');
                 $('.activateNodeBtn').addClass('btn-primary');
-                $('.activateNodeBtn').bind('click',function(){
-                    if($(this).hasClass('btn-primary')){
-                        networkPY.Activate(node);
-                        networkPY.changeColor(node,'rgb(255,168,7)');
-                        $.getJSON($SCRIPT_ROOT + '/network/activeNode', {
-                            a: node
-                          }, function(data) {
-                          });
-                    }
-                });
             }
+            else{
+                $('.activateNodeBtn').removeClass('btn-primary');
+                $('.activateNodeBtn').addClass('btn-primary2');
+            }
+            judgeSelect();
+        });
+        networkTest.on("deselectNode", function (params) {
+            judgeSelect();
+        });
+        networkTest.on("selectEdge", function (params) {
+            if(params.edges.length!=1) return false;
+            judgeSelect();
+        });
+        networkTest.on("deselectEdge", function (params) {
+            $('.delEdgeBtn').removeClass('btn-primary');
+            $('.delEdgeBtn').addClass('btn-primary2');
         });
     }
 
+   function  makeSelectBox1(whichBox,dataF,f){
+        whichBox.next().children().each(function(){
+                $(this).remove();
+        });
+        for(var i=0;i<dataF.length;i++){
+            whichBox.next().append("<li><input name='checkOrNot' type='checkbox'>" +
+                    "<label class='checkOrNotLabel' for='checkOrNot'>" +dataF[i] +"</label></li>");
+        }
+        if(whichBox.parent().find('.select__options li').length==0){
+                whichBox.val("Nothing");
+        }
+        else{
+            whichBox.parent().find('.select__options li').find('label').bind('click',function(){
+                if($(this).prev().prop('checked')) $(this).prev().prop('checked',false);
+                else  $(this).prev().prop('checked',true);
+            });
+        }
+    }
 
-    function  makeSelectBox2(whichBox,dataF,f){
+
+
+    function  makeSelectBox2(whichBox,dataF,f,f2){
         whichBox.next().children().each(function(){
                 $(this).remove();
         });
         for(var i=0;i<dataF.length;i++){
             whichBox.next().append("<li ><p>" +dataF[i] +"</p></li>");
         }
+        var btn =whichBox.parent().parent().parent().find('button');
         if(whichBox.parent().find('.select__options li').length==0){
                 whichBox.val("Nothing");
+                btn.removeClass('btn-primary');
+                btn.addClass('btn-primary2');
+                f2();
         }
         else{
+            btn.removeClass('btn-primary2');
+            btn.addClass('btn-primary');
             whichBox.parent().find('.select__options li').bind('click',function(){
                 whichBox.val($(this).find('p').text());
                 $(this).parent().parent().parent().removeClass('select-is-open');
-                 f();
+                f();
             });
             var checkOrNot = false;
             whichBox.parent().find('.select__options li').each(function(){
@@ -588,87 +963,62 @@
     }
 
 
-{#    function  makeSelectBox(whichBox,whichBox2,addOrDeleted){#}
-{#        whichBox.parent().find('.select__options li').bind('click',function(){#}
-{#            whichBox.val($(this).find('p').text());#}
-{#            $(this).parent().parent().parent().removeClass('select-is-open');#}
-{#            whichBox2.next().children().each(function(){#}
-{#                $(this).remove();#}
-{#            });#}
-{#            whichBox2.parent().parent().removeClass('hideblock');#}
-{#            var whichPattern = networkPY.getPatternById(whichBox.val().substring(8));#}
-{#            var contentL;#}
-{#            if(addOrDeleted==1) contentL = whichPattern.getCanBeAdded();#}
-{#            else if(addOrDeleted==2) contentL = whichPattern.getCanBeDeleted();#}
-{#            for (var i in contentL){#}
-{#                whichBox2.next().append("<li><p>node " + contentL[i] +"</p></li>");#}
-{#            }#}
-{#            whichBox2.parent().find('.select__options li').bind('click',function(){#}
-{#                whichBox2.val($(this).find('p').text());#}
-{#                $(this).parent().parent().parent().removeClass('select-is-open');#}
-{#            });#}
-{#            if(whichBox2.parent().find('.select__options li').length==0){#}
-{#                whichBox2.val("Nothing");#}
-{#            }#}
-{#            else{#}
-{#                var checkOrNot = false;#}
-{#                whichBox2.parent().find('.select__options li').each(function(){#}
-{#                   if($(this).find('p').text()==whichBox2.val()){#}
-{#                       checkOrNot = true;#}
-{#                       $(this).click();#}
-{#                   }#}
-{#                });#}
-{#                if(!checkOrNot){#}
-{#                    whichBox2.parent().find('.select__options li:nth-child(1)').click();#}
-{#                }#}
-{#            }#}
-{#        });#}
-{#        if(whichBox.parent().find('.select__options li').length==0){#}
-{#                whichBox.val("Nothing");#}
-{#        }#}
-{#        else{#}
-{#            var checkOrNot = false;#}
-{#            whichBox.parent().find('.select__options li').each(function(){#}
-{#               if($(this).find('p').text()==whichBox.val()){#}
-{#                   checkOrNot = true;#}
-{#                   $(this).click();#}
-{#               }#}
-{#            });#}
-{#            if(!checkOrNot){#}
-{#                whichBox.parent().find('.select__options li:nth-child(1)').click();#}
-{#            }#}
-{#        }#}
-{#    }#}
-
     function  changeSelectBox(){
         $('.blockbox li').each(function(){
             $(this).remove();
         });
-        for(var i=0;i<networkPY.getPatternData().length;i++){
-             $('#connectorSelectBox').next().append("<li><input name='checkOrNot' type='checkbox'>" +
-                             "<label class='checkOrNotLabel' for='checkOrNot'>pattern " + networkPY.getPatternData()[i].getId() + "</label></li>");
+        $('#connectorSelectBox2').val("");
+        $('#domainSelect').val("");
+        for(var i=0;i<networkPY.domains.length;i++){
+             $('#domainSelect').next().append("<li><input name='checkOrNot' type='checkbox'>" +
+                             "<label class='checkOrNotLabel' for='checkOrNot'>domain " + networkPY.domains[i].domainId + "</label></li>");
         }
-        $('#connectorSelectBox').parent().find('.select__options li').find('label').bind('click',function(){
+        var btn =$('.addDomainBtn');
+        if($('#domainSelect').parent().find('.select__options li').length==0){
+            btn.removeClass('btn-primary2');
+            btn.addClass('btn-primary');
+        }
+        else{
+            btn.removeClass('btn-primary');
+            btn.addClass('btn-primary2');
+        }
+        $('#domainSelect').parent().find('.select__options li').find('label').bind('click',function(){
            if($(this).prev().prop('checked')) $(this).prev().prop('checked',false);
            else  $(this).prev().prop('checked',true);
         });
+        //$('#normalSelect2').parent().parent().addClass('hideblock');
+        //$('#deleteSelect2').parent().parent().addClass('hideblock');
 
-        $('#normalSelect2').parent().parent().addClass('hideblock');
-        $('#deleteSelect2').parent().parent().addClass('hideblock');
-
-        makeSelectBox2($('#normalSelect'),networkPY.getPatNodeBeAdded(),
-            function(){
-                $('#normalSelect2').parent().parent().removeClass('hideblock');
-                makeSelectBox2($('#normalSelect2'),networkPY.getCanBeAddedNode($('#normalSelect').val().substring(8)),function(){});
-            }
-        );
-        makeSelectBox2($('#deleteSelect'),networkPY.getPatNodeBeDel(),
-            function(){
-                $('#deleteSelect2').parent().parent().removeClass('hideblock');
-                makeSelectBox2($('#deleteSelect2'),networkPY.getCanBeDeletedNode($('#deleteSelect').val().substring(8)),function(){});
-            }
-        );
-        makeSelectBox2($('#deleteConnector'),networkPY.getCanBeDelPattern(),function(){});
+{#        makeSelectBox2($('#normalSelect'),networkPY.getPatNodeBeAdded(),#}
+{#            function(){#}
+{#                $('#normalSelect2').parent().parent().removeClass('hideblock');#}
+{#                makeSelectBox2($('#normalSelect2'),networkPY.getCanBeAddedNode($('#normalSelect').val().substring(8)),function(){});#}
+{#            }#}
+{#        );#}
+{#        makeSelectBox2($('#deleteSelect'),networkPY.getPatNodeBeDel(),#}
+{#            function(){#}
+{#                $('#deleteSelect2').parent().parent().removeClass('hideblock');#}
+{#                makeSelectBox2($('#deleteSelect2'),networkPY.getCanBeDeletedNode($('#deleteSelect').val().substring(8)),function(){});#}
+{#            }#}
+{#        );#}
+        $('#connectorSelectBox2').parent().parent().addClass('hideblock');
+        makeSelectBox2($('#connectorSelectBox'),networkPY.getAllDomainId(),function(){
+            $('#connectorSelectBox2').parent().parent().removeClass('hideblock');
+            makeSelectBox1($('#connectorSelectBox2'),networkPY.getAllPatInDomain($('#connectorSelectBox').val().substring(6)),
+                    function(){});
+        },function(){
+            $('#connectorSelectBox2').val('');
+            $('#connectorSelectBox2').parent().parent().addClass('hideblock');
+        });
+        makeSelectBox2($('#addEdgeSelectBox'),networkPY.getaddEdgeData(),function(){
+            $('#addEdgeSelectBox2').parent().parent().removeClass('hideblock');
+            makeSelectBox2($('#addEdgeSelectBox2'),networkPY.getaddEdgeData2(parseInt($('#addEdgeSelectBox').val().substring(5))),
+                    function(){});
+        },function(){
+            $('#addEdgeSelectBox2').val('');
+            $('#addEdgeSelectBox2').parent().parent().addClass('hideblock');
+        });
+        makeSelectBox2($('#deleteConnector'),networkPY.getCanBeDelPattern2(),function(){},function(){});
         makeSelectBox2($('#messageFrom'),networkPY.getAllNodeId(),function(){
             if($('#messageTo').val()==$('#messageFrom').val()) $('#messageTo').val("");
         });
@@ -681,43 +1031,73 @@
 
 
      $('.addConnectorNodeBtn').click(function () {
+         if($(this).hasClass('btn-primary2')) return false;
          var patternBoxs=[];
-        $('#connectorSelectBox').next().find('input').each(function(){
+         var whichDomain = $('#connectorSelectBox').val().substring(6);
+        $('#connectorSelectBox2').next().find('input').each(function(){
             if($(this).is(':checked')) patternBoxs.push(parseInt($(this).next().text().substring(8)));
         });
-         if(patternBoxs.length==0){
-             if($('#connectorSelectBox').next().find('input').length!=0) return false;
-         }
+{#         if(patternBoxs.length==0){#}
+{#             if($('#connectorSelectBox2').next().find('input').length!=0) return false;#}
+{#         }#}
          var whichNode = networkPY.ToBeAddedOnePattern();
          $.getJSON($SCRIPT_ROOT + '/network/addPattern', {
                     a: JSON.stringify(patternBoxs),
-                    b: JSON.stringify(whichNode)
+                    b: parseInt(whichDomain)
                   }, function(data) {
                         var count1 = data.result1;
                         var count2 = data.result2;
-                        whichNode.nid = count2;
                         whichNode.pid = count1;
-                        networkPY.addPattern(whichNode,patternBoxs);
+                        whichNode.nid = count2;
+                        networkPY.addPattern(whichNode,patternBoxs,parseInt(whichDomain));
                         changeSelectBox();
-                  });
-         $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
-                    a: 1
-                  }, function(data) {
-                        startNetwork(data);
+                         $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
+                                a: 1
+                              }, function(data) {
+                                    startNetwork(data);
+                              });
                   });
 
      });
 
+    $('.addDomainBtn').click(function () {
+        if($(this).hasClass('btn-primary2')) return false;
+         var patternBoxs=[];
+        $('#domainSelect').next().find('input').each(function(){
+            if($(this).is(':checked')) patternBoxs.push(parseInt($(this).next().text().substring(6)));
+        });
+         if(patternBoxs.length==0){
+             if($('#domainSelect').next().find('input').length!=0) return false;
+         }
+         var whichNode = networkPY.ToBeAddedOnePattern();
+         $.getJSON($SCRIPT_ROOT + '/network/addDomain', {
+                    a: JSON.stringify(patternBoxs),
+                  }, function(data) {
+                        var count1 = data.result1;
+                        var count2 = data.result2;
+                        var domainID = data.result3;
+                        var domainNodeId = data.result4;
+                        whichNode.pid = count1;
+                        whichNode.nid = count2;
+                        var whichNode2 = networkPY.exDomainNode();
+                        whichNode2.nid = domainNodeId;
+                        networkPY.newDomain(whichNode,domainID,whichNode2,patternBoxs);
+                        changeSelectBox();
+             $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
+                                a: 1
+                              }, function(data) {
+                                    startNetwork(data);
+                              });
+                  });
+     });
 
     $('.addNormalNodeBtn').click(function () {
-        if($('#normalSelect').val()=="Nothing"||$('#normalSelect').val()=="") return false;
-        if($('#normalSelect2').val()=="Nothing"||$('#normalSelect2').val()=="") return false;
-        var whichPatternId =  $('#normalSelect').val().substring(8);
-        var whichParent = $('#normalSelect2').val().substring(5);
-        var whichPattern = networkPY.getPatternById(whichPatternId);
-        var whichOne = whichPattern.getCanBeAddedChild(whichParent);
-        if(whichOne==-1) return false;
-        var whichNode = whichPattern.ToBeAddedOne(whichParent,whichOne);
+        if(networkTest.getSelectedNodes().length==0) return false;
+        if($(this).hasClass('btn-primary2')) return false;
+        var whichParent = networkTest.getSelectedNodes()[0];
+        var whichPatternId = networkPY.getNodeById(whichParent).getPatternId();
+        var whichNode = networkPY.ToBeAddedOne(whichParent);
+        if(!whichNode) return false;
         $.getJSON($SCRIPT_ROOT + '/network/addNode', {
                     a: JSON.stringify(whichNode)
                   }, function(data) {
@@ -725,45 +1105,84 @@
                         whichNode.nid=i;
                         networkPY.addNode(whichPatternId,whichNode);
                         changeSelectBox();
+                        judgeSelect();
                   });
-     });
+    });
 
      $('.deleteNormalNodeBtn').click(function(){
-         if($('#deleteSelect').val()=="Nothing"||$('#deleteSelect').val()=="") return false;
-         if($('#deleteSelect2').val()=="Nothing"||$('#deleteSelect2').val()=="") return false;
-         var whichPatternId =  $('#deleteSelect').val().substring(8);
-         var whichOne = $('#deleteSelect2').val().substring(5);
-         var returnList = networkPY.deleteNode(whichPatternId,whichOne);
+         if(networkTest.getSelectedNodes().length==0) return false;
+         if($(this).hasClass('btn-primary2')) return false;
+         var whichOne = networkTest.getSelectedNodes()[0];
+         var returnList = networkPY.deleteNode(whichOne);
          $.getJSON($SCRIPT_ROOT + '/network/deleteNode', {
                     a: JSON.stringify(returnList)
                   }, function(data) {
                         var i = data.result1;
                         changeSelectBox();
+                        judgeSelect();
                   });
      });
 
      $('.deleteConnNodeBtn').click(function(){
+         if($(this).hasClass('btn-primary2')) return false;
          if($('#deleteConnector').val()=="Nothing"||$('#deleteConnector').val()=="") return false;
          var whichPatternId =  $('#deleteConnector').val().substring(8);
-         var returnList = networkPY.deletePattern(whichPatternId);
-         console.log(returnList);
+         var returnList;
+         if(networkPY.getDomainById(networkPY.getPatternById(whichPatternId).getDomainId()).patterns.length==1){
+             returnList = networkPY.deletePatternLast(whichPatternId);
+         }
+         else {
+             returnList = networkPY.deletePattern(whichPatternId);
+         }
          $.getJSON($SCRIPT_ROOT + '/network/deletePattern', {
-                    a: JSON.stringify(returnList.nodeId),
-                    b: JSON.stringify(returnList.edgesList)
+                    a: JSON.stringify(returnList.nodeId)
                   }, function(data) {
                         changeSelectBox();
+                        judgeSelect();
                   });
      });
+
+
+    $('.addEdgeBtn').click(function(){
+        if($(this).hasClass('btn-primary2')) return false;
+        var node1 =  $('#addEdgeSelectBox').val().substring(5);
+        var node2 =  $('#addEdgeSelectBox2').val().substring(5);
+        $.getJSON($SCRIPT_ROOT + '/network/addConnection', {
+                    a:node1,
+                    b:node2
+                  }, function(data) {
+                        networkPY.addEdge(parseInt(node1),parseInt(node2));
+                        changeSelectBox();
+                        judgeSelect();
+                  });
+    });
+
+    $('.delEdgeBtn').click(function(){
+        if($(this).hasClass('btn-primary2')) return false;
+        var edgeId =  networkTest.getSelectedEdges()[0];
+        var edge =networkPY.getEdgeById(edgeId);
+        $.getJSON($SCRIPT_ROOT + '/network/deleteConnection', {
+                    a:edge.getFrom(),
+                    b:edge.getTo()
+                  }, function(data) {
+                        networkPY.deleteEdge(edge.getId());
+                        changeSelectBox();
+                        judgeSelect();
+                  });
+    });
+
 
     $('.sendMessageBtn').click(function(){
         if($('#messageFrom').val()==""||$('#messageTo').val()==""||$('.messageInf').val()=="") return false;
          $.getJSON($SCRIPT_ROOT + '/message/sendMessage', {
                     a: parseInt($('#messageFrom').val().substring(5)),
                     b: parseInt($('#messageTo').val().substring(5)),
-                    c: $('.messageInf').val()
+                    c: $('.messageInf').val(),
+                    d: -1
                   }, function(data) {
                         var path = JSON.parse(data.result);
-                        networkPY.toggleColor(path);
+                        var count = data.count;
+                        networkPY.toggleColor(path,count);
                         changeSelectBox();
                   });
     });
@@ -792,41 +1211,114 @@
     $('.messageBoxBtn').click(function(){
          $(".cover-black").removeClass('hideblock');
         $('.messageBoxBlock').addClass('messageBox-show');
+        $('.messageList').find('li').each(function(){
+            $(this).remove();
+        });
         $.getJSON($SCRIPT_ROOT + '/message/wholeMessages', {
                     a: 1
                   }, function(data) {
-                        var inform =JSON.parse(data.result1);
-                        console.log(inform);
-                        for (var i in inform){
-                            $('.messageList').append("<li><span class='Msgfrom Msglabel'>From: <label for='from'>" +inform[i]._from
-                        +"</label> </span> <span class='Msgto Msglabel'>To: <label for='to'>" + inform[i]._to +
-                        "</label> </span><span class='Msgcontent'>"+inform[i].msg +"</span> <span class='Msgtime Msglabel'>"+ inform[i].createdAt
-                        + "</span></li> ");
+                        var msgL = JSON.parse(data.result1);
+                        var fmsgL = JSON.parse(data.result2);
+                        msgboxList = [];
+                        msgboxList2 = [];
+                        for(var i in msgL){
+                            msgboxList.push(new NetworkYun.Message(msgL[i]));
                         }
+                        for(var i in fmsgL){
+                            msgboxList2.push(new NetworkYun.Message(fmsgL[i]));
+                        }
+                        $('#successBtn').click();
                   });
     });
 
+    $('#defaultSlider').change(function(){
+        $.getJSON($SCRIPT_ROOT + '/changeRand', {
+            a:$('#defaultSlider').val()
+        }, function(data){
+            if(parseInt($('#defaultSlider').val())>0){
+                pool_stop=false;
+                load_data();
+                console.log('hello');
+            }
+            else pool_stop = true;
+        });
+    });
+
+
+    function load_data() {
+        $.ajax({ url:$SCRIPT_ROOT+ '/data',
+                 success: function(data) {
+                      networkPY.Inactive(JSON.parse(data.result1));
+                      if(networkTest.getSelectedNodes().length>0){
+                          if(networkPY.getNodeById(networkTest.getSelectedNodes()[0]).getActive()==0){
+                            $('.activateNodeBtn').removeClass('btn-primary2');
+                            $('.activateNodeBtn').addClass('btn-primary');
+                          }
+                          else{
+                              $('.activateNodeBtn').removeClass('btn-primary');
+                              $('.activateNodeBtn').addClass('btn-primary2');
+                          }
+                      }
+                      wait_for_update();
+                  }
+        });
+        return true;
+    }
+
+    function wait_for_update() {
+        if (!waiting_for_update&&!pool_stop) {
+            console.log('test');
+            waiting_for_update = true;
+            $.ajax({ url: '/updated',
+                     success:  load_data,
+                     complete: function () {
+                        waiting_for_update = false;
+                        wait_for_update();
+                     },
+                     timeout:  LONG_POLL_DURATION
+                   });
+        }
+    }
+
+
     $(document).ready(function($){
+        $.getJSON($SCRIPT_ROOT + '/randomSpeed', {
+                    a: 1
+                  }, function(data) {
+                    $('#defaultSlider').val(data.result1);
+                  });
         setTimeout(function (){
             $.getJSON($SCRIPT_ROOT + '/network/whole_network', {
                     a: 1
                   }, function(data) {
                         startNetwork(data);
-                        $('#defaultSlider').val(data.ranNum);
+                        if(parseInt($('#defaultSlider').val())>0){
+                            pool_stop=false;
+                            load_data();
+                            console.log('hello');
+                        }
+                        else pool_stop=true;
                   });
-            }, 300);
+            }, 100);
+        bindSchEvents($('#j-lnksch'), $('#j-schform .txt'));
     });
 
-     function sendJson(one,two){
+     function sendJson(one,two,count){
          var checkOrNot = false;
-         var waitOrNot = false;
-         $.getJSON($SCRIPT_ROOT + '/message/verifyNode', {
-                    a: one,
-                    b: two
-                  }, function(data) {
-                    if(data.result == 1) checkOrNot=true;
-                    else checkOrNot=false;
-                  });
+         $.ajax({
+             url:$SCRIPT_ROOT + '/message/verifyNode',
+             data:{
+                 a:one,
+                 b:two,
+                 c:count
+             },
+             async:false,
+             dataType: "json",
+             success:function(data){
+                 if(data.result == 1) checkOrNot=true;
+                 else checkOrNot=false;
+             }
+         });
         if(checkOrNot) return true;
         else return false;
     }

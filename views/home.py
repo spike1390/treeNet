@@ -5,7 +5,6 @@ from flask import Blueprint, app, render_template, request, session, redirect, u
 
 index = Blueprint('index', __name__)
 
-
 @index.route('/login', methods=['GET', 'POST'])
 def login():
 
@@ -17,25 +16,33 @@ def login():
         error = 'password is null'
         return render_template('login.html', error = error)
 
+
     username = request.form['username'].encode('utf8')
     password = request.form['password'].encode('utf8')
+    user=None
+    if username == "admin":
+        user = accessControl.verify(username, password)
+    else:
+        er = accessControl._valid_login_format(username,password)
+        if er:
+            return render_template('login.html', error = er)
 
-    er = accessControl._valid_login_format(username,password)
-    if er:
-        return render_template('login.html', error = er)
+        user = accessControl.verify(username, password)
 
-    user = accessControl.verify(username, password)
 
     if user is None:
         error = 'username and password does not match'
         return render_template('login.html', error = error)
     else:
+        if user.type == 1:
+            session['type'] = 1
+            session['username'] = username
+            return redirect(url_for('index.show_network',username=username))
         if user.status == 0:
             error = 'User account is locked'
             return render_template('login.html', error = error)
-        if user.type == 1:
-            return render_template('admin.html')
-        session['username'] = request.form['username']
+        session['type'] = 0
+        session['username'] = username
         if not user.questions:
             return render_template('select.html',questions = global_v.fixed_questions)
         else:
@@ -104,6 +111,15 @@ def change_password():
     print msg
     return jsonify(result = msg)
 
+@index.route('/jumpAdminPage')
+def jump_admin_page():
+    accounts = accessControl.get_all_users()
+    return render_template('admin.html',accounts=accounts)
+
+@index.route('/jumpRegister')
+def jump_register():
+    return render_template('register.html')
+
 @index.route('/jumpChangePwd')
 def jump_change_pwd():
     return render_template('changePassword.html')
@@ -143,11 +159,11 @@ def change_secure_questions():
     re1 = 1
     re2 = 1
     re3 = 1
-    if c1 != 0:
+    if c1 != 0 or a1!="":
         re1 = accessControl.change_security_question(1, q1, a1, username)
-    if c2 != 0:
+    if c2 != 0 or a2!="":
         re2 = accessControl.change_security_question(2, q2, a2, username)
-    if c3 != 0:
+    if c3 != 0 or a3 != "":
         re3 = accessControl.change_security_question(3, q3, a3, username)
     if re1>0 and re2>0 and re3>0:
         return jsonify(result = 1)
@@ -156,10 +172,35 @@ def change_secure_questions():
 
 
 
-@index.route('/createAccount')
+# input list should be in format of: [ username,pwd,type,status,fname,lname]
+@index.route('/createAccount',methods=['GET', 'POST'])
 def create_account():
-    pass
+    #
+    user=[]
+    print 'hello'
+    username = request.args.get('c', 0, type = str)
+    pwd = request.args.get('d', 0, type = str)
+    fname = request.args.get('a', 0, type = str)
+    lname = request.args.get('b', 0, type = str)
+    print username
+    user.append(username)
+    user.append(pwd)
+    user.append(0)
+    user.append(1)
+    user.append(fname)
+    user.append(lname)
+    error = None
+    # user=User('username',0,1, fname, fname,pwd)
+    result=accessControl.createAccount(user)
+    if not result == None:
+        return jsonify(err =result[0])
+    else:
+        return jsonify(err = '')
+
 
 @index.route('/deleteAccount')
 def delete_account():
-    pass
+    username = request.args.get('username', 0, type = str)
+    print username
+    accessControl.delete_user(username)
+    return jsonify()

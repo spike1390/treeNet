@@ -7,19 +7,12 @@ class JSONEncodable(object):
 
 class Node(JSONEncodable):
 
-    def __init__(self, nid, pid, index, active = None, x=None , y=None ):
-        self.color = 'rgb(255,168,7)'
-        self.label = str(nid)
+    def __init__(self, nid, pid, index, active = None):
         self.nid = nid
         self.pid = pid
         self.index = index
         self.active = active
-        if index == 1:
-            self.shape = 'diamond'
-        else:
-            self.shape = 'ellipse'
-        self.x = x
-        self.y = y
+
 
 
 
@@ -31,7 +24,16 @@ class edge(JSONEncodable):
 
 class pattern(JSONEncodable):
 
-    def __init__(self, id):
+    def __init__(self, id, did):
         self.id = id
         self.nodes = []
+        self.did = did
         self.outEdges = []
+
+class domain(JSONEncodable):
+
+    def __init__(self, id):
+        self.did = id
+        self.patterns = []
+        self.domain_edges = []
+

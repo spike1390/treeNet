@@ -52,7 +52,7 @@ input:focus :-ms-input-placeholder {
   padding-top: 5.5rem;
     margin-top:350px;
   border-radius: 6px;
-  background: rgba(218,218,218,0.6);
+  background: rgba(218,218,218,1);
 }
 
 .login-text {
@@ -72,7 +72,7 @@ input:focus :-ms-input-placeholder {
   border: 0 solid;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   color: black !important;
-  font-size: 15px;
+  font-size: 16px;
   display: block;
   margin: 2rem;
   height: 36px;
@@ -81,6 +81,7 @@ input:focus :-ms-input-placeholder {
           transition: 250ms background ease-in;
   width: calc(100% - 3rem);
   border-radius: 4px;
+  font-weight: 400;
 }
 .login-username:focus, .login-password:focus {
   background: white;
@@ -111,9 +112,9 @@ input:focus :-ms-input-placeholder {
 }
 
 .login-submit {
-  border: 1px solid white;
+  border: 1px solid black;
   background: transparent;
-  color: white;
+  color: black;
   display: block;
   margin: 3rem auto;
   min-width: 3px;
@@ -124,12 +125,13 @@ input:focus :-ms-input-placeholder {
   height: 35px;
   border-radius: 4px;
   font-size: 16px;
+  font-weight: 400;
 }
 .login-submit:hover, .login-submit:focus {
   background: white;
   color: black;
   -webkit-transition: 250ms background ease-in;
-          transition: 250ms background ease-in;
+  transition: 250ms background ease-in;
 }
 
 [class*=underlay] {
@@ -202,13 +204,13 @@ background-size: cover;
 .error          { background: #F0D6D6; padding: 0.5em; }
 
 .error_account {
-    margin-left: 442px;
+    margin-left: 470px;
     bottom: 400px;
-    color: #fff;
+    color: red;
     cursor: pointer;
     display: block;
     font-family: 'Lato', sans-serif;
-    font-size: 170%;
+    font-size: 150%;
     left: 0;
     opacity: 0.6;
     padding: .5rem;
@@ -216,6 +218,7 @@ background-size: cover;
     text-align: center;
     width: 35%;
 }
+
 .NetTitle{
   position: fixed;
   z-index: 100;
@@ -224,5 +227,5 @@ background-size: cover;
   font-size: 70px;
   font-family: 'Crimson', cursive;
   word-spacing:0.3em;
-    color: white;
+  color: white;
 }

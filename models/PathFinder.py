@@ -15,7 +15,9 @@ def getPathFromRoot(node):
 
 # find path in one tree, using index in the tree.
 def get_path_inTree(nd1, nd2):
-
+    if nd1.pid==nd2.pid and nd1.index==nd2.index:
+        path=[nd1.index,nd2.index]
+        return path
     path_1 = getPathFromRoot(nd1)
     path_2 = getPathFromRoot(nd2)
 
@@ -127,7 +129,7 @@ def find_path_nidList(start, end, bloked):
     if pidList:
       for pid in pidList:
         query='select nid from node WHERE pid=? AND node_index=1'
-        result = mydb.query_db(query,str(pid), one = True)
+        result = mydb.query_db(query,[str(pid)], one = True)
         if not result==None:
             nidList.append(result['nid'])
     mydb.close_db()
@@ -200,15 +202,22 @@ def refind_path(nid1,nid2):
 
 
 
-def send_msg(nid1, nid2, msg):
+def send_msg(nid1, nid2, msg, msgId):
     node1=SendMessage.get_node_byID(nid1)
     if node1==None: return 'from node does not exist'
     node2=SendMessage.get_node_byID(nid2)
     if node2==None: return 'destination node does not exist'
-    #  if both from node and to node are valid, then find the path
+
+    #  If it is failed msg to be resend , delete it from failed msg list first
+    senderId=node1.nid
     path=find_message_path(node1,node2)
-    msg=message(node1.nid,node2.nid,msg,path)
-    global_v.msg_buffer.append(msg)
+    for msg_obj in global_v.failed_msg:
+        if msgId==msg_obj.msgId:
+            senderId=msg_obj.sender
+            global_v.failed_msg.remove(msg_obj)
+            break
+    msg_pending=message(node1.nid,node2.nid, msg, path,None,senderId, int(msgId))
+    global_v.msg_buffer.append(msg_pending)
     return path
 
 

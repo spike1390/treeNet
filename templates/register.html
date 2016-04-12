@@ -1,0 +1,412 @@
+<!--
+    Created by yun on 3/28/16.
+    Author:yun
+-->
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
+    <style type="text/css">
+        body{
+            font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",tahoma,arial,simsun,"宋体" !important;
+            color: #555;
+            font-size: 13px;
+            margin: 0;
+            padding: 0;
+        }
+        button:focus{
+            outline: none;
+        }
+        .navi-header{
+            /*transition:all ease-in-out 0.3s;*/
+            font-family: 'IM Fell French Canon SC', serif;
+            height: 60px;
+            background: rgba(255,255,255,0.97);
+            opacity: 0.93;
+            padding: 0;
+            z-index: 9;
+            width: 100%;
+            border-bottom: 1px solid #E2E2E2;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1),0 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+    .navi-header a{
+        color:#66615b;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    .navi-inner{
+        width: 1300px;
+        text-align: left;
+        height: 68px;
+        margin: 0 auto;
+        padding: 0;
+            }
+    .navi-logo{
+        float: left;
+        width:125px;
+        margin-left: 65px;
+        margin-top: 18px;
+        margin-right: 10px;
+        height:60px;
+    }
+    .navi-logo a{
+        font-family: 'Kavoon', cursive;
+        font-size: 20px;
+        color: #D15600;
+        margin-left: -15px;
+    }
+
+    .navi-entry{
+       float: right;
+       margin: auto  0;
+       margin-right: 30px;
+    }
+    .navi-entry li {
+     display: inline-block;
+     margin:  28px 45px 24px 20px;
+    }
+
+
+    /* head over*/
+
+    /*	container begin*/
+    .container {
+        margin:0 auto;
+        border: 1px solid #e1e8ed;
+        height:650px;
+        width: 888px;
+        background-clip: padding-box;
+        border-radius: 8px;
+        margin-top: 30px;
+    }
+
+    .container2 {
+        width: 600px;
+        clear: both;
+        margin: 0 auto 10px;
+    }
+
+    .col-xs-10>h1{
+        padding: 40px 0 20px 0;
+        font-size: 21px;
+        line-height: .8;
+        text-rendering: optimizeLegibility;
+        color: #D15600;
+    }
+
+    .textbox{
+        padding: 3px 0;
+        font-size: 12px;
+    }
+
+    .prompt{
+        margin-top: 40px;
+        font-size: 15px;
+    }
+    .prompt input {
+        width: 450px;
+        transition: background .2s linear;
+        display: inline-block;
+        padding: 4px;
+        margin: 0;
+        outline: 0;
+        background-color: #fff;
+        border: 1px solid #e1e8ed;
+        border-radius: 3px;
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: 5px;
+        height: 35px;
+    }
+
+    input:focus{
+    outline: 0;
+    color: #292f33;
+    border-color: #56b4ef;
+    }
+
+    .submit-button{
+        margin:  30px auto;
+         margin-left:  220px;
+        text-decoration: none;
+        padding: 0 11px;
+        line-height: 22px;
+        border-width: 0;
+        color: #fff;
+        border-radius: 4px;
+        transition: .2s ease;
+        text-align: center;
+        border-color: #137ec6;
+        border-top-color: #1992da;
+        border-bottom-color: #0d6ab2;
+        background: linear-gradient(#3baee7, #08c);
+        font-size: 13px;
+        height: 30px;
+    }
+    .submit-button2{
+        padding: 4px 8px;
+        margin-top: 5px;
+         background: #ebebeb;
+		  color: #888;
+		  text-shadow: -1px -1px 2px #f8f8f8;
+            width: 110px;
+            height: 30px;
+            border: none;
+            border-radius: 4px;
+        font-size: 13px;
+    }
+    .submit-button:hover{
+        background: linear-gradient(#4ab4e8, #1491d0);
+    }
+    .submit-button:active{
+        background: linear-gradient(#1b9dde, #006da3);
+    }
+    .errorMsg{
+        font-size: 12px;
+        color: #D15600;
+        width: 0;
+        position: relative;
+        top:5px;
+        left: 20px;
+        height: 15px;
+    }
+    </style>
+</head>
+<body>
+<div id="navi-header" class="navi-header ">
+	<div class="navi-inner">
+		<div id="navi-logo" class="navi-logo">
+             <a href="{{ url_for('index.show_network',username = session.username) }}">Tree Network</a>
+		</div>
+
+		<ul class="navi-entry">
+            <li class="entry-home-li">
+
+                <a href="##" class="entry-home">
+					<span class="home-icon">
+					</span>
+					<span class="home-text">{{ session.username }}</span>
+				</a>
+			</li>
+			<li class="entry-signout-li">
+				<a href="{{ url_for("index.logout") }}" class="entry-signout">
+					<span class="signout-icon"></span>
+					<span class="signout-text">SignOut</span>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</div>
+
+<div class="container">
+    	<div class="container2">
+	    	<div class="row">
+	    		<div class="col-xs-1"></div>
+	    		<div class="col-xs-10">
+                    <h1 class="errortitle">Create Account</h1>
+	    			<form id="register-form" >
+	    				<div class="textbox">
+	    					<div class="prompt name">
+	    						<label for="full-name" class="text-label field-name">First name</label>
+	    						<div>
+	    							<input type="text" name="fname" id="first-name" autocomplete="off" maxlength="20">
+	    						</div>
+                                 <label class="errorMsg " for="error"></label>
+	    					</div>
+	    					<div class="prompt email">
+	    						<label for="email-adress" class="text-label email-address">Last Name</label>
+	    						<div>
+	    							<input type="text" name="lname" id="last-name" autocomplete="off" maxlength="20">
+	    						</div>
+                                <label class="errorMsg" for="error"></label>
+	    					</div>
+	    					<div class="prompt username">
+	    						<label for="type-username" class="text-label type-username">Username</label>
+	    						<div>
+	    							<input type="text" name="username" id="username" autocomplete="off" maxlength="20">
+	    						</div>
+                                <label class="errorMsg" for="error"></label>
+	    					</div>
+                            <div class="prompt password">
+	    						<label for="creat-password" class="text-label creat-password">Password</label>
+	    						<div>
+	    							<input type="password" name="pwd" id="password" autocomplete="off" maxlength="20">
+	    						</div>
+                                <label class="errorMsg" for="error"></label>
+	    					</div>
+	    				</div>
+	    				<div class="submit-signup">
+                            <input type="button" class="submit-button2" name="submit_button" value="Cancel">
+	    					<input type="button" class="submit-button" name="submit_button" value="Create Account">
+	    				</div>
+	    			</form>
+	    		</div>
+	    		<div class="col-xs-1"></div>
+	    	</div>
+		</div>
+	</div>
+     <script type="text/javascript">
+         var checkOrNot = false;
+         var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        $('.submit-button2').click(function(){
+            window.location.href='{{  url_for("index.jump_admin_page") }}';
+        });
+
+        $('[name=fname]').blur(function(){
+            var value = $(this).val();
+            var label = $(this).parent().next();
+            if(value==""){
+                checkOrNot = false;
+                label.text('First Name can not be empty').animate({
+                                    width: '500px'
+                                }, 500, function () {
+
+                                });
+            }
+            else{
+                checkOrNot=true;
+                label.text("").css('width','0');
+            }
+        });
+
+         $('[name=lname]').blur(function(){
+            var value = $(this).val();
+            var label = $(this).parent().next();
+            if(value==""){
+                checkOrNot = false;
+                label.text('Last Name can not be empty').animate({
+                                    width: '500px'
+                                }, 500, function () {
+
+                                });
+            }
+            else{
+                checkOrNot=true;
+                label.text("").css('width','0');
+            }
+        });
+
+        function checkUsername(str){
+            if(!( (str[0]>='A'&&str[0]<='Z') || (str[0]>='a'&&str[0]<='z') )){
+                return -1;
+            }
+            for(var i in str){
+                if(!( (str[i]>='A'&&str[i]<='Z') || (str[i]>='a'&&str[i]<='z') || (str[i]>='0'&&str[i]<='9') )){
+                    return -2;
+                }
+            }
+            return 1;
+        }
+
+        function  checkCharacter(ch){
+           var  specialChar=["!","@","#","$","%","^","&","*","?"];
+           for(var i in specialChar){
+               if(specialChar[i]==ch) return true;
+           }
+           return false;
+        }
+
+        function checkPassword(str){
+            for(var i in str){
+                if(!( (str[i]>='A'&&str[i]<='Z') || (str[i]>='a'&&str[i]<='z') || (str[i]>='0'&&str[i]<='9')
+                        || checkCharacter(str[i]) )){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        $('[name=username]').blur(function(){
+            var value = $(this).val();
+            var label = $(this).parent().next();
+            if(value.length<6){
+                checkOrNot = false;
+                label.text('The length of username must be at least six characters').animate({
+                                    width: '500px'
+                                }, 500, function () {
+
+                                });
+            }
+            else if(checkUsername(value)==-1){
+                checkOrNot = false;
+                label.text('The first character of a username must be an alphabet').animate({
+                                    width: '500px'
+                                }, 500, function () {
+
+                                });
+            }
+            else if(checkUsername(value)==-2){
+                checkOrNot = false;
+                label.text('Username can only have number and alphabet!').animate({
+                                    width: '500px'
+                                }, 500, function () {
+
+                                });
+            }
+            else{
+                checkOrNot=true;
+                label.text('').css('width','0');
+            }
+        });
+
+
+        $('[name=pwd]').blur(function(){
+            var value = $(this).val();
+            var label = $(this).parent().next();
+            if(value.length<6){
+                checkOrNot = false;
+                label.text('The length of password must be at least six characters').animate({
+                                    width: '500px'
+                                }, 500, function () {
+
+                                });
+            }
+            else if(!checkPassword(value)){
+                checkOrNot = false;
+                label.text('Unrecognized special characters').animate({
+                                    width: '500px'
+                                }, 500, function () {
+
+                                });
+            }
+            else{
+                checkOrNot=true;
+                label.text('').css('width','0');
+            }
+        });
+
+        $(function() {
+                 var submit_form = function(e) {
+                     if(!checkOrNot) return false;
+                  $.getJSON($SCRIPT_ROOT + '/home/createAccount', {
+                        a: $('[name=fname]').val(),
+                        b: $('[name=lname]').val(),
+                        c: $('[name=username]').val(),
+                        d: $('[name=pwd]').val()
+                  }, function(data) {
+                      var err = data.err;
+                      if(err == ""){
+                          window.location.href='{{  url_for("index.show_network",username=session['username']) }}';
+                      }
+                      else{
+                          $('[name=username]').parent().next().text(err).animate({
+                                    width: '500px'
+                                }, 500, function () {
+                                });
+                          $('[name=pwd]').val("");
+                      }
+                  });
+                  return false;
+                };
+                $('.submit-button').bind('click', submit_form);
+    		});
+
+    </script>
+</body>
+
+
+

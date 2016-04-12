@@ -15,3 +15,4 @@ ran = 0
 msg_buffer=[]
 failed_msg=[]
 can_be_deliver=[]
+msgId=0

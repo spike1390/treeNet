@@ -2,80 +2,35 @@ import mydb, json
 from Node import Node,edge,pattern
 
 from operator import methodcaller
+import json_test
 
-def return_p_edges():
-    edges = []
-    mydb.open()
-    results = mydb.query_db('SELECT * FROM edge ')
-    for e in results:
-        source = e['_from']
-        target = e['_to']
-        tmp_edge = edge(source, target)
-        edges.append(tmp_edge)
-    mydb.close_db()
-    return edges
 
-def get_nodes_edges(nodes):
-    edges = []
-    for n1 in nodes:
-        n1_index = n1.index
-        if n1_index in [0, 1, 2]:
-            for n2 in nodes:
-                if n2.index in [n1_index*2+1, n1_index*2+2] and n1.pid == n2.pid:
-                    source = n1.nid
-                    target = n2.nid
-                    tmp_edge = edge(source, target)
-                    edges.append(tmp_edge)
-    return edges
 
 
 def return_json():
-    nodes = []
+    return json_test.return_json()
+
+def add_domain(ds):
     mydb.open()
-    nodes_results = mydb.query_db('SELECT * FROM node ')
-    # print "the nodes has %s node" % len(nodes_results)
-    for n in nodes_results:
-        tmp_node = Node(n['nid'], n['pid'], n['node_index'], n['active'], n['x'], n['y'])
-        nodes.append(tmp_node)
+    did = mydb.insert_db('INSERT INTO domain (creator) VALUES (?)',['spikewang'])
+    print did
+    d_pid = mydb.insert_db('INSERT INTO pattern (did, isDomain) VALUES (?,1)', [did])
+    d_nid = mydb.insert_db('INSERT INTO node (pid, node_index, active) VALUES (?,1,1)', [d_pid])
+    pid = mydb.insert_db('INSERT INTO pattern (did, isDomain) VALUES (?,0)', [did])
+    nid = mydb.insert_db('INSERT INTO node (pid, node_index, active) VALUES (?,1,1)', [pid])
+    for d in ds:
+        d_pattern = mydb.query_db('SELECT * FROM pattern WHERE did = ? and isDomain = 1', [d], one = True)
+        mydb.insert_db('INSERT INTO  edge(_from, _to) VALUES (?,?)', [d_pid, d_pattern['pid']])
+    mydb.insert_db('INSERT INTO  edge(_from, _to) VALUES (?,?)', [d_pid, pid])
     mydb.close_db()
-    # print json.dumps(nodes, default = methodcaller("json"))
-    # print json.dumps(get_nodes_edges(nodes)+return_p_edges(), default = methodcaller("json"))
-    return json.dumps(return_ps(nodes), default = methodcaller("json"))
+    return (did, pid, nid, d_nid)
 
-def one_pattern_edge(pid):
-    edges = []
+def add_pattern(ps, did):
     mydb.open()
-    results = mydb.query_db('SELECT * FROM edge WHERE _from = ?', [pid])
-    for e in results:
-        edges.append(e['_to'])
-    mydb.close_db()
-    return edges
-
-def return_ps(ns):
-    mydb.open()
-    re = []
-    results = mydb.query_db('SELECT * FROM pattern ')
-    ps = []
-    for p in results:
-        ps.append(p['pid'])
-
-    for p in ps:
-        tmp_p = pattern(p)
-        for n in ns:
-            if n.pid == p:
-                tmp_p.nodes.append(n)
-                tmp_p.outEdges = one_pattern_edge(p)
-        re.append(tmp_p)
-
-
-    mydb.close_db()
-    return re
-
-def add_pattern(ps):
-    mydb.open()
-    pid = mydb.insert_db('INSERT INTO pattern (creator) VALUES (?)',['spikewang'])
-    print pid
+    d_pattern = mydb.query_db('SELECT * FROM pattern WHERE did = ? and isDomain = 1', [did], one = True)
+    pid = mydb.insert_db('INSERT INTO pattern (did, isDomain) VALUES (?,0)', [did])
     nid = mydb.insert_db('INSERT INTO node (pid,node_index,active) VALUES (?,1,1)', [pid])
+    mydb.insert_db('INSERT INTO  edge(_from, _to) VALUES (?,?)', [pid, d_pattern['pid']])
     for p in ps:
         mydb.insert_db('INSERT INTO  edge(_from, _to) VALUES (?,?)',[pid,p])
     mydb.close_db()
@@ -98,34 +53,27 @@ def delete_node(nids):
     mydb.close_db()
 
 
+def delete_domain(pid, did):
+    mydb.open()
+    d_pattern = mydb.query_db('SELECT * FROM pattern WHERE did = ? and isDomain = 1', [did], one = True)
+    mydb.delete_db('delete from edge where _from = ? or _to = ?',[d_pattern['pid'], d_pattern['pid']])
+    mydb.delete_db('delete from domain where did=?', [did])
+    mydb.delete_db('delete from pattern where pid=?', [d_pattern['pid']])
+    mydb.delete_db('delete from node where pid=?', [d_pattern['pid']])
+    mydb.delete_db('delete from pattern where pid=?', [pid])
+    mydb.delete_db('delete from node where pid=?', [pid])
+    mydb.close_db()
+    return True
 
 def delete_pattern(pattern_id):
     mydb.open()
-    nodes = mydb.query_db('SELECT * FROM node WHERE pid = ?',[pattern_id])
-    if len(nodes) > 1:
-        return False
-    prohibited_node = []
-    results = mydb.query_db('SELECT * FROM pattern')
-    for p in results:
-        pid = p['pid']
-        re1 = mydb.query_db('SELECT * FROM edge WHERE _from = ?', [pid])
-        re2 = mydb.query_db('SELECT * FROM edge WHERE _to = ?', [pid])
-        if len(re1)+len(re2) == 1:
-            if len(re1) == 1:
-                pro = re1[0]['_to']
-            else:
-                pro = re2[0]['_from']
-            prohibited_node.append(pro)
-    print prohibited_node
-    if pid in prohibited_node:
-        mydb.close_db()
-        return False
-    else:
-        mydb.delete_db('delete from edge where _from = ? or _to = ?',[pattern_id, pattern_id])
-        mydb.delete_db('delete from pattern where pid=?', [pattern_id])
-        mydb.delete_db('delete from node where pid=? and node_index = 1', [pattern_id])
-        mydb.close_db()
-        return True
+    mydb.delete_db('delete from edge where _from = ? or _to = ?',[pattern_id, pattern_id])
+    mydb.delete_db('delete from pattern where pid=?', [pattern_id])
+    mydb.delete_db('delete from node where pid=? and node_index = 1', [pattern_id])
+    mydb.close_db()
+    return True
+
+
 
 def change_node_status(nid, active):
     mydb.open()
@@ -133,6 +81,28 @@ def change_node_status(nid, active):
     result = mydb.insert_db('update node SET active=?  WHERE nid=?', [active,nid])
     mydb.close_db()
 
+
+def delete_connection(nid1,nid2):
+    mydb.open()
+    p1 = mydb.query_db('SELECT * FROM node WHERE nid = ?', [nid1], one = True)
+    p2 = mydb.query_db('SELECT * FROM node WHERE nid = ?', [nid2], one = True)
+    mydb.delete_db('delete from edge where _from = ? and _to = ?',[p1['pid'], p2['pid']])
+    mydb.delete_db('delete from edge where _from = ? and _to = ?',[p2['pid'], p1['pid']])
+    mydb.close_db()
+    pass
+
+def add_connection(nid1,nid2):
+    mydb.open()
+    p1 = mydb.query_db('SELECT * FROM node WHERE nid = ?', [nid1], one = True)
+    p2 = mydb.query_db('SELECT * FROM node WHERE nid = ?', [nid2], one = True)
+    mydb.insert_db('INSERT INTO  edge(_from, _to) VALUES (?,?)', [p1['pid'], p2['pid']])
+
+    mydb.close_db()
+    pass
+
+
+# print add_domain([1,2])
+#delete_pattern(4)
 # print return_json()
 #print add_node(4,3)
 # delete_node([7,8,9])

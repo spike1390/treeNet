@@ -153,10 +153,16 @@
 			border-radius: 4px;
 			padding: 1px 0px;
 		}
+        .treetitle{
+            margin-top: 40px;
+            text-align: center;
+            color: #D15600;
+        }
 	</style>
 
 </head>
 <body>
+    <div class="treetitle"><h1 >TreeNetwork</h1></div>
 	<div class="secure-box">
 		<div class="form-group box">
 			<div class="select-container">
@@ -215,16 +221,22 @@
                       console.log("heh2");
                   		var result =data.result;
                         checkIt =data.check;
+                        console.log(data);
                   		if(result==1){
-                            if(checkIt==1) window.location.href='{{  url_for('index.show_network',username = session.username) }}';
+                            if(checkIt==1) {
+                                window.location.href='{{  url_for('index.show_network',username = session.username) }}';
+                                return;
+                            }
                             if(checkIt==0) window.location.href='{{  url_for('index.jump_security_questions')}}';
                   		}
                         if(result==2){
                   			window.location.href='{{  url_for('index.show_network',username = session.username) }}';
+                            return;
                   		}
                   		$('#labelForQuestion').text("Wrong Answer, Next Question");
                   		if(times ==3){
                   			window.location.href='{{  url_for('index.logout') }}';
+                            return;
                   		}
                   		else if(times==2){
                   			var count_cpy2 = Math.floor(Math.random()*3);
